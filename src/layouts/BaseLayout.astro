@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "DevOps and blockchain consulting. Developer culture. Infrastructure excellence." } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+
+  <!-- Preload critical fonts for better performance (LCP) -->
+  <link rel="preload" href="/fonts/Coconat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Coconat-Demi.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Coconat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <meta name="theme-color" content="#ff6a00">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body class="min-h-screen">
+  <slot />
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = entry.target.getAttribute('data-delay') || '0';
+            entry.target.style.transitionDelay = `${delay}ms`;
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+    document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+      window.addEventListener('scroll', () => {
+        backToTop.classList.toggle('opacity-0', window.scrollY < 500);
+        backToTop.classList.toggle('pointer-events-none', window.scrollY < 500);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+---
+const clients = [
+  { name: 'Web3 Foundation', logo: '/images/clients/w3f.svg', alt: 'Web3 Foundation' },
+  { name: 'Polkadot', logo: '/images/clients/polkadot.svg', alt: 'Polkadot' },
+  { name: 'ink!', logo: '/images/clients/ink-logo.svg', alt: 'ink! smart contracts' },
+];
+---
+
+<section class="py-16 border-y border-[--color-border]">
+  <div class="mx-auto max-w-7xl px-6">
+    <p class="text-center text-xs uppercase tracking-[3px] text-[--color-text-tertiary] mb-8">
+      Trusted by
+    </p>
+    <div class="flex justify-center items-center gap-12 md:gap-20 flex-wrap">
+      {clients.map((client) => (
+        <div class="h-16 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+          <img
+            src={client.logo}
+            alt={client.alt}
+            class="h-full w-auto object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
