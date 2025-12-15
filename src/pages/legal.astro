@@ -2,15 +2,237 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+const lastUpdated = "December 15, 2025";
 ---
 
-<BaseLayout title="Legal - DevCult">
+<BaseLayout
+  title="Legal & Privacy | DevCult"
+  description="Legal information, privacy policy, and terms of service for DevCult."
+>
   <Header />
-  <main class="min-h-[60vh] flex items-center">
-    <div class="mx-auto max-w-7xl px-6 py-20">
-      <h1 class="text-4xl font-bold font-[--font-coconat]">Legal</h1>
-      <p class="mt-4 text-[--color-text-secondary]">Coming soon.</p>
+
+  <main id="main-content" class="py-24">
+    <div class="mx-auto max-w-4xl px-6">
+      <h1 data-animate class="text-4xl md:text-5xl font-bold font-[--font-coconat] text-center mb-4">
+        Legal & Privacy
+      </h1>
+      <p data-animate data-delay="100" class="text-center text-[--color-text-secondary] mb-12">
+        Last updated: {lastUpdated}
+      </p>
+
+      <!-- Quick Navigation -->
+      <nav data-animate data-delay="200" class="mb-16 p-6 rounded-xl bg-[#ff6a000d] border border-[--color-border]">
+        <p class="text-sm font-semibold text-[--color-accent] mb-3">QUICK LINKS</p>
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <a href="#privacy" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Privacy Policy</a>
+          <a href="#terms" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Terms of Service</a>
+          <a href="#cookies" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Cookie Policy</a>
+          <a href="#imprint" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Imprint</a>
+          <a href="#data" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Data Protection</a>
+          <a href="#contact-legal" class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Privacy Policy -->
+      <section id="privacy" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Privacy Policy
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-[--color-text-secondary]">
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">1. Introduction</h3>
+          <p>
+            DevCult ("we," "us," or "our") respects your privacy and is committed to protecting your personal data.
+            This privacy policy explains how we collect, use, and safeguard your information when you visit our
+            website (devcult.io) or use our services.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">2. Information We Collect</h3>
+          <p>We collect minimal information to provide our services:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li><strong>Contact Information:</strong> When you reach out via our contact form, we collect your name, email subject, and message content.</li>
+            <li><strong>Usage Data:</strong> We may collect basic analytics data about how you interact with our website (pages visited, time spent, etc.).</li>
+            <li><strong>Technical Data:</strong> Your IP address, browser type, and device information may be logged automatically.</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">3. How We Use Your Information</h3>
+          <p>We use your information to:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li>Respond to your inquiries and provide customer support</li>
+            <li>Improve our website and services</li>
+            <li>Send relevant information about our services (only if you opted in)</li>
+            <li>Comply with legal obligations</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">4. Data Storage and Security</h3>
+          <p>
+            We implement appropriate technical and organizational measures to protect your personal data against
+            unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over
+            the internet is 100% secure.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">5. Third-Party Services</h3>
+          <p>
+            Our website is hosted on GitHub Pages. We may use third-party analytics services to understand how
+            visitors use our site. These services may collect information sent by your browser.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">6. Your Rights</h3>
+          <p>Under GDPR and similar privacy laws, you have the right to:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li>Access your personal data</li>
+            <li>Correct inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Object to processing of your data</li>
+            <li>Data portability</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">7. Contact Form Data</h3>
+          <p>
+            When you submit our contact form, your information is sent via email using your default email client.
+            We do not store this information on our servers. Your email provider's privacy policy applies.
+          </p>
+        </div>
+      </section>
+
+      <!-- Terms of Service -->
+      <section id="terms" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Terms of Service
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-[--color-text-secondary]">
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">1. Acceptance of Terms</h3>
+          <p>
+            By accessing and using devcult.io, you accept and agree to be bound by these Terms of Service.
+            If you do not agree to these terms, please do not use our website or services.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">2. Services</h3>
+          <p>
+            DevCult provides developer experience consulting services including documentation, event management,
+            and developer outreach. Service details, scope, and pricing are defined in individual agreements.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">3. Intellectual Property</h3>
+          <p>
+            All content on this website, including text, graphics, logos, and code, is the property of DevCult
+            and is protected by copyright and other intellectual property laws. Work deliverables are governed
+            by individual project agreements.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">4. Limitation of Liability</h3>
+          <p>
+            DevCult shall not be liable for any indirect, incidental, special, consequential, or punitive damages
+            resulting from your use of or inability to use our website or services.
+          </p>
+
+          <h3 class="text-xl font-semibold text-[--color-text-primary]">5. Changes to Terms</h3>
+          <p>
+            We reserve the right to modify these terms at any time. Changes will be effective immediately upon
+            posting on this page. Continued use of our website constitutes acceptance of modified terms.
+          </p>
+        </div>
+      </section>
+
+      <!-- Cookie Policy -->
+      <section id="cookies" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Cookie Policy
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-[--color-text-secondary]">
+          <p>
+            Our website currently does not use cookies for tracking or analytics. We use a static site hosted
+            on GitHub Pages with minimal JavaScript. If we implement analytics or tracking in the future, we
+            will update this policy and provide appropriate notice.
+          </p>
+        </div>
+      </section>
+
+      <!-- Imprint -->
+      <section id="imprint" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Imprint
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-[--color-text-secondary]">
+          <p>
+            <strong class="text-[--color-text-primary]">Service Provider:</strong><br>
+            DevCult<br>
+            Developer Experience Consultancy
+          </p>
+
+          <p>
+            <strong class="text-[--color-text-primary]">Contact:</strong><br>
+            Email: <a href="mailto:info@devcult.io" class="text-[--color-accent] hover:text-[--color-accent-hover]">info@devcult.io</a><br>
+            Website: <a href="https://devcult.io" class="text-[--color-accent] hover:text-[--color-accent-hover]">https://devcult.io</a>
+          </p>
+
+          <p>
+            <strong class="text-[--color-text-primary]">Professional Responsibility:</strong><br>
+            The content of our website has been compiled with meticulous care. However, we cannot assume any
+            liability for the up-to-dateness, completeness, or accuracy of the provided information.
+          </p>
+        </div>
+      </section>
+
+      <!-- Data Protection -->
+      <section id="data" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Data Protection
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-[--color-text-secondary]">
+          <p>
+            We are committed to GDPR compliance and follow data protection best practices:
+          </p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li><strong>Data Minimization:</strong> We only collect data necessary for our services</li>
+            <li><strong>Purpose Limitation:</strong> We use data only for specified, explicit purposes</li>
+            <li><strong>Storage Limitation:</strong> We retain data only as long as necessary</li>
+            <li><strong>Security:</strong> We implement appropriate security measures</li>
+            <li><strong>Transparency:</strong> We are clear about our data practices</li>
+          </ul>
+
+          <p class="mt-6">
+            <strong class="text-[--color-text-primary]">Data Subject Requests:</strong><br>
+            To exercise your rights regarding your personal data, please contact us at
+            <a href="mailto:info@devcult.io" class="text-[--color-accent] hover:text-[--color-accent-hover]">info@devcult.io</a>.
+            We will respond to your request within 30 days.
+          </p>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact-legal" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-[--font-coconat] mb-6 border-l-4 border-l-[--color-accent] pl-4">
+          Questions About This Policy?
+        </h2>
+
+        <div class="p-8 rounded-xl bg-[#ff6a000d] border border-[--color-border]">
+          <p class="text-[--color-text-secondary] mb-4">
+            If you have any questions about our legal policies or how we handle your data, please don't hesitate to reach out.
+          </p>
+          <a
+            href="/contact"
+            class="inline-block px-6 py-3 rounded-xl bg-[--color-accent] text-black font-semibold hover:bg-[--color-accent-hover] transition-all"
+          >
+            Contact Us
+          </a>
+        </div>
+      </section>
+
+      <!-- Disclaimer -->
+      <section class="mt-16 pt-8 border-t border-[--color-border]">
+        <p class="text-sm text-[--color-text-tertiary] text-center">
+          This page was last updated on {lastUpdated}. We may update these policies from time to time.
+          Please check back periodically for changes.
+        </p>
+      </section>
     </div>
   </main>
+
   <Footer />
 </BaseLayout>

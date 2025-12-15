@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const devJokes = [
+  "Why do programmers prefer dark mode? Because light attracts bugs!",
+  "There are only 10 types of people in the world: those who understand binary, and those who don't.",
+  "A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?'",
+  "Why do Java developers wear glasses? Because they can't C#.",
+  "How many programmers does it take to change a light bulb? None. It's a hardware problem.",
+  "What's a programmer's favorite hangout place? The Foo Bar.",
+  "Why did the developer go broke? Because he used up all his cache.",
+  "I would tell you a UDP joke, but you might not get it.",
+  "I told my wife she was drawing her eyebrows too high. She looked surprised.",
+  "Why did the programmer quit his job? Because he didn't get arrays.",
+  "What do you call a programmer from Finland? Nerdic.",
+  "Debugging: Being the detective in a crime movie where you are also the murderer.",
+  "It's not a bug, it's an undocumented feature.",
+  "Why do programmers always mix up Halloween and Christmas? Because Oct 31 == Dec 25.",
+  "I'm not lazy, I'm just on energy-saving mode.",
+  "404: Humor not found. Just kidding, it's in the cache.",
+  "To understand what recursion is, you must first understand recursion.",
+  "There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.",
+  "Git commit -m 'Fixed the bug'. Git commit -m 'Actually fixed it this time'.",
+  "I don't always test my code, but when I do, I do it in production.",
+];
+
+// Server-side randomization - this will be different on each build
+const randomIndex = Math.floor(Math.random() * devJokes.length);
+const serverJoke = devJokes[randomIndex];
+---
+
+<BaseLayout
+  title="404 - Page Not Found | DevCult"
+  description="Oops! The page you're looking for doesn't exist."
+>
+  <Header />
+
+  <main id="main-content" class="flex-1 flex items-center justify-center py-24 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <div data-animate class="mb-8">
+        <h1 class="text-9xl font-bold font-[--font-coconat] text-[--color-accent]">404</h1>
+        <div class="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-[--color-accent] to-[--color-accent-hover]"></div>
+      </div>
+
+      <h2 data-animate data-delay="100" class="text-3xl md:text-4xl font-semibold font-[--font-coconat] mb-4">
+        Page Not Found
+      </h2>
+
+      <p data-animate data-delay="200" class="text-lg text-[--color-text-secondary] mb-8">
+        Looks like this page took a detour to <code class="text-[--color-accent] bg-[#ff6a000d] px-2 py-1 rounded">/dev/null</code>
+      </p>
+
+      <!-- Random Dev Joke -->
+      <div data-animate data-delay="300" class="mb-12 p-6 rounded-xl bg-[#ff6a000d] border-l-4 border-l-[--color-accent]">
+        <p class="text-sm text-[--color-accent] mb-2 font-semibold">WHILE YOU'RE HERE...</p>
+        <p id="joke-text" class="text-base text-[--color-text-primary] italic">
+          {serverJoke}
+        </p>
+        <button
+          id="new-joke-btn"
+          class="mt-4 text-sm text-[--color-accent] hover:text-[--color-accent-hover] transition-colors underline"
+        >
+          Tell me another one →
+        </button>
+      </div>
+
+      <div data-animate data-delay="400" class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="px-6 py-3 rounded-xl bg-[--color-accent] text-black font-semibold hover:bg-[--color-accent-hover] transition-all"
+        >
+          Go Home
+        </a>
+        <a
+          href="/contact"
+          class="px-6 py-3 rounded-xl border border-[--color-accent] text-[--color-accent] font-semibold hover:bg-[#ff6a000d] transition-all"
+        >
+          Contact Us
+        </a>
+      </div>
+
+      <div data-animate data-delay="500" class="mt-12">
+        <p class="text-sm text-[--color-text-tertiary]">
+          Lost? Try these popular pages:
+        </p>
+        <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm">
+          <a href="/#services" class="text-[--color-accent] hover:text-[--color-accent-hover]">Services</a>
+          <span class="text-[--color-text-tertiary]">•</span>
+          <a href="https://blog.devcult.io" class="text-[--color-accent] hover:text-[--color-accent-hover]">Blog</a>
+          <span class="text-[--color-text-tertiary]">•</span>
+          <a href="/about" class="text-[--color-accent] hover:text-[--color-accent-hover]">About</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<script define:vars={{ jokes: devJokes }}>
+  const jokeText = document.getElementById('joke-text');
+  const newJokeBtn = document.getElementById('new-joke-btn');
+
+  function getRandomJoke() {
+    const randomIndex = Math.floor(Math.random() * jokes.length);
+    return jokes[randomIndex];
+  }
+
+  newJokeBtn?.addEventListener('click', () => {
+    if (jokeText) {
+      // Add fade out animation
+      jokeText.style.opacity = '0.3';
+      jokeText.style.transition = 'opacity 0.2s';
+
+      setTimeout(() => {
+        jokeText.textContent = getRandomJoke();
+        jokeText.style.opacity = '1';
+      }, 200);
+    }
+  });
+</script>

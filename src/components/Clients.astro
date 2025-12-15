@@ -1,8 +1,29 @@
 ---
+import { Image } from 'astro:assets';
+import polkadotLogo from '../assets/images/clients/polkadot-white-logo.png';
+
 const clients = [
-  { name: 'Web3 Foundation', logo: '/images/clients/w3f-logo.svg', alt: 'Web3 Foundation', url: 'https://web3.foundation' },
-  { name: 'Polkadot', logo: '/images/clients/polkadot-white-logo.png', alt: 'Polkadot', url: 'https://polkadot.network' },
-  { name: 'ink!', logo: '/images/clients/ink-logo.svg', alt: 'ink! smart contracts', url: 'https://use.ink' },
+  {
+    name: 'Web3 Foundation',
+    logo: '/images/clients/w3f-logo.svg',
+    alt: 'Web3 Foundation',
+    url: 'https://web3.foundation',
+    type: 'svg' as const
+  },
+  {
+    name: 'Polkadot',
+    logo: polkadotLogo,
+    alt: 'Polkadot',
+    url: 'https://polkadot.network',
+    type: 'image' as const
+  },
+  {
+    name: 'ink!',
+    logo: '/images/clients/ink-logo.svg',
+    alt: 'ink! smart contracts',
+    url: 'https://use.ink',
+    type: 'svg' as const
+  },
 ];
 ---
 
@@ -19,11 +40,23 @@ const clients = [
           rel="noopener noreferrer"
           class="h-16 w-40 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
         >
-          <img
-            src={client.logo}
-            alt={client.alt}
-            class="max-h-full max-w-full object-contain"
-          />
+          {client.type === 'image' ? (
+            <Image
+              src={client.logo}
+              alt={client.alt}
+              class="max-h-full max-w-full object-contain"
+              loading="lazy"
+              format="webp"
+              width={160}
+              height={64}
+            />
+          ) : (
+            <img
+              src={client.logo}
+              alt={client.alt}
+              class="max-h-full max-w-full object-contain"
+            />
+          )}
         </a>
       ))}
     </div>

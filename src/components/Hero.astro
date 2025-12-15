@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import bannerImage from '../assets/images/banner.png';
+---
+
 <section class="min-h-screen flex items-center">
   <div class="mx-auto max-w-7xl px-6">
     <div class="flex flex-col gap-10">
@@ -8,10 +13,14 @@
       </div>
       <div data-animate data-delay="100">
         <div class="relative">
-          <img
-            src="/images/banner.png"
-            alt="DevCult Banner"
+          <Image
+            src={bannerImage}
+            alt="DevCult Banner - Developer Experience Excellence"
             class="w-full h-auto object-cover rounded-xl shadow-2xl"
+            loading="eager"
+            widths={[640, 768, 1024, 1280, 1536]}
+            sizes="(max-width: 768px) 640px, (max-width: 1024px) 768px, 1280px"
+            format="webp"
           />
         </div>
       </div>

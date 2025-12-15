@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import monogram from '../assets/images/devcult_monogram_on_transp.png';
+
 const navLinks = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
@@ -20,7 +23,7 @@ const socialLinks = [
   <div class="mx-auto max-w-7xl px-6 py-12">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
       <a href="#" id="footer-logo" class="text-xl font-semibold flex items-center gap-3" style="font-family: 'Coconat', sans-serif;">
-        <img src="/devcult_monogram_on_transp.png" alt="DevCult" class="w-6 h-6" />
+        <Image src={monogram} alt="DevCult Logo" class="w-6 h-6" width={24} height={24} loading="lazy" format="webp" />
         DevCult
       </a>
 
