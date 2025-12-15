@@ -40,18 +40,18 @@ try {
               href={post.url}
               data-animate
               data-delay={100 + i * 100}
-              class="w-80 md:w-auto p-6 rounded-xl bg-[--color-bg-primary] border border-[--color-border] hover:border-[--color-accent] transition-all group"
+              class="w-80 md:w-auto p-6 rounded-xl bg-[#ff6a000d] border-l-4 border-l-[#ff6a00] border-t border-t-[#ff6a00] border-r border-r-[#ff6a00] border-b border-b-[#ff6a00] hover:border-l-[#ff8f26] transition-all group"
             >
-              <p class="text-xs text-[--color-text-tertiary]">
+              <p class="text-xs text-[#ff6a00]">
                 {new Date(post.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
               </p>
-              <h3 class="mt-2 font-semibold font-[--font-coconat] line-clamp-2 group-hover:text-[--color-accent] transition-colors">
+              <h3 class="mt-2 font-semibold font-[--font-coconat] line-clamp-2 group-hover:text-[#ff6a00] transition-colors">
                 {post.title}
               </h3>
-              <p class="mt-2 text-sm text-[--color-text-secondary] line-clamp-2">
+              <p class="mt-2 text-sm text-[#ff6a00] line-clamp-2">
                 {post.excerpt}
               </p>
-              <span class="mt-4 inline-block text-sm text-[--color-accent]">
+              <span class="mt-4 inline-block text-sm text-[#ff6a00]">
                 Read article →
               </span>
             </a>
