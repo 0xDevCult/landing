@@ -1,25 +1,30 @@
 ---
 const clients = [
-  { name: 'Web3 Foundation', logo: '/images/clients/w3f.svg', alt: 'Web3 Foundation' },
-  { name: 'Polkadot', logo: '/images/clients/polkadot.svg', alt: 'Polkadot' },
-  { name: 'ink!', logo: '/images/clients/ink-logo.svg', alt: 'ink! smart contracts' },
+  { name: 'Web3 Foundation', logo: '/images/clients/w3f-logo.svg', alt: 'Web3 Foundation', url: 'https://web3.foundation' },
+  { name: 'Polkadot', logo: '/images/clients/polkadot-white-logo.png', alt: 'Polkadot', url: 'https://polkadot.network' },
+  { name: 'ink!', logo: '/images/clients/ink-logo.svg', alt: 'ink! smart contracts', url: 'https://use.ink' },
 ];
 ---
 
 <section class="py-16 border-y border-[--color-border]">
   <div class="mx-auto max-w-7xl px-6">
-    <p class="text-center text-xs uppercase tracking-[3px] text-[--color-text-tertiary] mb-8">
+    <h2 data-animate class="text-center text-3xl md:text-4xl font-[--font-coconat] font-bold mb-16">
       Trusted by
-    </p>
-    <div class="flex justify-center items-center gap-8 md:gap-12 flex-wrap">
+    </h2>
+    <div data-animate data-delay="100" class="flex justify-center items-center gap-16 md:gap-20 flex-wrap">
       {clients.map((client) => (
-        <div class="h-16 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">
+        <a
+          href={client.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="h-16 w-40 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
+        >
           <img
             src={client.logo}
             alt={client.alt}
-            class="h-full w-auto object-contain"
+            class="max-h-full max-w-full object-contain"
           />
-        </div>
+        </a>
       ))}
     </div>
   </div>

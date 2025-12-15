@@ -6,13 +6,14 @@ const navLinks = [
 ];
 ---
 
-<header class="w-full border-b border-[--color-border]">
+<header class="w-full border-b border-[--color-border] sticky top-0 z-50 bg-[--color-bg-primary] backdrop-blur-sm">
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <a href="/" class="text-2xl font-semibold font-[--font-coconat]">
+    <a href="/" class="text-2xl font-semibold flex items-center gap-3" style="font-family: 'Coconat', sans-serif;">
+      <img src="/devcult_monogram_on_transp.png" alt="DevCult" class="w-8 h-8" />
       DevCult
     </a>
 
-    <nav class="hidden md:flex items-center gap-8">
+    <nav class="hidden md:flex items-center gap-6">
       {navLinks.map(link => (
         <a
           href={link.href}
@@ -23,7 +24,7 @@ const navLinks = [
       ))}
       <a
         href="/contact"
-        class="px-5 py-2.5 rounded-lg bg-[--color-accent] text-[--color-bg-primary] font-semibold hover:bg-[--color-accent-hover] transition-colors"
+        class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors"
       >
         Contact
       </a>
@@ -49,7 +50,7 @@ const navLinks = [
       {navLinks.map(link => (
         <a href={link.href} class="text-2xl">{link.label}</a>
       ))}
-      <a href="/contact" class="px-8 py-3 rounded-lg bg-[--color-accent] text-[--color-bg-primary] font-semibold">
+      <a href="/contact" class="text-2xl">
         Contact
       </a>
     </nav>
