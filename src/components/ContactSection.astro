@@ -17,32 +17,48 @@
         <!-- Quick Contact Form -->
         <div class="mt-8">
           <form
+            id="contact-form"
             class="space-y-3"
-            onsubmit="event.preventDefault(); window.location.href='mailto:info@devcult.io?subject=' + encodeURIComponent(document.getElementById('topic').value || 'Project inquiry') + '&body=' + encodeURIComponent('Hi DevCult,%0D%0A%0D%0A' + (document.getElementById('message').value || '') + '%0D%0A%0D%0A— ' + (document.getElementById('name').value || ''))"
           >
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <input
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Your name"
+                required
+                minlength="2"
+                maxlength="100"
                 class="w-full rounded-xl border border-[#ff6a00] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[#ffa954] focus:outline-none focus:ring-2 focus:ring-[#ff6a00] transition-all"
+                aria-label="Your name"
               />
               <input
                 id="topic"
+                name="topic"
                 type="text"
                 placeholder="Project topic"
+                required
+                minlength="3"
+                maxlength="200"
                 class="w-full rounded-xl border border-[#ff6a00] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[#ffa954] focus:outline-none focus:ring-2 focus:ring-[#ff6a00] transition-all"
+                aria-label="Project topic"
               />
             </div>
             <textarea
               id="message"
+              name="message"
               placeholder="Short brief about your project"
               rows="4"
+              required
+              minlength="10"
+              maxlength="1000"
               class="w-full rounded-xl border border-[#ff6a00] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[#ffa954] focus:outline-none focus:ring-2 focus:ring-[#ff6a00] transition-all"
+              aria-label="Project brief"
             ></textarea>
+            <div id="form-error" class="hidden text-sm text-red-500 text-center"></div>
             <button
               type="submit"
-              class="w-full rounded-xl bg-[#ff6a00] px-4 py-3 text-sm font-semibold text-black hover:bg-[#ff8f26] transition-all"
+              class="w-full rounded-xl bg-[#ff6a00] px-4 py-3 text-sm font-semibold text-black hover:bg-[#ff8f26] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Send Message
             </button>
@@ -55,3 +71,87 @@
     </div>
   </div>
 </section>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const errorDiv = document.getElementById('form-error');
+
+  function sanitizeInput(input: string): string {
+    // Remove any HTML tags and trim whitespace
+    return input.replace(/<[^>]*>/g, '').trim();
+  }
+
+  function validateForm(name: string, topic: string, message: string): string | null {
+    // Additional validation beyond HTML5
+    if (name.length < 2 || name.length > 100) {
+      return 'Name must be between 2 and 100 characters.';
+    }
+    if (topic.length < 3 || topic.length > 200) {
+      return 'Topic must be between 3 and 200 characters.';
+    }
+    if (message.length < 10 || message.length > 1000) {
+      return 'Message must be between 10 and 1000 characters.';
+    }
+
+    // Check for suspicious patterns (basic XSS prevention)
+    const suspiciousPatterns = [
+      /<script/i,
+      /javascript:/i,
+      /on\w+\s*=/i, // onclick=, onerror=, etc.
+      /<iframe/i,
+    ];
+
+    const allText = name + topic + message;
+    for (const pattern of suspiciousPatterns) {
+      if (pattern.test(allText)) {
+        return 'Invalid input detected. Please remove any special characters or code.';
+      }
+    }
+
+    return null;
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nameInput = document.getElementById('name') as HTMLInputElement;
+    const topicInput = document.getElementById('topic') as HTMLInputElement;
+    const messageInput = document.getElementById('message') as HTMLTextAreaElement;
+    const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    // Get and sanitize values
+    const name = sanitizeInput(nameInput.value);
+    const topic = sanitizeInput(topicInput.value);
+    const message = sanitizeInput(messageInput.value);
+
+    // Validate
+    const error = validateForm(name, topic, message);
+    if (error) {
+      errorDiv?.classList.remove('hidden');
+      if (errorDiv) errorDiv.textContent = error;
+      return;
+    }
+
+    // Hide any previous errors
+    errorDiv?.classList.add('hidden');
+
+    // Disable submit button to prevent double submission
+    submitButton.disabled = true;
+
+    // Build mailto link with properly encoded values
+    const subject = encodeURIComponent(topic || 'Project inquiry');
+    const body = encodeURIComponent(
+      `Hi DevCult,\n\n${message}\n\n— ${name}`
+    );
+
+    const mailtoLink = `mailto:info@devcult.io?subject=${subject}&body=${body}`;
+
+    // Open mailto link
+    window.location.href = mailtoLink;
+
+    // Re-enable button after a delay
+    setTimeout(() => {
+      submitButton.disabled = false;
+    }, 2000);
+  });
+</script>

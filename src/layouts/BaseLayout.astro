@@ -4,9 +4,21 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
 }
 
-const { title, description = "DevOps and blockchain consulting. Developer culture. Infrastructure excellence." } = Astro.props;
+const {
+  title,
+  description = "DevOps and blockchain consulting. Developer culture. Infrastructure excellence.",
+  image = "/devcult_monogram_on_transp.png",
+  type = "website"
+} = Astro.props;
+
+// Get the full URL for the current page
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Get the full image URL
+const imageURL = new URL(image, Astro.site);
 ---
 
 <!DOCTYPE html>
@@ -14,17 +26,42 @@ const { title, description = "DevOps and blockchain consulting. Developer cultur
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content={description}>
+
+  <!-- Primary Meta Tags -->
   <title>{title}</title>
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+  <meta name="author" content="DevCult">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href={canonicalURL}>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={type}>
+  <meta property="og:url" content={canonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={imageURL}>
+  <meta property="og:site_name" content="DevCult">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={canonicalURL}>
+  <meta property="twitter:title" content={title}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content={imageURL}>
 
   <!-- Preload critical fonts for better performance (LCP) -->
   <link rel="preload" href="/fonts/Coconat-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/Coconat-Demi.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/Coconat-Bold.woff2" as="font" type="font/woff2" crossorigin>
 
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://blog.devcult.io" crossorigin>
+
   <meta name="theme-color" content="#ff6a00">
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
 </head>
 <body class="min-h-screen">
   <slot />
@@ -35,10 +72,11 @@ const { title, description = "DevOps and blockchain consulting. Developer cultur
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const delay = entry.target.getAttribute('data-delay') || '0';
-            entry.target.style.transitionDelay = `${delay}ms`;
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
+            const target = entry.target as HTMLElement;
+            const delay = target.getAttribute('data-delay') || '0';
+            target.style.transitionDelay = `${delay}ms`;
+            target.classList.add('animate-in');
+            observer.unobserve(target);
           }
         });
       },

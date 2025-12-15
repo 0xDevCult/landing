@@ -1,4 +1,6 @@
 ---
+import { XMLParser } from 'fast-xml-parser';
+
 interface BlogPost {
   title: string;
   url: string;
@@ -9,20 +11,58 @@ interface BlogPost {
 let posts: BlogPost[] = [];
 
 try {
-  const response = await fetch('https://blog.devcult.io/rss.xml');
+  // Fetch with 5 second timeout
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+  const response = await fetch('https://blog.devcult.io/rss.xml', {
+    signal: controller.signal,
+  });
+
+  clearTimeout(timeoutId);
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
   const xml = await response.text();
 
-  // Simple RSS parsing
-  const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
-  posts = items.slice(0, 6).map(item => {
-    const title = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/)?.[1] || item.match(/<title>(.*?)<\/title>/)?.[1] || '';
-    const url = item.match(/<link>(.*?)<\/link>/)?.[1] || '';
-    const excerpt = item.match(/<description><!\[CDATA\[(.*?)\]\]><\/description>/)?.[1] || item.match(/<description>(.*?)<\/description>/)?.[1] || '';
-    const pubDate = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
-    return { title, url, excerpt: excerpt.slice(0, 150) + '...', pubDate };
+  // Parse XML safely
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    parseTagValue: false,
+    trimValues: true,
+  });
+
+  const parsed = parser.parse(xml);
+  const items = parsed?.rss?.channel?.item || [];
+
+  // Normalize to array if single item
+  const itemsArray = Array.isArray(items) ? items : [items];
+
+  posts = itemsArray.slice(0, 6).map((item: any) => {
+    const title = item.title || '';
+    const url = item.link || '';
+    // Strip HTML tags from description and truncate
+    const rawExcerpt = item.description || '';
+    const plainExcerpt = rawExcerpt.replace(/<[^>]*>/g, '').trim();
+    const excerpt = plainExcerpt.length > 150
+      ? plainExcerpt.slice(0, 150) + '...'
+      : plainExcerpt;
+    const pubDate = item.pubDate || '';
+
+    return { title, url, excerpt, pubDate };
   });
 } catch (e) {
-  console.error('Failed to fetch blog posts:', e);
+  if (e instanceof Error) {
+    if (e.name === 'AbortError') {
+      console.error('Blog RSS fetch timed out after 5 seconds');
+    } else {
+      console.error('Failed to fetch blog posts:', e.message);
+    }
+  } else {
+    console.error('Failed to fetch blog posts:', e);
+  }
 }
 ---
 
