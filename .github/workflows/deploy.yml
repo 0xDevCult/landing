@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main, 3x8_redesign]
+    branches: [main]
 
 permissions:
   contents: read
