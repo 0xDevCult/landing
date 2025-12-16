@@ -3,13 +3,13 @@
 
 <section id="contact" class="w-full py-24">
   <div class="mx-auto max-w-7xl px-6">
-    <div data-animate class="rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[--color-brand-500] border-t border-t-[--color-brand-500] border-r border-r-[--color-brand-500] border-b border-b-[--color-brand-500] hover:border-l-[--color-brand-400] transition-all p-8 md:p-12">
+    <div data-animate class="rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all p-8 md:p-12">
       <div class="max-w-3xl mx-auto">
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-semibold font-[--font-coconat]">
+          <h2 class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)]">
             Let's make your DevEx shine.
           </h2>
-          <p class="mt-4 text-base text-[--color-brand-500]">
+          <p class="mt-4 text-base text-[var(--color-text-primary)]">
             Tell us about your product and goals. We'll reply within 1–2 business days.
           </p>
         </div>
@@ -29,7 +29,7 @@
                 required
                 minlength="2"
                 maxlength="100"
-                class="w-full rounded-xl border border-[--color-brand-500] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
+                class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
                 aria-label="Your name"
               />
               <input
@@ -40,7 +40,7 @@
                 required
                 minlength="3"
                 maxlength="200"
-                class="w-full rounded-xl border border-[--color-brand-500] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
+                class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
                 aria-label="Project topic"
               />
             </div>
@@ -52,17 +52,18 @@
               required
               minlength="10"
               maxlength="1000"
-              class="w-full rounded-xl border border-[--color-brand-500] bg-[--color-bg-primary] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
+              class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
               aria-label="Project brief"
             ></textarea>
             <div id="form-error" class="hidden text-sm text-red-500 text-center"></div>
             <button
               type="submit"
-              class="w-full rounded-xl bg-[--color-brand-500] px-4 py-3 text-sm font-semibold text-black hover:bg-[--color-brand-400] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              class="w-full rounded-xl px-4 py-3 text-sm font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              style="background-color: var(--color-brand-500); color: var(--color-bg-primary);"
             >
               Send Message
             </button>
-            <p class="text-xs text-center text-[--color-brand-500]">
+            <p class="text-xs text-center text-[var(--color-text-primary)]">
               By using this form you agree to contact us by email.
             </p>
           </form>
