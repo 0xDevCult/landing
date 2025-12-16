@@ -13,11 +13,7 @@ export function sanitizeInput(input: string): string {
  * Validates form input for the contact form
  * Returns error message if validation fails, null otherwise
  */
-export function validateForm(
-  name: string,
-  topic: string,
-  message: string
-): string | null {
+export function validateForm(name: string, topic: string, message: string): string | null {
   // Length validation
   if (name.length < 2 || name.length > 100) {
     return 'Name must be between 2 and 100 characters.';

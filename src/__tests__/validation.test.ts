@@ -115,18 +115,14 @@ describe('validateForm', () => {
   describe('Edge cases', () => {
     it('should handle special characters in valid input', () => {
       expect(
-        validateForm('John O\'Brien', 'Question about pricing', 'How much for enterprise?')
+        validateForm("John O'Brien", 'Question about pricing', 'How much for enterprise?')
       ).toBeNull();
 
-      expect(
-        validateForm('José García', 'Español', 'Mensaje en español válido')
-      ).toBeNull();
+      expect(validateForm('José García', 'Español', 'Mensaje en español válido')).toBeNull();
     });
 
     it('should handle unicode characters', () => {
-      expect(
-        validateForm('用户', 'Valid Topic', 'Valid message with 中文 characters')
-      ).toBeNull();
+      expect(validateForm('用户', 'Valid Topic', 'Valid message with 中文 characters')).toBeNull();
     });
 
     it('should handle numbers and symbols in valid context', () => {
