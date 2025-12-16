@@ -24,13 +24,13 @@ const services = [
       Helping blockchain projects succeed through developer experience excellence.
     </p>
 
-    <div class="mt-16 flex flex-col gap-6">
+    <div class="mt-16 flex flex-col gap-6 relative" style="padding: 100px 100px 0 100px;">
       {services.map((service, i) => (
         <>
           <div
             data-animate
             data-delay={150 + i * 100}
-            class="p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group"
+            class="p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group relative z-10"
           >
             <h3 class="text-2xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
               {service.title}
@@ -41,7 +41,7 @@ const services = [
           </div>
 
           {i < services.length - 1 && (
-            <div data-animate data-delay={200 + i * 100} class="flex justify-center relative">
+            <div data-animate data-delay={200 + i * 100} class="flex justify-center relative z-10">
               <svg class="w-10 h-20 text-[var(--color-accent)] arrow-flow" viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
                 <defs>
                   <linearGradient id={`gradient-${i}`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -56,21 +56,41 @@ const services = [
         </>
       ))}
 
-      <!-- Loop back arrow -->
-      <div data-animate data-delay="450" class="flex justify-center mt-6 mb-6 relative h-48">
-        <svg class="w-full max-w-md h-48 text-[var(--color-accent)] loop-arrow" viewBox="0 0 400 192" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
-          <defs>
-            <linearGradient id="loop-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
-              <stop offset="33%" style="stop-color:var(--color-brand-400);stop-opacity:0.9" />
-              <stop offset="66%" style="stop-color:var(--color-brand-400);stop-opacity:0.9" />
-              <stop offset="100%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <path d="M200 10 L200 100 Q200 130 170 130 L30 130 Q10 130 10 110 L10 30 M4 36 L10 30 L16 36" stroke="url(#loop-gradient)" class="loop-path" />
-        </svg>
-      </div>
-      <p data-animate data-delay="500" class="text-center text-sm text-[var(--color-text-tertiary)] -mt-10 font-medium">
+      <!-- Loop-back arrow -->
+      <svg
+        data-animate
+        data-delay="550"
+        class="absolute loop-arrow w-full h-full pointer-events-none z-0"
+        viewBox="0 0 600 800"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        style="top: 0; left: 0;"
+      >
+        <defs>
+          <linearGradient id="loop-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+            <stop offset="50%" style="stop-color:var(--color-brand-500);stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+          </linearGradient>
+        </defs>
+        <!-- Loop path: down → right → up → left → down -->
+        <path
+          d="m 300 760 l 0 20 a 15 15 0 0 0 15 15 l 250 0 a 15 15 0 0 0 15 -15 l 0 -740 a 15 15 0 0 0 -15 -15 l -250 0 a 15 15 0 0 0 -15 15 l 0 30"
+          stroke="url(#loop-gradient)"
+          class="loop-path text-[var(--color-accent)]"
+        />
+        <!-- Arrow head -->
+        <path
+          d="M 291 64 L 300 73 L 309 64"
+          stroke="url(#loop-gradient)"
+          class="loop-arrow-head text-[var(--color-accent)]"
+        />
+      </svg>
+
+      <p data-animate data-delay="550" class="text-center text-sm text-[var(--color-text-tertiary)] font-medium relative z-10 mt-4">
         Continuous improvement cycle
       </p>
     </div>
@@ -97,6 +117,24 @@ const services = [
     }
     100% {
       stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes loop-stroke-flow {
+    0% {
+      stroke-dashoffset: 2200;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes arrow-appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 
@@ -134,9 +172,15 @@ const services = [
   }
 
   .loop-path {
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: stroke-flow 2.5s ease-out forwards;
-    animation-delay: 0.3s;
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: loop-stroke-flow 2s ease-out forwards;
+    animation-delay: 1.5s;
+  }
+
+  .loop-arrow-head {
+    opacity: 0;
+    animation: arrow-appear 0.3s ease-out forwards;
+    animation-delay: 3s;
   }
 </style>
