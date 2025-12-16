@@ -1,48 +1,18 @@
 ---
-import { Image } from 'astro:assets';
-import monogram from '../assets/images/devcult_monogram_on_transp.png';
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Blog', href: 'https://blog.devcult.io' },
-  { label: 'About', href: '/about' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Legal', href: '/legal' },
-];
-
-const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/0xDevCult', icon: 'github' },
-  { label: 'X', href: 'https://x.com/0xDevCult', icon: 'x' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/company/devcult', icon: 'linkedin' },
-  { label: 'Email', href: 'mailto:info@devcult.io', icon: 'mail' },
-];
+import Logo from './Logo.astro';
+import { footerLinks, socialLinks } from '../data/navigation';
 ---
 
 <footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
   <div class="mx-auto max-w-7xl px-6 py-12">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-      <a
-        href="#"
-        id="footer-logo"
-        class="text-xl font-semibold flex items-center gap-3"
-        style="font-family: 'Coconat', sans-serif;"
-      >
-        <Image
-          src={monogram}
-          alt="DevCult Logo"
-          class="w-6 h-6"
-          width={24}
-          height={24}
-          loading="lazy"
-          format="webp"
-        />
-        DevCult
-      </a>
+      <div id="footer-logo">
+        <Logo size="small" loading="lazy" href="#" />
+      </div>
 
       <nav class="flex flex-wrap gap-6">
         {
-          navLinks.map((link) => (
+          footerLinks.map((link) => (
             <a
               href={link.href}
               class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"

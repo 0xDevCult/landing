@@ -1,12 +1,6 @@
 ---
-import { Image } from 'astro:assets';
-import monogram from '../assets/images/devcult_monogram_on_transp.png';
-
-const navLinks = [
-  { label: 'Services', href: '/#services' },
-  { label: 'Blog', href: 'https://blog.devcult.io' },
-  { label: 'About', href: '/about' },
-];
+import Logo from './Logo.astro';
+import { navLinks } from '../data/navigation';
 ---
 
 <header
@@ -20,22 +14,7 @@ const navLinks = [
     Skip to main content
   </a>
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <a
-      href="/"
-      class="text-2xl font-semibold flex items-center gap-3"
-      style="font-family: 'Coconat', sans-serif;"
-    >
-      <Image
-        src={monogram}
-        alt="DevCult Logo"
-        class="w-8 h-8"
-        width={32}
-        height={32}
-        loading="eager"
-        format="webp"
-      />
-      DevCult
-    </a>
+    <Logo size="medium" loading="eager" />
 
     <nav class="hidden md:flex items-center gap-6">
       {
@@ -88,8 +67,7 @@ const navLinks = [
 <!-- Mobile menu -->
 <div
   id="mobile-menu"
-  class="hidden md:hidden fixed top-20 left-0 right-0 bottom-0 z-50"
-  style="backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);"
+  class="hidden md:hidden fixed top-20 left-0 right-0 bottom-0 z-50 backdrop-blur-sm"
   role="dialog"
   aria-modal="true"
   aria-label="Mobile navigation"
