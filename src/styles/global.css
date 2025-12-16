@@ -46,6 +46,10 @@
   --color-brand-600: #e66000;
   --color-brand-700: #b34400;
 
+  /* Brand Alpha Variants */
+  --color-brand-alpha-5: rgba(255, 106, 0, 0.05);
+  --color-brand-alpha-10: rgba(255, 106, 0, 0.10);
+
   /* Backgrounds - Dark */
   --color-bg-primary: #000000;
   --color-bg-secondary: #171717;

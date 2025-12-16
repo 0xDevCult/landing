@@ -17,48 +17,192 @@ const services = [
 
 <section id="services" class="py-24">
   <div class="mx-auto max-w-3xl px-6">
-    <h2 data-animate class="text-3xl md:text-4xl font-bold font-[--font-coconat] text-center">
+    <h2 data-animate class="text-3xl md:text-4xl font-bold font-[var(--font-coconat)] text-center">
       Our Services
     </h2>
-    <p data-animate data-delay="100" class="mt-4 text-center text-[--color-text-secondary]">
+    <p data-animate data-delay="100" class="mt-4 text-center text-[var(--color-text-secondary)]">
       Helping blockchain projects succeed through developer experience excellence.
     </p>
 
-    <div class="mt-16 flex flex-col gap-6">
+    <div class="mt-16 flex flex-col gap-6 relative services-container">
       {services.map((service, i) => (
         <>
           <div
             data-animate
             data-delay={150 + i * 100}
-            class="p-6 rounded-xl bg-[#ff6a000d] border-l-4 border-l-[#ff6a00] border-t border-t-[#ff6a00] border-r border-r-[#ff6a00] border-b border-b-[#ff6a00] hover:border-l-[#ff8f26] transition-all group"
+            class="p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group relative z-10"
           >
-            <h3 class="text-xl font-semibold font-[--font-coconat] group-hover:text-[#ff6a00] transition-colors">
+            <h3 class="text-2xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
               {service.title}
             </h3>
-            <p class="mt-3 text-[#ff6a00]">
+            <p class="mt-3 text-[var(--color-text-primary)]">
               {service.description}
             </p>
           </div>
 
           {i < services.length - 1 && (
-            <div class="flex justify-center">
-              <svg class="w-6 h-12 text-[--color-accent]" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 0 L12 40 M6 34 L12 40 L18 34" />
+            <div data-animate data-delay={200 + i * 100} class="flex justify-center relative z-10">
+              <svg class="w-10 h-20 text-[var(--color-accent)] arrow-flow" viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <linearGradient id={`gradient-${i}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+                    <stop offset="100%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M20 5 L20 60 M11 51 L20 60 L29 51" stroke={`url(#gradient-${i})`} class="arrow-path" />
               </svg>
             </div>
           )}
         </>
       ))}
 
-      <!-- Loop back arrow -->
-      <div class="flex justify-center mt-4">
-        <svg class="w-16 h-24 text-[--color-accent]" viewBox="0 0 64 96" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M32 0 L32 70 Q32 85 17 85 L10 85 M16 79 L10 85 L16 91" />
+      <!-- Loop-back arrow -->
+      <div class="absolute w-full h-full pointer-events-none z-0 loop-arrow-wrapper" style="top: 0; left: 0;">
+        <svg
+          data-animate
+          data-delay="550"
+          class="loop-arrow w-full h-full"
+          viewBox="0 0 600 800"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+        <defs>
+          <linearGradient id="loop-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+            <stop offset="50%" style="stop-color:var(--color-brand-500);stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+          </linearGradient>
+        </defs>
+        <!-- Loop path: down → right → up → left → down -->
+        <path
+          d="m 300 760 l 0 20 a 15 15 0 0 0 15 15 l 250 0 a 15 15 0 0 0 15 -15 l 0 -740 a 15 15 0 0 0 -15 -15 l -250 0 a 15 15 0 0 0 -15 15 l 0 30"
+          stroke="url(#loop-gradient)"
+          class="loop-path text-[var(--color-accent)]"
+        />
+        <!-- Arrow head -->
+        <path
+          d="M 291 64 L 300 73 L 309 64"
+          stroke="url(#loop-gradient)"
+          class="loop-arrow-head text-[var(--color-accent)]"
+        />
         </svg>
       </div>
-      <p class="text-center text-sm text-[--color-text-tertiary] -mt-2">
+
+      <p data-animate data-delay="550" class="text-center text-sm text-[var(--color-text-tertiary)] font-medium relative z-10 mt-4">
         Continuous improvement cycle
       </p>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes arrow-flow {
+    0%, 100% {
+      opacity: 0.5;
+      filter: drop-shadow(0 0 4px var(--color-brand-500));
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 16px var(--color-brand-500)) drop-shadow(0 0 24px var(--color-brand-400));
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes stroke-flow {
+    0% {
+      stroke-dashoffset: 150;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes loop-stroke-flow {
+    0% {
+      stroke-dashoffset: 1400;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes arrow-appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes loop-flow {
+    0%, 100% {
+      opacity: 0.6;
+      filter: drop-shadow(0 0 6px var(--color-brand-400));
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 20px var(--color-brand-400)) drop-shadow(0 0 30px var(--color-brand-500));
+      transform: scale(1.03);
+    }
+  }
+
+  .arrow-flow {
+    animation: arrow-flow 1.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .arrow-flow:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .arrow-path {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: stroke-flow 1.5s ease-out forwards;
+  }
+
+  .loop-arrow {
+    animation: loop-flow 2.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .loop-path {
+    stroke-dasharray: 1400;
+    stroke-dashoffset: 1400;
+    animation: loop-stroke-flow 2s ease-out forwards;
+    animation-delay: 1.5s;
+  }
+
+  .loop-arrow-head {
+    opacity: 0;
+    animation: arrow-appear 0.3s ease-out forwards;
+    animation-delay: 3.5s;
+  }
+
+  .services-container {
+    padding: 10px 20px 0 10px;
+  }
+
+  @media (min-width: 768px) {
+    .services-container {
+      padding: 100px 100px 0 100px;
+    }
+  }
+
+  .loop-arrow-wrapper {
+    transform: scale(3);
+    transform-origin: center;
+  }
+
+  @media (min-width: 768px) {
+    .loop-arrow-wrapper {
+      transform: scale(1);
+    }
+  }
+</style>

@@ -40,27 +40,27 @@ const serverJoke = devJokes[randomIndex];
   <main id="main-content" class="flex-1 flex items-center justify-center py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <div data-animate class="mb-8">
-        <h1 class="text-9xl font-bold font-[--font-coconat] text-[--color-accent]">404</h1>
-        <div class="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-[--color-accent] to-[--color-accent-hover]"></div>
+        <h1 class="text-9xl font-bold font-[var(--font-coconat)] text-[var(--color-accent)]">404</h1>
+        <div class="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)]"></div>
       </div>
 
-      <h2 data-animate data-delay="100" class="text-3xl md:text-4xl font-semibold font-[--font-coconat] mb-4">
+      <h2 data-animate data-delay="100" class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] mb-4">
         Page Not Found
       </h2>
 
-      <p data-animate data-delay="200" class="text-lg text-[--color-text-secondary] mb-8">
-        Looks like this page took a detour to <code class="text-[--color-accent] bg-[#ff6a000d] px-2 py-1 rounded">/dev/null</code>
+      <p data-animate data-delay="200" class="text-lg text-[var(--color-text-secondary)] mb-8">
+        Looks like this page took a detour to <code class="text-[var(--color-accent)] bg-[--color-brand-alpha-5] px-2 py-1 rounded">/dev/null</code>
       </p>
 
       <!-- Random Dev Joke -->
-      <div data-animate data-delay="300" class="mb-12 p-6 rounded-xl bg-[#ff6a000d] border-l-4 border-l-[--color-accent]">
-        <p class="text-sm text-[--color-accent] mb-2 font-semibold">WHILE YOU'RE HERE...</p>
-        <p id="joke-text" class="text-base text-[--color-text-primary] italic">
+      <div data-animate data-delay="300" class="mb-12 p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group">
+        <p class="text-sm text-[var(--color-accent)] mb-2 font-semibold">WHILE YOU'RE HERE...</p>
+        <p id="joke-text" class="text-base text-[var(--color-text-primary)] italic">
           {serverJoke}
         </p>
         <button
           id="new-joke-btn"
-          class="mt-4 text-sm text-[--color-accent] hover:text-[--color-accent-hover] transition-colors underline"
+          class="mt-4 text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors underline"
         >
           Tell me another one →
         </button>
@@ -69,28 +69,29 @@ const serverJoke = devJokes[randomIndex];
       <div data-animate data-delay="400" class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/"
-          class="px-6 py-3 rounded-xl bg-[--color-accent] text-black font-semibold hover:bg-[--color-accent-hover] transition-all"
+          class="px-6 py-3 rounded-xl bg-[var(--color-accent)] font-semibold hover:bg-[var(--color-accent-hover)] transition-all"
+          style="color: black;"
         >
           Go Home
         </a>
         <a
           href="/contact"
-          class="px-6 py-3 rounded-xl border border-[--color-accent] text-[--color-accent] font-semibold hover:bg-[#ff6a000d] transition-all"
+          class="px-6 py-3 rounded-xl border border-[var(--color-accent)] text-[var(--color-accent)] font-semibold hover:bg-[--color-brand-alpha-5] transition-all"
         >
           Contact Us
         </a>
       </div>
 
       <div data-animate data-delay="500" class="mt-12">
-        <p class="text-sm text-[--color-text-tertiary]">
+        <p class="text-sm text-[var(--color-text-tertiary)]">
           Lost? Try these popular pages:
         </p>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm">
-          <a href="/#services" class="text-[--color-accent] hover:text-[--color-accent-hover]">Services</a>
-          <span class="text-[--color-text-tertiary]">•</span>
-          <a href="https://blog.devcult.io" class="text-[--color-accent] hover:text-[--color-accent-hover]">Blog</a>
-          <span class="text-[--color-text-tertiary]">•</span>
-          <a href="/about" class="text-[--color-accent] hover:text-[--color-accent-hover]">About</a>
+          <a href="/#services" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">Services</a>
+          <span class="text-[var(--color-text-tertiary)]">•</span>
+          <a href="https://blog.devcult.io" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">Blog</a>
+          <span class="text-[var(--color-text-tertiary)]">•</span>
+          <a href="/about" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">About</a>
         </div>
       </div>
     </div>

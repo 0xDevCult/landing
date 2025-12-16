@@ -9,7 +9,14 @@ const navLinks = [
 ];
 ---
 
-<header class="w-full border-b border-[--color-border] sticky top-0 z-50 bg-[--color-bg-primary] backdrop-blur-sm">
+<header class="w-full border-b border-[var(--color-border)] sticky top-0 z-[60] bg-[var(--color-bg-primary)] backdrop-blur-sm">
+  <!-- Skip to main content link for accessibility -->
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-black focus:rounded-lg focus:font-semibold"
+  >
+    Skip to main content
+  </a>
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
     <a href="/" class="text-2xl font-semibold flex items-center gap-3" style="font-family: 'Coconat', sans-serif;">
       <Image src={monogram} alt="DevCult Logo" class="w-8 h-8" width={32} height={32} loading="eager" format="webp" />
@@ -20,52 +27,140 @@ const navLinks = [
       {navLinks.map(link => (
         <a
           href={link.href}
-          class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors"
+          class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
         >
           {link.label}
         </a>
       ))}
       <a
         href="/contact"
-        class="text-[--color-text-secondary] hover:text-[--color-accent] transition-colors"
+        class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
       >
         Contact
       </a>
     </nav>
 
-    <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+    <!-- Mobile menu toggle buttons -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
-  </div>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-50 bg-[--color-bg-primary]">
-    <div class="flex justify-end p-6">
-      <button id="mobile-menu-close" class="p-2" aria-label="Close">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
-    <nav class="flex flex-col items-center gap-8 pt-20">
-      {navLinks.map(link => (
-        <a href={link.href} class="text-2xl">{link.label}</a>
-      ))}
-      <a href="/contact" class="text-2xl">
-        Contact
-      </a>
-    </nav>
+    <button
+      id="mobile-menu-close"
+      class="hidden md:hidden p-2"
+      aria-label="Close menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
   </div>
 </header>
+
+<!-- Mobile menu -->
+<div
+  id="mobile-menu"
+  class="hidden md:hidden fixed top-20 left-0 right-0 bottom-0 z-50"
+  style="backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile navigation"
+>
+  <nav class="flex flex-col items-center gap-8 pt-12">
+    {navLinks.map(link => (
+      <a href={link.href} class="text-2xl">{link.label}</a>
+    ))}
+    <a href="/contact" class="text-2xl">
+      Contact
+    </a>
+  </nav>
+</div>
 
 <script>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const close = document.getElementById('mobile-menu-close');
 
-  btn?.addEventListener('click', () => menu?.classList.remove('hidden'));
-  close?.addEventListener('click', () => menu?.classList.add('hidden'));
-  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu?.classList.add('hidden')));
+  // Focusable elements for focus trap
+  let focusableElements: HTMLElement[] = [];
+  let firstFocusableElement: HTMLElement | null = null;
+  let lastFocusableElement: HTMLElement | null = null;
+
+  function openMenu() {
+    menu?.classList.remove('hidden');
+    btn?.setAttribute('aria-expanded', 'true');
+    btn?.classList.add('hidden');
+    close?.classList.remove('hidden');
+
+    // Lock body scroll
+    document.body.style.overflow = 'hidden';
+
+    // Setup focus trap - include close button and menu items
+    const menuLinks = Array.from(
+      menu?.querySelectorAll<HTMLElement>(
+        'a[href]'
+      ) || []
+    );
+    focusableElements = close ? [close, ...menuLinks] : menuLinks;
+    firstFocusableElement = focusableElements[0] || null;
+    lastFocusableElement = focusableElements[focusableElements.length - 1] || null;
+
+    // Focus close button
+    close?.focus();
+  }
+
+  function closeMenu() {
+    menu?.classList.add('hidden');
+    btn?.setAttribute('aria-expanded', 'false');
+    btn?.classList.remove('hidden');
+    close?.classList.add('hidden');
+
+    // Unlock body scroll
+    document.body.style.overflow = '';
+
+    // Return focus to menu button
+    btn?.focus();
+  }
+
+  // Handle focus trap
+  function handleFocusTrap(e: KeyboardEvent) {
+    if (menu?.classList.contains('hidden')) return;
+
+    if (e.key === 'Tab') {
+      if (e.shiftKey) {
+        // Shift+Tab: if on first element, go to last
+        if (document.activeElement === firstFocusableElement) {
+          e.preventDefault();
+          lastFocusableElement?.focus();
+        }
+      } else {
+        // Tab: if on last element, go to first
+        if (document.activeElement === lastFocusableElement) {
+          e.preventDefault();
+          firstFocusableElement?.focus();
+        }
+      }
+    }
+  }
+
+  // Handle escape key
+  function handleEscape(e: KeyboardEvent) {
+    if (e.key === 'Escape' && !menu?.classList.contains('hidden')) {
+      closeMenu();
+    }
+  }
+
+  btn?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', handleEscape);
+  document.addEventListener('keydown', handleFocusTrap);
 </script>
