@@ -220,21 +220,45 @@ const services = [
   }
 
   .services-container {
-    padding: 10px 20px 0 10px;
+    padding: 10px 15px 0 15px;
+  }
+
+  @media (min-width: 640px) {
+    .services-container {
+      padding: 0;
+    }
   }
 
   @media (min-width: 768px) {
+    .services-container {
+      padding: 60px 60px 0 60px;
+    }
+  }
+
+  @media (min-width: 1024px) {
     .services-container {
       padding: 100px 100px 0 100px;
     }
   }
 
   .loop-arrow-wrapper {
-    transform: scale(3);
+    transform: scaleX(1.5) scaleY(2.7);
     transform-origin: center;
   }
 
+  @media (min-width: 640px) {
+    .loop-arrow-wrapper {
+      transform: scaleX(0.2) scaleY(0.1);
+    }
+  }
+
   @media (min-width: 768px) {
+    .loop-arrow-wrapper {
+      transform: scaleX(1.1) scaleY(1.1);
+    }
+  }
+
+  @media (min-width: 1024px) {
     .loop-arrow-wrapper {
       transform: scale(1);
     }
