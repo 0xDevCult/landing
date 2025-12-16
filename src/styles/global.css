@@ -111,6 +111,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -118,12 +120,16 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-body);
   position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* Ensure content is above background effects */
 main {
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* ============================================
