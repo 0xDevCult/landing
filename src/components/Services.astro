@@ -41,9 +41,15 @@ const services = [
           </div>
 
           {i < services.length - 1 && (
-            <div class="flex justify-center">
-              <svg class="w-6 h-12 text-[var(--color-accent)]" viewBox="0 0 24 48" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 0 L12 40 M6 34 L12 40 L18 34" />
+            <div data-animate data-delay={200 + i * 100} class="flex justify-center relative">
+              <svg class="w-10 h-20 text-[var(--color-accent)] arrow-flow" viewBox="0 0 40 80" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <linearGradient id={`gradient-${i}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--color-brand-400);stop-opacity:0.7" />
+                    <stop offset="100%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M20 5 L20 60 M11 51 L20 60 L29 51" stroke={`url(#gradient-${i})`} class="arrow-path" />
               </svg>
             </div>
           )}
@@ -51,14 +57,86 @@ const services = [
       ))}
 
       <!-- Loop back arrow -->
-      <div class="flex justify-center mt-4">
-        <svg class="w-16 h-24 text-[var(--color-accent)]" viewBox="0 0 64 96" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M32 0 L32 70 Q32 85 17 85 L10 85 M16 79 L10 85 L16 91" />
+      <div data-animate data-delay="450" class="flex justify-center mt-6 mb-6 relative h-48">
+        <svg class="w-full max-w-md h-48 text-[var(--color-accent)] loop-arrow" viewBox="0 0 400 192" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <linearGradient id="loop-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
+              <stop offset="33%" style="stop-color:var(--color-brand-400);stop-opacity:0.9" />
+              <stop offset="66%" style="stop-color:var(--color-brand-400);stop-opacity:0.9" />
+              <stop offset="100%" style="stop-color:var(--color-brand-500);stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <path d="M200 10 L200 100 Q200 130 170 130 L30 130 Q10 130 10 110 L10 30 M4 36 L10 30 L16 36" stroke="url(#loop-gradient)" class="loop-path" />
         </svg>
       </div>
-      <p class="text-center text-sm text-[var(--color-text-tertiary)] -mt-2">
+      <p data-animate data-delay="500" class="text-center text-sm text-[var(--color-text-tertiary)] -mt-10 font-medium">
         Continuous improvement cycle
       </p>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes arrow-flow {
+    0%, 100% {
+      opacity: 0.5;
+      filter: drop-shadow(0 0 4px var(--color-brand-500));
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 16px var(--color-brand-500)) drop-shadow(0 0 24px var(--color-brand-400));
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes stroke-flow {
+    0% {
+      stroke-dashoffset: 150;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes loop-flow {
+    0%, 100% {
+      opacity: 0.6;
+      filter: drop-shadow(0 0 6px var(--color-brand-400));
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 20px var(--color-brand-400)) drop-shadow(0 0 30px var(--color-brand-500));
+      transform: scale(1.03);
+    }
+  }
+
+  .arrow-flow {
+    animation: arrow-flow 1.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .arrow-flow:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .arrow-path {
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: stroke-flow 1.5s ease-out forwards;
+  }
+
+  .loop-arrow {
+    animation: loop-flow 2.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  .loop-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: stroke-flow 2.5s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+</style>
