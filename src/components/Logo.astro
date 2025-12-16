@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import monogram from '../assets/images/devcult_monogram_on_transp.png';
+
+interface Props {
+  size?: 'small' | 'medium' | 'large';
+  loading?: 'eager' | 'lazy';
+  href?: string;
+}
+
+const { size = 'medium', loading = 'eager', href = '/' } = Astro.props;
+
+const sizes = {
+  small: { image: 'w-6 h-6', text: 'text-xl', width: 24, height: 24 },
+  medium: { image: 'w-8 h-8', text: 'text-2xl', width: 32, height: 32 },
+  large: { image: 'w-10 h-10', text: 'text-3xl', width: 40, height: 40 },
+};
+
+const config = sizes[size];
+---
+
+<a href={href} class={`font-semibold flex items-center gap-3 font-coconat ${config.text}`}>
+  <Image
+    src={monogram}
+    alt="DevCult Logo"
+    class={config.image}
+    width={config.width}
+    height={config.height}
+    loading={loading}
+    format="webp"
+  />
+  DevCult
+</a>

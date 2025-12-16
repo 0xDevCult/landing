@@ -8,6 +8,13 @@ interface BlogPost {
   pubDate: string;
 }
 
+interface RSSItem {
+  title?: string;
+  link?: string;
+  description?: string;
+  pubDate?: string;
+}
+
 let posts: BlogPost[] = [];
 
 try {
@@ -40,7 +47,7 @@ try {
   // Normalize to array if single item
   const itemsArray = Array.isArray(items) ? items : [items];
 
-  posts = itemsArray.slice(0, 6).map((item: any) => {
+  posts = itemsArray.slice(0, 6).map((item: RSSItem) => {
     const title = item.title || '';
     const url = item.link || '';
     // Strip HTML tags from description and truncate
