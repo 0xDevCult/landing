@@ -9,7 +9,9 @@ const navLinks = [
 ];
 ---
 
-<header class="w-full border-b border-[var(--color-border)] sticky top-0 z-[60] bg-[var(--color-bg-primary)] backdrop-blur-sm">
+<header
+  class="w-full border-b border-[var(--color-border)] sticky top-0 z-[60] bg-[var(--color-bg-primary)] backdrop-blur-sm"
+>
   <!-- Skip to main content link for accessibility -->
   <a
     href="#main-content"
@@ -18,20 +20,34 @@ const navLinks = [
     Skip to main content
   </a>
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <a href="/" class="text-2xl font-semibold flex items-center gap-3" style="font-family: 'Coconat', sans-serif;">
-      <Image src={monogram} alt="DevCult Logo" class="w-8 h-8" width={32} height={32} loading="eager" format="webp" />
+    <a
+      href="/"
+      class="text-2xl font-semibold flex items-center gap-3"
+      style="font-family: 'Coconat', sans-serif;"
+    >
+      <Image
+        src={monogram}
+        alt="DevCult Logo"
+        class="w-8 h-8"
+        width={32}
+        height={32}
+        loading="eager"
+        format="webp"
+      />
       DevCult
     </a>
 
     <nav class="hidden md:flex items-center gap-6">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
-        >
-          {link.label}
-        </a>
-      ))}
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
       <a
         href="/contact"
         class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
@@ -49,17 +65,21 @@ const navLinks = [
       aria-controls="mobile-menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
 
-    <button
-      id="mobile-menu-close"
-      class="hidden md:hidden p-2"
-      aria-label="Close menu"
-    >
+    <button id="mobile-menu-close" class="hidden md:hidden p-2" aria-label="Close menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
   </div>
@@ -75,12 +95,14 @@ const navLinks = [
   aria-label="Mobile navigation"
 >
   <nav class="flex flex-col items-center gap-8 pt-12">
-    {navLinks.map(link => (
-      <a href={link.href} class="text-2xl">{link.label}</a>
-    ))}
-    <a href="/contact" class="text-2xl">
-      Contact
-    </a>
+    {
+      navLinks.map((link) => (
+        <a href={link.href} class="text-2xl">
+          {link.label}
+        </a>
+      ))
+    }
+    <a href="/contact" class="text-2xl"> Contact </a>
   </nav>
 </div>
 
@@ -104,11 +126,7 @@ const navLinks = [
     document.body.style.overflow = 'hidden';
 
     // Setup focus trap - include close button and menu items
-    const menuLinks = Array.from(
-      menu?.querySelectorAll<HTMLElement>(
-        'a[href]'
-      ) || []
-    );
+    const menuLinks = Array.from(menu?.querySelectorAll<HTMLElement>('a[href]') || []);
     focusableElements = close ? [close, ...menuLinks] : menuLinks;
     firstFocusableElement = focusableElements[0] || null;
     lastFocusableElement = focusableElements[focusableElements.length - 1] || null;
@@ -160,7 +178,7 @@ const navLinks = [
 
   btn?.addEventListener('click', openMenu);
   close?.addEventListener('click', closeMenu);
-  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
   document.addEventListener('keydown', handleEscape);
   document.addEventListener('keydown', handleFocusTrap);
 </script>
