@@ -80,18 +80,18 @@ try {
               href={post.url}
               data-animate
               data-delay={100 + i * 100}
-              class="w-80 md:w-auto p-6 rounded-xl bg-[#ff6a000d] border-l-4 border-l-[#ff6a00] border-t border-t-[#ff6a00] border-r border-r-[#ff6a00] border-b border-b-[#ff6a00] hover:border-l-[#ff8f26] transition-all group"
+              class="w-80 md:w-auto p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[--color-brand-500] border-t border-t-[--color-brand-500] border-r border-r-[--color-brand-500] border-b border-b-[--color-brand-500] hover:border-l-[--color-brand-400] transition-all group"
             >
-              <p class="text-xs text-[#ff6a00]">
+              <p class="text-xs text-[--color-brand-500]">
                 {new Date(post.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
               </p>
-              <h3 class="mt-2 font-semibold font-[--font-coconat] line-clamp-2 group-hover:text-[#ff6a00] transition-colors">
+              <h3 class="mt-2 font-semibold font-[--font-coconat] line-clamp-2 group-hover:text-[--color-brand-500] transition-colors">
                 {post.title}
               </h3>
-              <p class="mt-2 text-sm text-[#ff6a00] line-clamp-2">
+              <p class="mt-2 text-sm text-[--color-brand-500] line-clamp-2">
                 {post.excerpt}
               </p>
-              <span class="mt-4 inline-block text-sm text-[#ff6a00]">
+              <span class="mt-4 inline-block text-sm text-[--color-brand-500]">
                 Read article →
               </span>
             </a>
