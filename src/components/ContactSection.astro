@@ -1,12 +1,18 @@
 ---
+
 ---
 
 <section id="contact" class="w-full py-24">
   <div class="mx-auto max-w-7xl px-6">
-    <div data-animate class="rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all p-8 md:p-12">
+    <div
+      data-animate
+      class="rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all p-8 md:p-12"
+    >
       <div class="max-w-3xl mx-auto">
         <div class="text-center">
-          <h2 class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)]">
+          <h2
+            class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)]"
+          >
             Let's make your DevEx shine.
           </h2>
           <p class="mt-4 text-base text-[var(--color-text-primary)]">
@@ -16,10 +22,7 @@
 
         <!-- Quick Contact Form -->
         <div class="mt-8">
-          <form
-            id="contact-form"
-            class="space-y-3"
-          >
+          <form id="contact-form" class="space-y-3">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <input
                 id="name"
@@ -53,8 +56,7 @@
               minlength="10"
               maxlength="1000"
               class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
-              aria-label="Project brief"
-            ></textarea>
+              aria-label="Project brief"></textarea>
             <div id="form-error" class="hidden text-sm text-red-500 text-center"></div>
             <button
               type="submit"
@@ -140,9 +142,7 @@
 
     // Build mailto link with properly encoded values
     const subject = encodeURIComponent(topic || 'Project inquiry');
-    const body = encodeURIComponent(
-      `Hi DevCult,\n\n${message}\n\n— ${name}`
-    );
+    const body = encodeURIComponent(`Hi DevCult,\n\n${message}\n\n— ${name}`);
 
     const mailtoLink = `mailto:info@devcult.io?subject=${subject}&body=${body}`;
 

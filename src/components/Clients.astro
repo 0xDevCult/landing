@@ -8,64 +8,73 @@ const clients = [
     logo: '/images/clients/w3f-logo.svg',
     alt: 'Web3 Foundation',
     url: 'https://web3.foundation',
-    type: 'svg' as const
+    type: 'svg' as const,
   },
   {
     name: 'Polkadot',
     logo: polkadotLogo,
     alt: 'Polkadot',
     url: 'https://polkadot.network',
-    type: 'image' as const
+    type: 'image' as const,
   },
   {
     name: 'Parity',
     logo: '/images/clients/parity_logo.svg',
     alt: 'Parity Technologies',
     url: 'https://parity.io',
-    type: 'svg' as const
+    type: 'svg' as const,
   },
   {
     name: 'ink!',
     logo: '/images/clients/ink-logo.svg',
     alt: 'ink! smart contracts',
     url: 'https://use.ink',
-    type: 'svg' as const
+    type: 'svg' as const,
   },
 ];
 ---
 
 <section class="py-16 border-y border-[var(--color-border)]">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 data-animate class="text-center text-3xl md:text-4xl font-[var(--font-coconat)] font-bold mb-16">
+    <h2
+      data-animate
+      class="text-center text-3xl md:text-4xl font-[var(--font-coconat)] font-bold mb-16"
+    >
       Trusted by
     </h2>
-    <div data-animate data-delay="100" class="flex justify-center items-center gap-16 md:gap-20 flex-wrap">
-      {clients.map((client) => (
-        <a
-          href={client.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="h-16 w-40 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
-        >
-          {client.type === 'image' ? (
-            <Image
-              src={client.logo}
-              alt={client.alt}
-              class="max-h-full max-w-full object-contain"
-              loading="lazy"
-              format="webp"
-              width={160}
-              height={64}
-            />
-          ) : (
-            <img
-              src={client.logo}
-              alt={client.alt}
-              class="max-h-full max-w-full object-contain"
-            />
-          )}
-        </a>
-      ))}
+    <div
+      data-animate
+      data-delay="100"
+      class="flex justify-center items-center gap-16 md:gap-20 flex-wrap"
+    >
+      {
+        clients.map((client) => (
+          <a
+            href={client.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="h-16 w-40 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
+          >
+            {client.type === 'image' ? (
+              <Image
+                src={client.logo}
+                alt={client.alt}
+                class="max-h-full max-w-full object-contain"
+                loading="lazy"
+                format="webp"
+                width={160}
+                height={64}
+              />
+            ) : (
+              <img
+                src={client.logo}
+                alt={client.alt}
+                class="max-h-full max-w-full object-contain"
+              />
+            )}
+          </a>
+        ))
+      }
     </div>
   </div>
 </section>

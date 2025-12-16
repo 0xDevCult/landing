@@ -10,9 +10,9 @@ interface Props {
 
 const {
   title,
-  description = "DevOps and blockchain consulting. Developer culture. Infrastructure excellence.",
-  image = "/devcult_monogram_on_transp.png",
-  type = "website"
+  description = 'DevOps and blockchain consulting. Developer culture. Infrastructure excellence.',
+  image = '/devcult_monogram_on_transp.png',
+  type = 'website',
 } = Astro.props;
 
 // Get the full URL for the current page
@@ -21,109 +21,113 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const imageURL = new URL(image, Astro.site);
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>{title}</title>
-  <meta name="title" content={title}>
-  <meta name="description" content={description}>
-  <meta name="author" content="DevCult">
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="DevCult" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href={canonicalURL}>
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content={type}>
-  <meta property="og:url" content={canonicalURL}>
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:image" content={imageURL}>
-  <meta property="og:site_name" content="DevCult">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
+    <meta property="og:site_name" content="DevCult" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content={canonicalURL}>
-  <meta property="twitter:title" content={title}>
-  <meta property="twitter:description" content={description}>
-  <meta property="twitter:image" content={imageURL}>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageURL} />
 
-  <!-- Preload critical fonts for better performance (LCP) -->
-  <link rel="preload" href="/fonts/Coconat-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/Coconat-Demi.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/Coconat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Preload critical fonts for better performance (LCP) -->
+    <link
+      rel="preload"
+      href="/fonts/Coconat-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/fonts/Coconat-Demi.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Coconat-Bold.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://blog.devcult.io" crossorigin>
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://blog.devcult.io" crossorigin />
 
-  <meta name="theme-color" content="#ff6a00">
+    <meta name="theme-color" content="#ff6a00" />
 
-  <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
-  <!-- Schema.org JSON-LD structured data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "DevCult",
-      "url": "https://devcult.io",
-      "logo": "https://devcult.io/devcult_monogram_on_transp.png",
-      "description": "Developer experience consultancy specializing in blockchain and Web3 ecosystems. We help projects build thriving developer communities through documentation, events, and strategic outreach.",
-      "email": "info@devcult.io",
-      "sameAs": [
-        "https://blog.devcult.io"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
+    <!-- Schema.org JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevCult",
+        "url": "https://devcult.io",
+        "logo": "https://devcult.io/devcult_monogram_on_transp.png",
+        "description": "Developer experience consultancy specializing in blockchain and Web3 ecosystems. We help projects build thriving developer communities through documentation, events, and strategic outreach.",
         "email": "info@devcult.io",
-        "contactType": "Customer Service",
-        "availableLanguage": "English"
-      },
-      "areaServed": "Worldwide",
-      "knowsAbout": [
-        "Developer Experience",
-        "Technical Documentation",
-        "Developer Relations",
-        "Blockchain",
-        "Web3",
-        "Developer Events",
-        "Developer Outreach"
-      ]
-    }
-  </script>
-</head>
-<body class="min-h-screen">
-  <slot />
+        "sameAs": ["https://blog.devcult.io"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "info@devcult.io",
+          "contactType": "Customer Service",
+          "availableLanguage": "English"
+        },
+        "areaServed": "Worldwide",
+        "knowsAbout": [
+          "Developer Experience",
+          "Technical Documentation",
+          "Developer Relations",
+          "Blockchain",
+          "Web3",
+          "Developer Events",
+          "Developer Outreach"
+        ]
+      }
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <slot />
 
-  <script>
-    // Scroll animations
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            const delay = target.getAttribute('data-delay') || '0';
-            target.style.transitionDelay = `${delay}ms`;
-            target.classList.add('animate-in');
-            observer.unobserve(target);
-          }
+    <script>
+      // Scroll animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target as HTMLElement;
+              const delay = target.getAttribute('data-delay') || '0';
+              target.style.transitionDelay = `${delay}ms`;
+              target.classList.add('animate-in');
+              observer.unobserve(target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+      document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
+
+      // Back to top button
+      const backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', () => {
+          backToTop.classList.toggle('opacity-0', window.scrollY < 500);
+          backToTop.classList.toggle('pointer-events-none', window.scrollY < 500);
         });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-    document.querySelectorAll('[data-animate]').forEach((el) => observer.observe(el));
-
-    // Back to top button
-    const backToTop = document.getElementById('back-to-top');
-    if (backToTop) {
-      window.addEventListener('scroll', () => {
-        backToTop.classList.toggle('opacity-0', window.scrollY < 500);
-        backToTop.classList.toggle('pointer-events-none', window.scrollY < 500);
-      });
-    }
-  </script>
-</body>
+      }
+    </script>
+  </body>
 </html>

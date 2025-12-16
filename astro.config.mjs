@@ -7,6 +7,6 @@ export default defineConfig({
   integrations: [sitemap()],
   compressHTML: true,
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });

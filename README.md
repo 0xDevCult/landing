@@ -5,6 +5,7 @@ The official website for DevCult - a developer experience consultancy specializi
 ## About
 
 DevCult helps blockchain projects build thriving developer ecosystems through:
+
 - Technical documentation that developers actually read
 - Developer events, workshops, and community building
 - Strategic developer outreach and relations
@@ -60,17 +61,20 @@ DevCult helps blockchain projects build thriving developer ecosystems through:
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/0xDevCult/devcult.io-2.git
 cd devcult.io-2
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -79,25 +83,27 @@ The site will be available at `http://localhost:4321`
 
 ## Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build locally |
-| `npm run astro check` | Run TypeScript and Astro checks |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
-| `npm run format:check` | Check code formatting |
+| Command                | Description                      |
+| ---------------------- | -------------------------------- |
+| `npm run dev`          | Start development server         |
+| `npm run build`        | Build for production             |
+| `npm run preview`      | Preview production build locally |
+| `npm run astro check`  | Run TypeScript and Astro checks  |
+| `npm run lint`         | Run ESLint                       |
+| `npm run format`       | Format code with Prettier        |
+| `npm run format:check` | Check code formatting            |
 
 ## Features
 
 ### Performance
+
 - ⚡ Static site generation for fast TTFB
 - 🎨 Minimal JavaScript bundle
 - 🖼️ Optimized images with Astro's Image component
 - 📦 Font preloading for improved LCP
 
 ### SEO
+
 - 🔍 Open Graph and Twitter Card meta tags
 - 🗺️ Automatic sitemap generation
 - 🤖 robots.txt configuration
@@ -105,6 +111,7 @@ The site will be available at `http://localhost:4321`
 - 🔗 Canonical URLs
 
 ### Accessibility
+
 - ♿ ARIA labels and roles
 - ⌨️ Keyboard navigation support
 - 🎯 Focus management and focus trap in mobile menu
@@ -112,12 +119,14 @@ The site will be available at `http://localhost:4321`
 - 🌗 Reduced motion support
 
 ### Security
+
 - 🔒 Input validation and sanitization
 - 🛡️ XSS prevention in contact form
 - 📡 Safe RSS feed parsing with timeout
 - 🔐 Security headers ready for deployment
 
 ### Developer Experience
+
 - 📝 TypeScript with strict mode
 - 🎨 Tailwind CSS v4 with custom theme
 - 🔄 Hot module replacement
@@ -129,6 +138,7 @@ The site will be available at `http://localhost:4321`
 The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch.
 
 The CI/CD pipeline:
+
 1. Runs security audit (`npm audit`)
 2. Checks code formatting
 3. Runs ESLint

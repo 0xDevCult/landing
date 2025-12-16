@@ -40,12 +40,6 @@ export default [
     },
   },
   {
-    ignores: [
-      'dist/',
-      'node_modules/',
-      '.astro/',
-      '*.config.{js,mjs,cjs}',
-      'public/',
-    ],
+    ignores: ['dist/', 'node_modules/', '.astro/', '*.config.{js,mjs,cjs}', 'public/'],
   },
 ];
