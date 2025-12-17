@@ -1,5 +1,4 @@
 ---
-import Logo from '@/components/Logo.astro';
 import { navLinks } from '@/data/navigation';
 ---
 
@@ -14,7 +13,15 @@ import { navLinks } from '@/data/navigation';
     Skip to main content
   </a>
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <Logo size="medium" loading="eager" />
+    <!-- Large OG Image Logo -->
+    <a href="/" class="relative z-[61] logo-container">
+      <img
+        src="/og-image.png"
+        alt="DevCult Logo"
+        class="logo-image"
+        loading="eager"
+      />
+    </a>
 
     <nav class="hidden md:flex items-center gap-6">
       {
@@ -170,3 +177,71 @@ import { navLinks } from '@/data/navigation';
   document.addEventListener('keydown', handleEscape);
   document.addEventListener('keydown', handleFocusTrap);
 </script>
+
+<style>
+  .logo-container {
+    display: block;
+    position: relative;
+  }
+
+  .logo-image {
+    /* Mobile: smaller, overlaps less */
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    transform: translateY(22px);
+    transition: transform 0.2s ease;
+  }
+
+  .logo-container:hover .logo-image {
+    transform: translateY(10px) scale(1.05);
+  }
+
+  /* Small screens (640px and up) */
+  @media (min-width: 640px) {
+    .logo-image {
+      width: 160px;
+      transform: translateY(43px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(29px) scale(1.05);
+    }
+  }
+
+  /* Medium screens (768px and up) */
+  @media (min-width: 768px) {
+    .logo-image {
+      width: 200px;
+      transform: translateY(64px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(45px) scale(1.05);
+    }
+  }
+
+  /* Large screens (1024px and up) */
+  @media (min-width: 1024px) {
+    .logo-image {
+      width: 240px;
+      transform: translateY(84px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(60px) scale(1.05);
+    }
+  }
+
+  /* Extra large screens (1280px and up) */
+  @media (min-width: 1280px) {
+    .logo-image {
+      width: 280px;
+      transform: translateY(105px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(70px) scale(1.05);
+    }
+  }
+</style>
