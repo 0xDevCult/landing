@@ -1,9 +1,9 @@
 ---
-import Logo from './Logo.astro';
-import { footerLinks, socialLinks } from '../data/navigation';
+import Logo from '@/components/Logo.astro';
+import { footerLinks, socialLinks } from '@/data/navigation';
 ---
 
-<footer class="border-t border-[var(--color-border)] bg-[var(--color-bg-secondary)]">
+<footer class="border-t border-border-primary bg-bg-secondary">
   <div class="mx-auto max-w-7xl px-6 py-12">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
       <div id="footer-logo">
@@ -15,7 +15,7 @@ import { footerLinks, socialLinks } from '../data/navigation';
           footerLinks.map((link) => (
             <a
               href={link.href}
-              class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+              class="text-sm text-text-secondary hover:text-accent transition-colors"
             >
               {link.label}
             </a>
@@ -30,7 +30,7 @@ import { footerLinks, socialLinks } from '../data/navigation';
               href={link.href}
               target={link.href.startsWith('mailto') ? undefined : '_blank'}
               rel={link.href.startsWith('mailto') ? undefined : 'noopener'}
-              class="p-2 text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+              class="p-2 text-text-secondary hover:text-accent transition-colors"
               aria-label={link.label}
             >
               <Fragment
@@ -51,7 +51,7 @@ import { footerLinks, socialLinks } from '../data/navigation';
     </div>
 
     <div
-      class="mt-8 pt-8 border-t border-[var(--color-border)] text-center text-sm text-[var(--color-text-tertiary)]"
+      class="mt-8 pt-8 border-t border-border-primary text-center text-sm text-text-tertiary"
     >
       © {new Date().getFullYear()} DevCult. All rights reserved.
     </div>
@@ -61,7 +61,7 @@ import { footerLinks, socialLinks } from '../data/navigation';
 <!-- Back to top button -->
 <button
   id="back-to-top"
-  class="fixed bottom-8 right-8 p-3 rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-all opacity-0 pointer-events-none"
+  class="fixed bottom-8 right-8 p-3 rounded-full bg-bg-secondary border border-border-primary text-text-secondary hover:text-accent hover:border-accent transition-all opacity-0 pointer-events-none"
   aria-label="Back to top"
 >
   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -1,15 +1,15 @@
 ---
-import Logo from './Logo.astro';
-import { navLinks } from '../data/navigation';
+import Logo from '@/components/Logo.astro';
+import { navLinks } from '@/data/navigation';
 ---
 
 <header
-  class="w-full border-b border-[var(--color-border)] sticky top-0 z-[60] bg-[var(--color-bg-primary)] backdrop-blur-sm"
+  class="w-full border-b border-border-primary sticky top-0 z-[60] bg-bg-primary backdrop-blur-sm"
 >
   <!-- Skip to main content link for accessibility -->
   <a
     href="#main-content"
-    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-[var(--color-accent)] focus:text-black focus:rounded-lg focus:font-semibold"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:bg-accent focus:text-black focus:rounded-lg focus:font-semibold"
   >
     Skip to main content
   </a>
@@ -21,7 +21,7 @@ import { navLinks } from '../data/navigation';
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+            class="text-text-secondary hover:text-accent transition-colors"
           >
             {link.label}
           </a>
@@ -29,7 +29,7 @@ import { navLinks } from '../data/navigation';
       }
       <a
         href="/contact"
-        class="text-[var(--color-text-secondary)] hover:text-[var(--color-accent)] transition-colors"
+        class="text-text-secondary hover:text-accent transition-colors"
       >
         Contact
       </a>

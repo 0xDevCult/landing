@@ -6,16 +6,16 @@
   <div class="mx-auto max-w-7xl px-6">
     <div
       data-animate
-      class="rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all p-8 md:p-12"
+      class="rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all p-8 md:p-12"
     >
       <div class="max-w-3xl mx-auto">
         <div class="text-center">
           <h2
-            class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] text-[var(--color-text-primary)]"
+            class="text-3xl md:text-4xl font-semibold font-coconat text-text-primary"
           >
             Let's make your DevEx shine.
           </h2>
-          <p class="mt-4 text-base text-[var(--color-text-primary)]">
+          <p class="mt-4 text-base text-text-primary">
             Tell us about your product and goals. We'll reply within 1–2 business days.
           </p>
         </div>
@@ -32,7 +32,7 @@
                 required
                 minlength="2"
                 maxlength="100"
-                class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
+                class="w-full rounded-xl border border-brand-500 bg-bg-primary px-4 py-3 text-sm placeholder-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"
                 aria-label="Your name"
               />
               <input
@@ -43,7 +43,7 @@
                 required
                 minlength="3"
                 maxlength="200"
-                class="w-full rounded-xl border border-[--color-brand-500] bg-[var(--color-bg-primary)] px-4 py-3 text-sm placeholder-[--color-brand-300] focus:outline-none focus:ring-2 focus:ring-[--color-brand-500] transition-all"
+                class="w-full rounded-xl border border-brand-500 bg-bg-primary px-4 py-3 text-sm placeholder-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-500 transition-all"
                 aria-label="Project topic"
               />
             </div>
@@ -66,11 +66,11 @@
             </div>
             <button
               type="submit"
-              class="w-full rounded-xl px-4 py-3 text-sm font-semibold bg-[var(--color-accent)] text-black hover:bg-[var(--color-accent-hover)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              class="w-full rounded-xl px-4 py-3 text-sm font-semibold bg-accent text-black hover:bg-accent-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Send Message
             </button>
-            <p class="text-xs text-center text-[var(--color-text-primary)]">
+            <p class="text-xs text-center text-text-primary">
               By using this form you agree to contact us by email.
             </p>
           </form>
@@ -81,43 +81,10 @@
 </section>
 
 <script>
+  import { sanitizeInput, validateForm } from '@/utils/validation';
+
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const errorDiv = document.getElementById('form-error');
-
-  function sanitizeInput(input: string): string {
-    // Remove any HTML tags and trim whitespace
-    return input.replace(/<[^>]*>/g, '').trim();
-  }
-
-  function validateForm(name: string, topic: string, message: string): string | null {
-    // Additional validation beyond HTML5
-    if (name.length < 2 || name.length > 100) {
-      return 'Name must be between 2 and 100 characters.';
-    }
-    if (topic.length < 3 || topic.length > 200) {
-      return 'Topic must be between 3 and 200 characters.';
-    }
-    if (message.length < 10 || message.length > 1000) {
-      return 'Message must be between 10 and 1000 characters.';
-    }
-
-    // Check for suspicious patterns (basic XSS prevention)
-    const suspiciousPatterns = [
-      /<script/i,
-      /javascript:/i,
-      /on\w+\s*=/i, // onclick=, onerror=, etc.
-      /<iframe/i,
-    ];
-
-    const allText = name + topic + message;
-    for (const pattern of suspiciousPatterns) {
-      if (pattern.test(allText)) {
-        return 'Invalid input detected. Please remove any special characters or code.';
-      }
-    }
-
-    return null;
-  }
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
