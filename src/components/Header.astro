@@ -83,6 +83,12 @@ import { navLinks } from '@/data/navigation';
   let focusableElements: HTMLElement[] = [];
   let firstFocusableElement: HTMLElement | null = null;
   let lastFocusableElement: HTMLElement | null = null;
+  let scrollPosition = 0;
+
+  // Prevent touch scroll on body when menu is open
+  function preventScroll(e: TouchEvent) {
+    e.preventDefault();
+  }
 
   function openMenu() {
     menu?.classList.remove('hidden');
@@ -90,8 +96,15 @@ import { navLinks } from '@/data/navigation';
     btn?.classList.add('hidden');
     close?.classList.remove('hidden');
 
-    // Lock body scroll
+    // Lock body scroll - save position and apply fixed positioning
+    scrollPosition = window.scrollY;
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+
+    // Prevent touch scrolling on mobile
+    document.addEventListener('touchmove', preventScroll, { passive: false });
 
     // Setup focus trap - include close button and menu items
     const menuLinks = Array.from(menu?.querySelectorAll<HTMLElement>('a[href]') || []);
@@ -109,8 +122,15 @@ import { navLinks } from '@/data/navigation';
     btn?.classList.remove('hidden');
     close?.classList.add('hidden');
 
-    // Unlock body scroll
+    // Unlock body scroll - restore position
     document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+
+    // Remove touch scroll prevention
+    document.removeEventListener('touchmove', preventScroll);
 
     // Return focus to menu button
     btn?.focus();

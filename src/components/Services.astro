@@ -203,13 +203,13 @@ const services = [
     stroke-dasharray: 1400;
     stroke-dashoffset: 1400;
     animation: loop-stroke-flow 2s ease-out forwards;
-    animation-delay: 1.5s;
+    animation-delay: 0.5s;
   }
 
   .loop-arrow-head {
     opacity: 0;
     animation: arrow-appear 0.3s ease-out forwards;
-    animation-delay: 3.5s;
+    animation-delay: 2.5s;
   }
 
   .services-container {
@@ -236,15 +236,12 @@ const services = [
   }
 
   .loop-arrow-wrapper {
-    top: 35px;
-    left: -20px;
-    transform: scaleX(1.15) scaleY(1.65);
-    transform-origin: center;
-    overflow: visible;
+    display: none;
   }
 
   @media (min-width: 640px) {
     .loop-arrow-wrapper {
+      display: block;
       top: 40px;
       transform: scaleX(1.06) scaleY(1.15);
     }
