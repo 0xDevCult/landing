@@ -1,5 +1,4 @@
 ---
-import Logo from '@/components/Logo.astro';
 import { navLinks } from '@/data/navigation';
 ---
 
@@ -14,7 +13,10 @@ import { navLinks } from '@/data/navigation';
     Skip to main content
   </a>
   <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <Logo size="medium" loading="eager" />
+    <!-- Large OG Image Logo -->
+    <a href="/" class="relative z-[61] logo-container">
+      <img src="/og-image.png" alt="DevCult Logo" class="logo-image" loading="eager" />
+    </a>
 
     <nav class="hidden md:flex items-center gap-6">
       {
@@ -24,9 +26,6 @@ import { navLinks } from '@/data/navigation';
           </a>
         ))
       }
-      <a href="/contact" class="text-text-secondary hover:text-accent transition-colors">
-        Contact
-      </a>
     </nav>
 
     <!-- Mobile menu toggle buttons -->
@@ -74,7 +73,6 @@ import { navLinks } from '@/data/navigation';
         </a>
       ))
     }
-    <a href="/contact" class="text-2xl"> Contact </a>
   </nav>
 </div>
 
@@ -87,6 +85,12 @@ import { navLinks } from '@/data/navigation';
   let focusableElements: HTMLElement[] = [];
   let firstFocusableElement: HTMLElement | null = null;
   let lastFocusableElement: HTMLElement | null = null;
+  let scrollPosition = 0;
+
+  // Prevent touch scroll on body when menu is open
+  function preventScroll(e: TouchEvent) {
+    e.preventDefault();
+  }
 
   function openMenu() {
     menu?.classList.remove('hidden');
@@ -94,8 +98,15 @@ import { navLinks } from '@/data/navigation';
     btn?.classList.add('hidden');
     close?.classList.remove('hidden');
 
-    // Lock body scroll
+    // Lock body scroll - save position and apply fixed positioning
+    scrollPosition = window.scrollY;
     document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+
+    // Prevent touch scrolling on mobile
+    document.addEventListener('touchmove', preventScroll, { passive: false });
 
     // Setup focus trap - include close button and menu items
     const menuLinks = Array.from(menu?.querySelectorAll<HTMLElement>('a[href]') || []);
@@ -113,8 +124,15 @@ import { navLinks } from '@/data/navigation';
     btn?.classList.remove('hidden');
     close?.classList.add('hidden');
 
-    // Unlock body scroll
+    // Unlock body scroll - restore position
     document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+
+    // Remove touch scroll prevention
+    document.removeEventListener('touchmove', preventScroll);
 
     // Return focus to menu button
     btn?.focus();
@@ -154,3 +172,71 @@ import { navLinks } from '@/data/navigation';
   document.addEventListener('keydown', handleEscape);
   document.addEventListener('keydown', handleFocusTrap);
 </script>
+
+<style>
+  .logo-container {
+    display: block;
+    position: relative;
+  }
+
+  .logo-image {
+    /* Mobile: smaller, overlaps less */
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    transform: translateY(22px);
+    transition: transform 0.2s ease;
+  }
+
+  .logo-container:hover .logo-image {
+    transform: translateY(10px) scale(1.05);
+  }
+
+  /* Small screens (640px and up) */
+  @media (min-width: 640px) {
+    .logo-image {
+      width: 160px;
+      transform: translateY(43px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(29px) scale(1.05);
+    }
+  }
+
+  /* Medium screens (768px and up) */
+  @media (min-width: 768px) {
+    .logo-image {
+      width: 200px;
+      transform: translateY(64px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(45px) scale(1.05);
+    }
+  }
+
+  /* Large screens (1024px and up) */
+  @media (min-width: 1024px) {
+    .logo-image {
+      width: 240px;
+      transform: translateY(84px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(60px) scale(1.05);
+    }
+  }
+
+  /* Extra large screens (1280px and up) */
+  @media (min-width: 1280px) {
+    .logo-image {
+      width: 280px;
+      transform: translateY(105px);
+    }
+
+    .logo-container:hover .logo-image {
+      transform: translateY(70px) scale(1.05);
+    }
+  }
+</style>

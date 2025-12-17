@@ -1,14 +1,18 @@
 ---
-import Logo from '@/components/Logo.astro';
 import { footerLinks, socialLinks } from '@/data/navigation';
 ---
 
 <footer class="border-t border-border-primary bg-bg-secondary">
   <div class="mx-auto max-w-7xl px-6 py-12">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-      <div id="footer-logo">
-        <Logo size="small" loading="lazy" href="#" />
-      </div>
+      <a
+        id="footer-logo"
+        href="#"
+        class="flex items-center gap-3 font-semibold font-coconat text-xl"
+      >
+        <img src="/monogram.webp" alt="DevCult Logo" class="footer-logo-image" loading="lazy" />
+        DevCult
+      </a>
 
       <nav class="flex flex-wrap gap-6">
         {
@@ -83,3 +87,17 @@ import { footerLinks, socialLinks } from '@/data/navigation';
   footerLogo?.addEventListener('click', scrollToTop);
   backToTopButton?.addEventListener('click', scrollToTop);
 </script>
+
+<style>
+  .footer-logo-image {
+    width: 32px;
+    height: auto;
+    object-fit: contain;
+    background: transparent;
+    transition: transform 0.2s ease;
+  }
+
+  #footer-logo:hover .footer-logo-image {
+    transform: scale(1.05);
+  }
+</style>

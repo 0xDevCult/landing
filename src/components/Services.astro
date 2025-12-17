@@ -203,13 +203,13 @@ const services = [
     stroke-dasharray: 1400;
     stroke-dashoffset: 1400;
     animation: loop-stroke-flow 2s ease-out forwards;
-    animation-delay: 1.5s;
+    animation-delay: 0.5s;
   }
 
   .loop-arrow-head {
     opacity: 0;
     animation: arrow-appear 0.3s ease-out forwards;
-    animation-delay: 3.5s;
+    animation-delay: 2.5s;
   }
 
   .services-container {
@@ -236,16 +236,17 @@ const services = [
   }
 
   .loop-arrow-wrapper {
-    top: 35px;
-    left: -20px;
-    transform: scaleX(1.15) scaleY(1.65);
+    display: none;
+    left: 0;
     transform-origin: center;
     overflow: visible;
   }
 
   @media (min-width: 640px) {
     .loop-arrow-wrapper {
+      display: block;
       top: 40px;
+      left: -20px;
       transform: scaleX(1.06) scaleY(1.15);
     }
   }
@@ -253,6 +254,7 @@ const services = [
   @media (min-width: 768px) {
     .loop-arrow-wrapper {
       top: 40px;
+      left: -10px;
       transform: scaleX(1.22) scaleY(1.07);
     }
   }
@@ -260,6 +262,7 @@ const services = [
   @media (min-width: 1024px) {
     .loop-arrow-wrapper {
       top: 30px;
+      left: 0;
       transform: scale(1.05);
     }
   }
