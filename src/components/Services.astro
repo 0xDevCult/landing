@@ -237,12 +237,16 @@ const services = [
 
   .loop-arrow-wrapper {
     display: none;
+    left: 0;
+    transform-origin: center;
+    overflow: visible;
   }
 
   @media (min-width: 640px) {
     .loop-arrow-wrapper {
       display: block;
       top: 40px;
+      left: -20px;
       transform: scaleX(1.06) scaleY(1.15);
     }
   }
@@ -250,6 +254,7 @@ const services = [
   @media (min-width: 768px) {
     .loop-arrow-wrapper {
       top: 40px;
+      left: -10px;
       transform: scaleX(1.22) scaleY(1.07);
     }
   }
@@ -257,6 +262,7 @@ const services = [
   @media (min-width: 1024px) {
     .loop-arrow-wrapper {
       top: 30px;
+      left: 0;
       transform: scale(1.05);
     }
   }

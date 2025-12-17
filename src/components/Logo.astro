@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import monogram from '@/assets/images/devcult_monogram_on_transp.png';
+import favicon from '@/../public/favicon.png';
 
 interface Props {
   size?: 'small' | 'medium' | 'large';
@@ -21,9 +21,9 @@ const config = sizes[size];
 
 <a href={href} class={`font-semibold flex items-center gap-3 font-coconat ${config.text}`}>
   <Image
-    src={monogram}
+    src={favicon}
     alt="DevCult Logo"
-    class={config.image}
+    class={`${config.image} logo-img`}
     width={config.width}
     height={config.height}
     loading={loading}
@@ -31,3 +31,10 @@ const config = sizes[size];
   />
   DevCult
 </a>
+
+<style>
+  .logo-img {
+    object-fit: contain;
+    background: transparent;
+  }
+</style>
