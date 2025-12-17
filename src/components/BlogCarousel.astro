@@ -71,9 +71,9 @@ try {
 }
 ---
 
-<section class="py-24 bg-[var(--color-bg-secondary)]">
+<section class="py-24 bg-bg-secondary">
   <div class="mx-auto max-w-7xl px-6">
-    <h2 data-animate class="text-3xl md:text-4xl font-bold font-[var(--font-coconat)] text-center">
+    <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat text-center">
       Latest from the Blog
     </h2>
 
@@ -86,36 +86,30 @@ try {
                 href={post.url}
                 data-animate
                 data-delay={100 + i * 100}
-                class="p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group"
+                class="p-6 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all group"
               >
-                <p class="text-xs text-[var(--color-text-primary)]">
+                <p class="text-xs text-text-primary">
                   {new Date(post.pubDate).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
                     year: 'numeric',
                   })}
                 </p>
-                <h3 class="mt-2 text-lg font-semibold font-[var(--font-coconat)] line-clamp-2 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent)] transition-colors">
+                <h3 class="mt-2 text-lg font-semibold font-coconat line-clamp-2 text-text-primary group-hover:text-accent transition-colors">
                   {post.title}
                 </h3>
-                <p class="mt-2 text-sm line-clamp-2 text-[var(--color-text-primary)]">
-                  {post.excerpt}
-                </p>
-                <span class="mt-4 inline-block text-sm text-[var(--color-accent)]">
-                  Read article →
-                </span>
+                <p class="mt-2 text-sm line-clamp-2 text-text-primary">{post.excerpt}</p>
+                <span class="mt-4 inline-block text-sm text-accent">Read article →</span>
               </a>
             ))}
           </div>
         </div>
       ) : (
         <div data-animate class="mt-12 text-center">
-          <p class="text-[var(--color-text-secondary)]">
-            Check out our latest articles on the blog.
-          </p>
+          <p class="text-text-secondary">Check out our latest articles on the blog.</p>
           <a
             href="https://blog.devcult.io"
-            class="mt-4 inline-block text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]"
+            class="mt-4 inline-block text-accent hover:text-accent-hover"
           >
             Visit blog.devcult.io →
           </a>

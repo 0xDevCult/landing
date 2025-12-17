@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { sanitizeInput, validateForm } from '../utils/validation';
+import { sanitizeInput, validateForm } from '@/utils/validation';
 
 describe('sanitizeInput', () => {
   it('should remove HTML tags', () => {

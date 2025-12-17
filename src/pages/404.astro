@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 
 const devJokes = [
   'Why do programmers prefer dark mode? Because light attracts bugs!',
@@ -40,27 +40,21 @@ const serverJoke = devJokes[randomIndex];
   <main id="main-content" class="flex-1 flex items-center justify-center py-24 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <div data-animate class="mb-8">
-        <h1 class="text-9xl font-bold font-[var(--font-coconat)] text-[var(--color-accent)]">
-          404
-        </h1>
-        <div
-          class="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)]"
-        >
-        </div>
+        <h1 class="text-9xl font-bold font-coconat text-accent">404</h1>
+        <div class="mt-4 h-1 w-24 mx-auto bg-gradient-to-r from-accent to-accent-hover"></div>
       </div>
 
       <h2
         data-animate
         data-delay="100"
-        class="text-3xl md:text-4xl font-semibold font-[var(--font-coconat)] mb-4"
+        class="text-3xl md:text-4xl font-semibold font-coconat mb-4"
       >
         Page Not Found
       </h2>
 
-      <p data-animate data-delay="200" class="text-lg text-[var(--color-text-secondary)] mb-8">
+      <p data-animate data-delay="200" class="text-lg text-text-secondary mb-8">
         Looks like this page took a detour to <code
-          class="text-[var(--color-accent)] bg-[--color-brand-alpha-5] px-2 py-1 rounded"
-          >/dev/null</code
+          class="text-accent bg-brand-alpha-5 px-2 py-1 rounded">/dev/null</code
         >
       </p>
 
@@ -68,15 +62,15 @@ const serverJoke = devJokes[randomIndex];
       <div
         data-animate
         data-delay="300"
-        class="mb-12 p-6 rounded-xl bg-[--color-brand-alpha-5] border-l-4 border-l-[var(--color-brand-500)] border-t border-t-[var(--color-brand-500)] border-r border-r-[var(--color-brand-500)] border-b border-b-[var(--color-brand-500)] hover:border-l-[var(--color-brand-400)] transition-all group"
+        class="mb-12 p-6 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all group"
       >
-        <p class="text-sm text-[var(--color-accent)] mb-2 font-semibold">WHILE YOU'RE HERE...</p>
-        <p id="joke-text" class="text-base text-[var(--color-text-primary)] italic">
+        <p class="text-sm text-accent mb-2 font-semibold">WHILE YOU'RE HERE...</p>
+        <p id="joke-text" class="text-base text-text-primary italic">
           {serverJoke}
         </p>
         <button
           id="new-joke-btn"
-          class="mt-4 text-sm text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors underline"
+          class="mt-4 text-sm text-accent hover:text-accent-hover transition-colors underline"
         >
           Tell me another one →
         </button>
@@ -85,35 +79,27 @@ const serverJoke = devJokes[randomIndex];
       <div data-animate data-delay="400" class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/"
-          class="px-6 py-3 rounded-xl bg-[var(--color-accent)] font-semibold hover:bg-[var(--color-accent-hover)] transition-all"
+          class="px-6 py-3 rounded-xl bg-accent font-semibold hover:bg-accent-hover transition-all"
           style="color: black;"
         >
           Go Home
         </a>
         <a
           href="/contact"
-          class="px-6 py-3 rounded-xl border border-[var(--color-accent)] text-[var(--color-accent)] font-semibold hover:bg-[--color-brand-alpha-5] transition-all"
+          class="px-6 py-3 rounded-xl border border-accent text-accent font-semibold hover:bg-brand-alpha-5 transition-all"
         >
           Contact Us
         </a>
       </div>
 
       <div data-animate data-delay="500" class="mt-12">
-        <p class="text-sm text-[var(--color-text-tertiary)]">Lost? Try these popular pages:</p>
+        <p class="text-sm text-text-tertiary">Lost? Try these popular pages:</p>
         <div class="mt-4 flex flex-wrap justify-center gap-4 text-sm">
-          <a
-            href="/#services"
-            class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">Services</a
-          >
-          <span class="text-[var(--color-text-tertiary)]">•</span>
-          <a
-            href="https://blog.devcult.io"
-            class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">Blog</a
-          >
-          <span class="text-[var(--color-text-tertiary)]">•</span>
-          <a href="/about" class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]"
-            >About</a
-          >
+          <a href="/#services" class="text-accent hover:text-accent-hover">Services</a>
+          <span class="text-text-tertiary">•</span>
+          <a href="https://blog.devcult.io" class="text-accent hover:text-accent-hover">Blog</a>
+          <span class="text-text-tertiary">•</span>
+          <a href="/about" class="text-accent hover:text-accent-hover">About</a>
         </div>
       </div>
     </div>
