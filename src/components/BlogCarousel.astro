@@ -98,21 +98,15 @@ try {
                 <h3 class="mt-2 text-lg font-semibold font-coconat line-clamp-2 text-text-primary group-hover:text-accent transition-colors">
                   {post.title}
                 </h3>
-                <p class="mt-2 text-sm line-clamp-2 text-text-primary">
-                  {post.excerpt}
-                </p>
-                <span class="mt-4 inline-block text-sm text-accent">
-                  Read article →
-                </span>
+                <p class="mt-2 text-sm line-clamp-2 text-text-primary">{post.excerpt}</p>
+                <span class="mt-4 inline-block text-sm text-accent">Read article →</span>
               </a>
             ))}
           </div>
         </div>
       ) : (
         <div data-animate class="mt-12 text-center">
-          <p class="text-text-secondary">
-            Check out our latest articles on the blog.
-          </p>
+          <p class="text-text-secondary">Check out our latest articles on the blog.</p>
           <a
             href="https://blog.devcult.io"
             class="mt-4 inline-block text-accent hover:text-accent-hover"

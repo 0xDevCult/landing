@@ -19,18 +19,12 @@ import { navLinks } from '@/data/navigation';
     <nav class="hidden md:flex items-center gap-6">
       {
         navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="text-text-secondary hover:text-accent transition-colors"
-          >
+          <a href={link.href} class="text-text-secondary hover:text-accent transition-colors">
             {link.label}
           </a>
         ))
       }
-      <a
-        href="/contact"
-        class="text-text-secondary hover:text-accent transition-colors"
-      >
+      <a href="/contact" class="text-text-secondary hover:text-accent transition-colors">
         Contact
       </a>
     </nav>
