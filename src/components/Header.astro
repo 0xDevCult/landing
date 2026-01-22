@@ -216,8 +216,12 @@ import { navLinks } from '@/data/navigation';
     }
   }
 
-  /* Large screens (1024px and up) */
+  /* Large screens (1024px and up) - shift logo left */
   @media (min-width: 1024px) {
+    .logo-container {
+      margin-left: -16px;
+    }
+
     .logo-image {
       width: 240px;
       transform: translateY(84px);
@@ -228,8 +232,12 @@ import { navLinks } from '@/data/navigation';
     }
   }
 
-  /* Extra large screens (1280px and up) */
+  /* Extra large screens (1280px and up) - shift logo further left */
   @media (min-width: 1280px) {
+    .logo-container {
+      margin-left: -24px;
+    }
+
     .logo-image {
       width: 280px;
       transform: translateY(105px);
@@ -237,6 +245,13 @@ import { navLinks } from '@/data/navigation';
 
     .logo-container:hover .logo-image {
       transform: translateY(70px) scale(1.05);
+    }
+  }
+
+  /* 2xl screens (1536px and up) - shift logo a bit more */
+  @media (min-width: 1536px) {
+    .logo-container {
+      margin-left: -40px;
     }
   }
 </style>
