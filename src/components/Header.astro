@@ -1,7 +1,5 @@
 ---
 import { navLinks } from '@/data/navigation';
-import { Image } from 'astro:assets';
-import ogImage from '@/assets/images/og-image.png';
 ---
 
 <header
@@ -17,7 +15,7 @@ import ogImage from '@/assets/images/og-image.png';
   <div class="mx-auto max-w-7xl h-16 md:h-20 px-6 flex items-center justify-between">
     <!-- Logo with monogram -->
     <a href="/" class="flex items-center gap-3 group">
-      <Image src={ogImage} alt="DevCult" class="header-logo-image" loading="eager" />
+      <img src="/monogram.webp" alt="DevCult" class="header-logo-image" loading="eager" />
       <span class="font-semibold font-coconat text-xl"> DevCult </span>
     </a>
 
