@@ -34,6 +34,31 @@
   font-display: swap;
 }
 
+/* Urbanist - Body Font */
+@font-face {
+  font-family: 'Urbanist';
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDyx8fFpOrS8SlKw.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqD-R8fFpOrS8SlKw.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbanist';
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDFRgfFpOrS8SlKw.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================================
    2. TAILWIND THEME - DARK MODE
    ============================================ */
@@ -51,11 +76,11 @@
   --color-brand-alpha-10: rgba(255, 106, 0, 0.1);
 
   /* Backgrounds - Dark */
-  --color-bg-primary: #000000;
-  --color-bg-secondary: #171717;
-  --color-bg-tertiary: #1f1f1f;
-  --color-bg-card: #171717;
-  --color-bg-nav: rgba(0, 0, 0, 0.95);
+  --color-bg-primary: #171717;
+  --color-bg-secondary: #1f1f1f;
+  --color-bg-tertiary: #262626;
+  --color-bg-card: #1f1f1f;
+  --color-bg-nav: rgba(23, 23, 23, 0.95);
   --color-bg-inline-code: rgba(255, 106, 0, 0.1);
 
   /* Text - Dark */
@@ -88,7 +113,7 @@
 
   /* Fonts */
   --font-coconat: 'Coconat', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --font-body: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-body: 'Urbanist', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, 'JetBrains Mono', monospace;
 
   /* Border Radius */

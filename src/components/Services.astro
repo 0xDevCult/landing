@@ -4,16 +4,19 @@ const services = [
     title: 'Documentation',
     description:
       'Technical documentation that developers actually read. From API references to integration guides, we create content that reduces support tickets and speeds up adoption.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>`,
   },
   {
     title: 'Events',
     description:
       'Developer conferences, workshops, and community building. We organize technical events that bring developers together and drive ecosystem growth.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>`,
   },
   {
     title: 'Developer Outreach',
     description:
       'Strategic developer relations and ecosystem growth. We help projects build thriving developer communities through advocacy, education, and direct engagement.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46" /></svg>`,
   },
 ];
 ---
@@ -34,12 +37,17 @@ const services = [
             <div
               data-animate
               data-delay={150 + i * 100}
-              class="p-6 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all group relative z-10"
+              class="service-card p-6 rounded-xl border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 transition-all group relative z-10"
             >
-              <h3 class="text-2xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors">
-                {service.title}
-              </h3>
-              <p class="mt-3 text-text-primary">{service.description}</p>
+              <div class="flex items-start gap-4">
+                <div class="service-icon text-accent flex-shrink-0" set:html={service.icon} />
+                <div>
+                  <h3 class="text-2xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors">
+                    {service.title}
+                  </h3>
+                  <p class="mt-3 text-text-secondary">{service.description}</p>
+                </div>
+              </div>
             </div>
 
             {i < services.length - 1 && (
@@ -120,6 +128,39 @@ const services = [
 </section>
 
 <style>
+  .service-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.08) 0%,
+      rgba(255, 106, 0, 0.02) 50%,
+      rgba(255, 106, 0, 0.05) 100%
+    );
+  }
+
+  .service-card:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.12) 0%,
+      rgba(255, 106, 0, 0.04) 50%,
+      rgba(255, 106, 0, 0.08) 100%
+    );
+    border-left-color: var(--color-brand-400);
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(255, 106, 0, 0.15);
+  }
+
+  .service-icon {
+    padding: 12px;
+    background: rgba(255, 106, 0, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover .service-icon {
+    background: rgba(255, 106, 0, 0.2);
+    transform: scale(1.05);
+  }
+
   @keyframes arrow-flow {
     0%,
     100% {

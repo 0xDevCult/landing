@@ -50,7 +50,7 @@ const clients = [
             href={client.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="h-16 w-40 flex items-center justify-center grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all"
+            class="client-logo h-16 w-40 flex items-center justify-center transition-all"
           >
             {client.type === 'image' ? (
               <Image
@@ -75,3 +75,20 @@ const clients = [
     </div>
   </div>
 </section>
+
+<style>
+  .client-logo {
+    opacity: 0.7;
+    filter: sepia(100%) saturate(300%) brightness(0.9) hue-rotate(-5deg);
+  }
+
+  .client-logo:hover {
+    opacity: 1;
+    filter: sepia(100%) saturate(400%) brightness(1.1) hue-rotate(-5deg);
+    transform: scale(1.05);
+  }
+
+  .client-logo img {
+    transition: all 0.3s ease;
+  }
+</style>

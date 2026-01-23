@@ -86,9 +86,9 @@ try {
                 href={post.url}
                 data-animate
                 data-delay={100 + i * 100}
-                class="p-6 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all group"
+                class="blog-card p-6 rounded-xl border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 transition-all group"
               >
-                <p class="text-xs text-text-primary">
+                <p class="text-xs font-medium text-accent">
                   {new Date(post.pubDate).toLocaleDateString('en-US', {
                     month: 'short',
                     day: 'numeric',
@@ -98,8 +98,13 @@ try {
                 <h3 class="mt-2 text-lg font-semibold font-coconat line-clamp-2 text-text-primary group-hover:text-accent transition-colors">
                   {post.title}
                 </h3>
-                <p class="mt-2 text-sm line-clamp-2 text-text-primary">{post.excerpt}</p>
-                <span class="mt-4 inline-block text-sm text-accent">Read article →</span>
+                <p class="mt-2 text-sm line-clamp-2 text-text-secondary">{post.excerpt}</p>
+                <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent group-hover:gap-2 transition-all">
+                  Read article
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
               </a>
             ))}
           </div>
@@ -118,3 +123,26 @@ try {
     }
   </div>
 </section>
+
+<style>
+  .blog-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.08) 0%,
+      rgba(255, 106, 0, 0.02) 50%,
+      rgba(255, 106, 0, 0.05) 100%
+    );
+  }
+
+  .blog-card:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.12) 0%,
+      rgba(255, 106, 0, 0.04) 50%,
+      rgba(255, 106, 0, 0.08) 100%
+    );
+    border-left-color: var(--color-brand-400);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 106, 0, 0.15);
+  }
+</style>
