@@ -14,12 +14,12 @@ import { footerLinks, socialLinks } from '@/data/navigation';
         DevCult
       </a>
 
-      <nav class="flex flex-wrap gap-6">
+      <nav class="flex flex-wrap gap-8">
         {
           footerLinks.map((link) => (
             <a
               href={link.href}
-              class="text-sm text-text-secondary hover:text-accent transition-colors"
+              class="text-sm text-text-secondary hover:text-accent transition-all hover:translate-y-[-1px]"
             >
               {link.label}
             </a>
@@ -27,14 +27,14 @@ import { footerLinks, socialLinks } from '@/data/navigation';
         }
       </nav>
 
-      <div class="flex gap-4">
+      <div class="flex gap-3">
         {
           socialLinks.map((link) => (
             <a
               href={link.href}
               target={link.href.startsWith('mailto') ? undefined : '_blank'}
               rel={link.href.startsWith('mailto') ? undefined : 'noopener'}
-              class="p-2 text-text-secondary hover:text-accent transition-colors"
+              class="social-icon p-2.5 rounded-lg text-text-secondary hover:text-accent hover:bg-brand-alpha-10 transition-all"
               aria-label={link.label}
             >
               <Fragment
@@ -99,5 +99,9 @@ import { footerLinks, socialLinks } from '@/data/navigation';
 
   #footer-logo:hover .footer-logo-image {
     transform: scale(1.05);
+  }
+
+  .social-icon:hover {
+    transform: translateY(-2px) scale(1.05);
   }
 </style>

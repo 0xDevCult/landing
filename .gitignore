@@ -30,3 +30,6 @@ pnpm-debug.log*
 # Test artifacts
 test-results/
 playwright-report/
+
+# Claude Code local settings
+.claude/settings.local.json

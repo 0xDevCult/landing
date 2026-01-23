@@ -3,7 +3,7 @@ import { navLinks } from '@/data/navigation';
 ---
 
 <header
-  class="w-full border-b border-border-primary sticky top-0 z-[60] bg-bg-primary backdrop-blur-sm"
+  class="w-full border-b border-border-primary sticky top-0 z-[60] bg-bg-primary/95 backdrop-blur-sm"
 >
   <!-- Skip to main content link for accessibility -->
   <a
@@ -12,10 +12,11 @@ import { navLinks } from '@/data/navigation';
   >
     Skip to main content
   </a>
-  <div class="mx-auto max-w-7xl h-20 px-6 flex items-center justify-between">
-    <!-- Large OG Image Logo -->
-    <a href="/" class="relative z-[61] logo-container">
-      <img src="/og-image.png" alt="DevCult Logo" class="logo-image" loading="eager" />
+  <div class="mx-auto max-w-7xl h-16 md:h-20 px-6 flex items-center justify-between">
+    <!-- Logo with monogram -->
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/monogram.webp" alt="DevCult" class="header-logo-image" loading="eager" />
+      <span class="font-semibold font-coconat text-xl"> DevCult </span>
     </a>
 
     <nav class="hidden md:flex items-center gap-6">
@@ -60,7 +61,7 @@ import { navLinks } from '@/data/navigation';
 <!-- Mobile menu -->
 <div
   id="mobile-menu"
-  class="hidden md:hidden fixed top-20 left-0 right-0 bottom-0 z-50 backdrop-blur-sm"
+  class="hidden md:hidden fixed top-16 left-0 right-0 bottom-0 z-50 bg-bg-primary/98 backdrop-blur-sm"
   role="dialog"
   aria-modal="true"
   aria-label="Mobile navigation"
@@ -68,7 +69,7 @@ import { navLinks } from '@/data/navigation';
   <nav class="flex flex-col items-center gap-8 pt-12">
     {
       navLinks.map((link) => (
-        <a href={link.href} class="text-2xl">
+        <a href={link.href} class="text-2xl hover:text-accent transition-colors">
           {link.label}
         </a>
       ))
@@ -174,69 +175,21 @@ import { navLinks } from '@/data/navigation';
 </script>
 
 <style>
-  .logo-container {
-    display: block;
-    position: relative;
-  }
-
-  .logo-image {
-    /* Mobile: smaller, overlaps less */
-    width: 120px;
+  .header-logo-image {
+    width: 32px;
     height: auto;
     object-fit: contain;
-    transform: translateY(22px);
+    background: transparent;
     transition: transform 0.2s ease;
   }
 
-  .logo-container:hover .logo-image {
-    transform: translateY(10px) scale(1.05);
+  .group:hover .header-logo-image {
+    transform: scale(1.1);
   }
 
-  /* Small screens (640px and up) */
-  @media (min-width: 640px) {
-    .logo-image {
-      width: 160px;
-      transform: translateY(43px);
-    }
-
-    .logo-container:hover .logo-image {
-      transform: translateY(29px) scale(1.05);
-    }
-  }
-
-  /* Medium screens (768px and up) */
   @media (min-width: 768px) {
-    .logo-image {
-      width: 200px;
-      transform: translateY(64px);
-    }
-
-    .logo-container:hover .logo-image {
-      transform: translateY(45px) scale(1.05);
-    }
-  }
-
-  /* Large screens (1024px and up) */
-  @media (min-width: 1024px) {
-    .logo-image {
-      width: 240px;
-      transform: translateY(84px);
-    }
-
-    .logo-container:hover .logo-image {
-      transform: translateY(60px) scale(1.05);
-    }
-  }
-
-  /* Extra large screens (1280px and up) */
-  @media (min-width: 1280px) {
-    .logo-image {
-      width: 280px;
-      transform: translateY(105px);
-    }
-
-    .logo-container:hover .logo-image {
-      transform: translateY(70px) scale(1.05);
+    .header-logo-image {
+      width: 40px;
     }
   }
 </style>
