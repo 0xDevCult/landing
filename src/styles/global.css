@@ -37,7 +37,8 @@
 /* Urbanist - Body Font */
 @font-face {
   font-family: 'Urbanist';
-  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDyx8fFpOrS8SlKw.woff2') format('woff2');
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDyx8fFpOrS8SlKw.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -45,7 +46,8 @@
 
 @font-face {
   font-family: 'Urbanist';
-  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqD-R8fFpOrS8SlKw.woff2') format('woff2');
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqD-R8fFpOrS8SlKw.woff2')
+    format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -53,7 +55,8 @@
 
 @font-face {
   font-family: 'Urbanist';
-  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDFRgfFpOrS8SlKw.woff2') format('woff2');
+  src: url('https://fonts.gstatic.com/s/urbanist/v15/L0xjDF02iFML4hGCyOCpRdycFsGxSrqDFRgfFpOrS8SlKw.woff2')
+    format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
