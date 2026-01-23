@@ -57,16 +57,16 @@ test.describe('Homepage', () => {
     expect(title).toContain('DevCult');
   });
 
-  test('should have contact section', async ({ page }) => {
+  test('should have CTA section', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    // Check for contact section
-    const contactSection = page.locator('#contact');
-    await expect(contactSection).toBeVisible();
+    // Check for CTA section
+    const ctaSection = page.locator('#cta');
+    await expect(ctaSection).toBeVisible();
 
-    // Verify contact heading
-    await expect(page.locator("text=Let's make your DevEx shine")).toBeVisible();
+    // Verify CTA heading
+    await expect(page.locator('text=Ready to elevate your developer experience?')).toBeVisible();
   });
 
   test('should navigate to clients section via anchor link', async ({ page }) => {
