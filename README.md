@@ -6,7 +6,7 @@ The official website for DevCult - a developer experience consultancy specializi
 
 DevCult helps blockchain projects build thriving developer ecosystems through:
 
-- Technical documentation that developers actually read
+- Documentation developers want to use
 - Developer events, workshops, and community building
 - Strategic developer outreach and relations
 

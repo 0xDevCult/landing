@@ -1,6 +1,104 @@
-# Allow all crawlers
+# ===========================================
+# DevCult robots.txt
+# ===========================================
+
+# Sitemap
+Sitemap: https://devcult.io/sitemap-index.xml
+
+# ===========================================
+# Default: Allow all well-behaved crawlers
+# ===========================================
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# Sitemap location
-Sitemap: https://devcult.io/sitemap-index.xml
+# ===========================================
+# AI Crawlers - Allowed with rate limiting
+# ===========================================
+
+# Anthropic
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: ClaudeBot
+Allow: /
+Crawl-delay: 2
+
+# OpenAI
+User-agent: GPTBot
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 2
+
+# Google AI
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 2
+
+# Apple AI
+User-agent: Applebot-Extended
+Allow: /
+Crawl-delay: 2
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 2
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+Crawl-delay: 2
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Crawl-delay: 2
+
+# Meta AI
+User-agent: FacebookBot
+User-agent: Meta-ExternalAgent
+Allow: /
+Crawl-delay: 3
+
+# Microsoft/Bing AI
+User-agent: bingbot
+Allow: /
+Crawl-delay: 2
+
+# You.com
+User-agent: YouBot
+Allow: /
+Crawl-delay: 2
+
+# Brave Search
+User-agent: BraveBot
+Allow: /
+Crawl-delay: 2
+
+# ===========================================
+# Block aggressive/unwanted crawlers
+# ===========================================
+
+# Bytespider (aggressive TikTok crawler)
+User-agent: Bytespider
+Disallow: /
+
+# Known aggressive scrapers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Generic catch for bad actors
+User-agent: serpstatbot
+Disallow: /
+
+User-agent: PetalBot
+Crawl-delay: 10
