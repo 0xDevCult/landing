@@ -3,245 +3,331 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import CtaSection from '@/components/CtaSection.astro';
+
+const team = [
+  {
+    name: 'Denis Pisarev',
+    role: 'Co-founder',
+    bio: 'MSc Networking Engineer and blockchain specialist who has been building in web3 since 2018. Has led multiple engineering teams, with focus on open source tooling and developer experience. With a background in UX/UI, QA, DevOps, and security, Denis brings systems thinking and a full-stack, user-centered mindset to everything from protocol engineering to developer relations.',
+  },
+  {
+    name: 'Boris Godlin',
+    role: 'Co-founder',
+    bio: 'Versatile DevRel Engineer and MSc in Software Engineering, brings 7 years of blockchain experience. He has worked on runtime development and blockchain data with teams like SubQuery and Soramitsu, speaker on many conferences and events. Has delivered over 50 technical workshops and hackathons on web3 topics, including data indexing and AI agent use cases.',
+  },
+  {
+    name: 'Daniel Artamendi',
+    role: 'Co-founder',
+    bio: "MSc computer scientist, security expert, event producer, and cultural agent with a keen focus on technology\'s intersections with art, society, and other fields. Boasting over 10 years in web3 — as Head of IT Security and Developer Advocate.",
+  },
+  {
+    name: 'Sacha Lansky',
+    role: 'Co-founder',
+    bio: 'Developer Relations Engineer. Contributed extensively to Polkadot SDK guides and documentation while diving deep into Rust and Substrate. A recognized ecosystem leader, Sacha frequently speaks, mentors at Polkadot conferences, hackathons, and events like Consensus, fostering web3 adoption. Authored courses, videos, guides and documentation, software and onboarded thousands of developers.',
+  },
+];
+
+const events = [
+  {
+    name: 'ETHBelgrade 2025',
+    stats: '25.6% track share • 21 submissions • 11 prizes',
+    note: 'Outperformed native Ethereum tracks with lower budget',
+  },
+  {
+    name: 'ETHRome 2025',
+    stats: '17.5% track share • 250+ attendees • 9 prizes',
+    note: 'Generated 7 post-hackathon leads for ecosystem incubation',
+  },
+];
 ---
 
 <BaseLayout
   title="About Us | DevCult"
-  description="DevCult is a developer experience consultancy specializing in blockchain and Web3 ecosystems. We build thriving developer communities through documentation, events, and strategic outreach."
+  description="DevCult is a DevEx consultancy for blockchain ecosystems. We run hackathons, fix onboarding, and build DevRel programs that produce measurable developer adoption."
 >
   <Header />
 
   <main id="main-content" class="py-24">
     <!-- Hero Section -->
     <section class="mx-auto max-w-4xl px-6">
-      <h1 data-animate class="text-4xl md:text-5xl font-bold font-coconat text-center">
-        We make developers
+      <h1 data-animate class="text-4xl md:text-5xl font-bold font-coconat">
+        We fix what turns developers
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-hover">
-          love your product
+          away from blockchains
         </span>
       </h1>
-      <p
-        data-animate
-        data-delay="100"
-        class="mt-6 text-lg text-center text-text-secondary max-w-2xl mx-auto"
-      >
-        DevCult is a developer experience consultancy specializing in blockchain and Web3
-        ecosystems. We transform complex technologies into accessible, developer-friendly
-        experiences.
+      <p data-animate data-delay="100" class="mt-6 text-lg text-text-secondary max-w-3xl">
+        Most blockchain ecosystems lose developers in the first 30 minutes. Broken tutorials.
+        Confusing architecture diagrams. Documentation written for people who already understand the
+        system. We've seen it everywhere. We fix it.
       </p>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mx-auto max-w-4xl px-6 mt-24">
+    <!-- Who We Are -->
+    <section class="mx-auto max-w-4xl px-6 mt-20">
       <div
         data-animate
-        class="p-8 md:p-12 rounded-xl bg-brand-alpha-5 border border-brand-500 border-l-4 hover:border-l-brand-400 transition-all group"
+        class="p-8 md:p-12 rounded-xl bg-brand-alpha-5 border border-brand-500 border-l-4"
       >
-        <h2
-          class="text-2xl md:text-3xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors mb-4"
-        >
-          Our Mission
+        <h2 class="text-2xl md:text-3xl font-semibold font-coconat text-text-primary mb-6">
+          Who We Are
         </h2>
         <p class="text-lg text-text-primary mb-4">
-          We believe that great technology deserves great developer experience. Our mission is to
-          bridge the gap between innovative blockchain protocols and the developers who build on
-          them.
+          DevCult started because we kept watching the same pattern: brilliant protocol teams
+          shipping incredible technology, then wondering why developers weren't showing up.
+        </p>
+        <p class="text-lg text-text-primary mb-4">
+          The answer was almost never the tech. It was the experience around it. Onboarding that
+          assumed too much. Events that generated swag photos but not commits. Documentation that
+          explained everything except how to make it work.
         </p>
         <p class="text-lg text-text-primary">
-          Through crystal-clear documentation, engaging events, and strategic developer outreach, we
-          help Web3 projects build thriving ecosystems where developers can focus on building
-          instead of struggling with tooling and docs.
+          We're a small team that's been inside these problems — at world-class hackathons. Now we
+          help ecosystems build the developer experience that fits their technology.
         </p>
       </div>
     </section>
 
-    <!-- What We Do -->
+    <!-- Team -->
     <section class="mx-auto max-w-4xl px-6 mt-24">
-      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat text-center mb-12">
-        What We Do
-      </h2>
+      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-12">The Team</h2>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <div
-          data-animate
-          data-delay="100"
-          class="service-card p-6 rounded-xl border border-brand-500 border-l-4 transition-all group"
-        >
-          <div class="service-icon text-accent mb-4 w-fit">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          team.map((member, i) => (
+            <div
+              data-animate
+              data-delay={100 + i * 50}
+              class="p-6 rounded-xl border border-brand-500/30 bg-brand-500/5"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
-              ></path>
-            </svg>
-          </div>
-          <h3
-            class="text-2xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors mb-3"
-          >
-            Documentation
+              <h3 class="text-xl font-semibold font-coconat text-text-primary">{member.name}</h3>
+              <p class="text-sm text-accent mt-1">{member.role}</p>
+              <p class="text-text-secondary mt-3">{member.bio}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Services Detail -->
+    <section class="mx-auto max-w-4xl px-6 mt-24">
+      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-4">What We Do</h2>
+      <p data-animate data-delay="50" class="text-text-secondary mb-12">
+        Developer experience is a system, not a checklist. Here's how we approach it.
+      </p>
+
+      <div class="space-y-16">
+        <!-- Developer Onboarding Optimization -->
+        <div data-animate data-delay="100" id="onboarding" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">
+            Developer Onboarding Optimization
           </h3>
+          <p class="text-text-primary mb-4">
+            <strong>The first 30 minutes decide everything.</strong> When a developer lands on your docs,
+            they're asking one question: "Can I ship something with this?" Most onboarding flows fail
+            because they explain architecture before demonstrating the fun stuff.
+          </p>
+          <p class="text-text-secondary mb-4">
+            We audit your entire developer journey — from landing page to first successful API call
+            — and fix the friction points that kill adoption. Time-to-Hello-World analysis. Error
+            message digging. Cognitive load reduction. Environment setup elimination.
+          </p>
           <p class="text-text-secondary">
-            Technical writing that developers actually read. We create API references, tutorials,
-            and guides that reduce support tickets and accelerate adoption.
+            We cut onboarding time from hours to minutes for blockchain projects where "run this
+            setup steps" was considered acceptable.
           </p>
         </div>
 
-        <div
-          data-animate
-          data-delay="200"
-          class="service-card p-6 rounded-xl border border-brand-500 border-l-4 transition-all group"
-        >
-          <div class="service-icon text-accent mb-4 w-fit">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"
-              ></path>
-            </svg>
-          </div>
-          <h3
-            class="text-2xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors mb-3"
-          >
-            Developer Events
+        <!-- Technical Documentation Audits -->
+        <div data-animate data-delay="100" id="documentation" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">
+            Technical Documentation Audits
           </h3>
+          <p class="text-text-primary mb-4">
+            <strong>Your docs are lying to your developers.</strong> Not intentionally. But that tutorial
+            from 18 months ago? The API reference that's three versions behind? They're actively driving
+            developers away.
+          </p>
+          <p class="text-text-secondary mb-4">
+            We run systematic audits that surface accuracy decay, discovery failures,
+            maintainability gaps, and AI-readability issues. Because AI agents read your docs before
+            developers do — and most docs fail both audiences.
+          </p>
           <p class="text-text-secondary">
-            Conferences, workshops, and hackathons that bring developers together. We handle
-            everything from planning to execution to post-event follow-up.
+            The deliverable isn't a PDF you'll ignore. It's a prioritized fix list with estimated
+            impact.
           </p>
         </div>
 
-        <div
-          data-animate
-          data-delay="300"
-          class="service-card p-6 rounded-xl border border-brand-500 border-l-4 transition-all group"
-        >
-          <div class="service-icon text-accent mb-4 w-fit">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46"
-              ></path>
-            </svg>
+        <!-- Hackathon Operations -->
+        <div data-animate data-delay="100" id="hackathons" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">Hackathon Operations</h3>
+          <p class="text-text-primary mb-4">
+            <strong>Our signature battle-tested hackathon model.</strong> We've run presence at ETHBelgrade,
+            ETHRome, ETHLisbon, TUM Blockchain, and global online hackathons. Not as sponsors who show
+            up with swag. As a coordinated team of operators who drive measurable developer adoption.
+          </p>
+          <div class="text-text-secondary mb-4">
+            <p class="mb-2">Our hackathon model:</p>
+            <ul class="list-disc list-inside space-y-1 ml-2">
+              <li>Pre-event developer activation — workshops, meetups, content</li>
+              <li>On-site technical support — engineers who debug your stack at 2am</li>
+              <li>
+                Project Clinic workshops — helping hackers strengthen product, UX, and target
+                audience
+              </li>
+              <li>
+                Real-time feedback loops — we surface onboarding and tooling issues while the event
+                runs
+              </li>
+              <li>
+                Post-event reporting — actual metrics: submissions, completion rates, sentiment,
+                conversion
+              </li>
+            </ul>
           </div>
-          <h3
-            class="text-2xl font-semibold font-coconat text-text-primary group-hover:text-accent transition-colors mb-3"
-          >
-            Developer Outreach
-          </h3>
           <p class="text-text-secondary">
-            Strategic DevRel and ecosystem growth. We build authentic relationships with developer
-            communities and turn users into advocates.
+            At ETHBelgrade, we captured <strong>25.6% market share</strong> against native Ethereum tracks.
+            That doesn't happen with a booth and some stickers.
+          </p>
+        </div>
+
+        <!-- Post-Hackathon Support -->
+        <div data-animate data-delay="100" id="incubation" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">
+            Post-Hackathon Support & Team Incubation
+          </h3>
+          <p class="text-text-primary mb-4">
+            <strong>Hackathons produce prototypes. We help them become products.</strong> The dirty secret
+            of hackathons: >90% of projects end right there. Not because the ideas were bad, but because
+            nobody helped the teams navigate what comes next.
+          </p>
+          <p class="text-text-secondary mb-4">
+            We provide structured post-hackathon support: technical viability assessment,
+            architecture guidance, ecosystem integration, and grant/funding preparation. For
+            ecosystems running hackathons, this is how you convert one-time participants into
+            long-term builders.
+          </p>
+          <p class="text-text-secondary">
+            One ETHBelgrade participant was selected for Polkadot Blockchain Academy in Bali and
+            started an interview process at Parity. That's the pipeline.
+          </p>
+        </div>
+
+        <!-- Ecosystem DevRel Strategy -->
+        <div data-animate data-delay="100" id="devrel-strategy" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">
+            Ecosystem DevRel Strategy
+          </h3>
+          <p class="text-text-primary mb-4">
+            <strong>Beyond content calendars.</strong> Most DevRel programs measure activity instead of
+            outcomes. Posts published. Events attended. Followers gained. None of that tells you if developers
+            are actually building.
+          </p>
+          <p class="text-text-secondary mb-4">
+            We build DevRel programs with measurable outcomes — developer activation, retention
+            metrics, and community health indicators. We map and foster existing initiatives,
+            establish coordination across teams, and create governance mechanisms.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Our Approach -->
+    <!-- Event Portfolio -->
     <section class="mx-auto max-w-4xl px-6 mt-24">
-      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat text-center mb-12">
-        Our Approach
+      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-4">Proof of Work</h2>
+      <p data-animate data-delay="50" class="text-text-secondary mb-12">
+        Results are everything. Here's what we've shipped.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          events.map((event, i) => (
+            <div
+              data-animate
+              data-delay={100 + i * 50}
+              class="p-6 rounded-xl border border-brand-500/30 bg-brand-500/5 hover:bg-brand-500/10 transition-all"
+            >
+              <h3 class="text-xl font-semibold font-coconat text-text-primary">{event.name}</h3>
+              <p class="text-accent text-sm mt-2 font-medium">{event.stats}</p>
+              <p class="text-text-secondary mt-3 text-sm">{event.note}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div
+        data-animate
+        data-delay="300"
+        class="mt-8 p-6 rounded-xl bg-brand-500/5 border-l-4 border-accent"
+      >
+        <p class="text-text-secondary italic">
+          "On-site developer support received unanimous praise."
+        </p>
+        <p class="text-text-secondary text-sm mt-2">— ETHRome 2025 hacker feedback</p>
+      </div>
+    </section>
+
+    <!-- How It Fits Together -->
+    <section class="mx-auto max-w-4xl px-6 mt-24">
+      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-8">
+        How These Fit Together
       </h2>
 
-      <div class="space-y-8">
-        <div data-animate data-delay="100" class="flex gap-6">
+      <div class="space-y-6">
+        <div data-animate data-delay="100" class="flex gap-4">
           <div
-            class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-black flex items-center justify-center font-bold"
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-sm"
           >
             1
           </div>
           <div>
-            <h3 class="text-xl font-semibold font-coconat mb-2">Developer-First Thinking</h3>
-            <p class="text-text-secondary">
-              We're developers who build for developers. We understand the pain points, the
-              workflows, and what makes documentation actually useful.
-            </p>
+            <h3 class="text-lg font-semibold font-coconat">Audit</h3>
+            <p class="text-text-secondary">Find what's broken in your developer journey</p>
           </div>
         </div>
 
-        <div data-animate data-delay="200" class="flex gap-6">
+        <div data-animate data-delay="150" class="flex gap-4">
           <div
-            class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-black flex items-center justify-center font-bold"
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-sm"
           >
             2
           </div>
           <div>
-            <h3 class="text-xl font-semibold font-coconat mb-2">Deep Technical Expertise</h3>
-            <p class="text-text-secondary">
-              We don't just write about technology—we understand it. Our team has hands-on
-              experience with blockchain protocols, smart contracts, and decentralized systems.
-            </p>
+            <h3 class="text-lg font-semibold font-coconat">Optimize Onboarding</h3>
+            <p class="text-text-secondary">Fix the critical path from landing to first commit</p>
           </div>
         </div>
 
-        <div data-animate data-delay="300" class="flex gap-6">
+        <div data-animate data-delay="200" class="flex gap-4">
           <div
-            class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-black flex items-center justify-center font-bold"
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-sm"
           >
             3
           </div>
           <div>
-            <h3 class="text-xl font-semibold font-coconat mb-2">Community-Driven</h3>
-            <p class="text-text-secondary">
-              Great developer ecosystems are built on community. We foster authentic connections,
-              encourage collaboration, and celebrate developer success.
-            </p>
+            <h3 class="text-lg font-semibold font-coconat">Validate at Hackathons</h3>
+            <p class="text-text-secondary">Test with real developers under pressure</p>
           </div>
         </div>
 
-        <div data-animate data-delay="400" class="flex gap-6">
+        <div data-animate data-delay="250" class="flex gap-4">
           <div
-            class="flex-shrink-0 w-12 h-12 rounded-full bg-accent text-black flex items-center justify-center font-bold"
+            class="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-sm"
           >
             4
           </div>
           <div>
-            <h3 class="text-xl font-semibold font-coconat mb-2">Continuous Improvement</h3>
-            <p class="text-text-secondary">
-              Developer experience is never "done." We iterate based on feedback, analytics, and
-              changing developer needs to keep your ecosystem thriving.
-            </p>
+            <h3 class="text-lg font-semibold font-coconat">Support Winning Teams</h3>
+            <p class="text-text-secondary">Convert participants into ecosystem contributors</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Trusted By (reference to clients) -->
-    <section class="mx-auto max-w-4xl px-6 mt-24">
-      <div data-animate class="text-center">
-        <h2 class="text-2xl md:text-3xl font-bold font-coconat mb-6">
-          Trusted by Leading web3 Projects
-        </h2>
-        <p class="text-text-secondary mb-8">
-          We're proud to work with innovative projects in the broad web3.
-        </p>
-        <a
-          href="/#clients"
-          class="inline-block px-6 py-3 rounded-xl border border-accent text-accent font-semibold hover:bg-brand-alpha-5 transition-all"
-        >
-          View Our Clients
-        </a>
-      </div>
+      <p data-animate data-delay="300" class="mt-8 text-text-secondary">
+        We can work on isolated projects, but the compounding effect comes from treating DevEx as
+        infrastructure, not marketing.
+      </p>
     </section>
 
     <CtaSection />
@@ -249,38 +335,3 @@ import CtaSection from '@/components/CtaSection.astro';
 
   <Footer />
 </BaseLayout>
-
-<style>
-  .service-card {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 106, 0, 0.08) 0%,
-      rgba(255, 106, 0, 0.02) 50%,
-      rgba(255, 106, 0, 0.05) 100%
-    );
-  }
-
-  .service-card:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(255, 106, 0, 0.12) 0%,
-      rgba(255, 106, 0, 0.04) 50%,
-      rgba(255, 106, 0, 0.08) 100%
-    );
-    border-left-color: var(--color-brand-400);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(255, 106, 0, 0.15);
-  }
-
-  .service-icon {
-    padding: 12px;
-    background: rgba(255, 106, 0, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-  }
-
-  .service-card:hover .service-icon {
-    background: rgba(255, 106, 0, 0.2);
-    transform: scale(1.05);
-  }
-</style>
