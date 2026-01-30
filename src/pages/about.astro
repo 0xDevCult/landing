@@ -27,16 +27,32 @@ const team = [
   },
 ];
 
-const events = [
+const caseStudies = [
   {
     name: 'ETHBelgrade 2025',
-    stats: '25.6% track share • 21 submissions • 11 prizes',
-    note: 'Outperformed native Ethereum tracks with lower budget',
+    type: 'Hackathon Operations',
+    stats: [
+      '25.6% of all submissions (21 of 82)',
+      '11 prizes awarded, 2 honorary mentions',
+      '2 of 5 main track winners',
+      '133 new community members',
+    ],
+    outcome:
+      'Outperformed native Ethereum tracks with lower budget. One participant selected for Polkadot Blockchain Academy Bali.',
+    link: 'https://forum.polkadot.network/t/ethbelgrade-2025-polkadot-goes-balkan/13934',
   },
   {
     name: 'ETHRome 2025',
-    stats: '17.5% track share • 250+ attendees • 9 prizes',
-    note: 'Generated 7 post-hackathon leads for ecosystem incubation',
+    type: 'Hackathon Operations',
+    stats: [
+      '17.5% of submissions (11 of 57)',
+      '9 prizes plus 1 honorary mention',
+      '109 new community members',
+      '7 post-hackathon leads generated',
+    ],
+    outcome:
+      'On-site developer support received unanimous praise. Surfaced critical documentation gaps for ecosystem improvement.',
+    link: 'https://forum.polkadot.network/t/ethrome-2025-x-polkadot-by-devcult/16242',
   },
 ];
 ---
@@ -144,7 +160,7 @@ const events = [
             Technical Documentation Audits
           </h3>
           <p class="text-text-primary mb-4">
-            <strong>Your docs are lying to your developers.</strong> Not intentionally. But that tutorial
+            <strong>Your docs have drifted from reality.</strong> Not intentionally. But that tutorial
             from 18 months ago? The API reference that's three versions behind? They're actively driving
             developers away.
           </p>
@@ -230,51 +246,88 @@ const events = [
             establish coordination across teams, and create governance mechanisms.
           </p>
         </div>
+
+        <!-- Blockchain Education & Consulting -->
+        <div data-animate data-delay="100" id="education" class="scroll-mt-24">
+          <h3 class="text-2xl font-semibold font-coconat text-accent mb-4">
+            Blockchain Education & Consulting
+          </h3>
+          <p class="text-text-primary mb-4">
+            <strong>Teaching what we've learned.</strong> We offer technical workshops on smart contract
+            development, runtime architecture, data indexing, and AI agent integration. We also consult
+            on ecosystem strategy — helping protocols figure out where to focus their developer efforts
+            for maximum impact.
+          </p>
+          <p class="text-text-secondary">
+            Whether it's a 2-hour workshop at a conference or a multi-week training program for your
+            team, we teach what actually works in production.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Event Portfolio -->
+    <!-- Proof of Work -->
     <section class="mx-auto max-w-4xl px-6 mt-24">
       <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-4">Proof of Work</h2>
       <p data-animate data-delay="50" class="text-text-secondary mb-12">
-        Results are everything. Here's what we've shipped.
+        In DevRel consulting, results are everything. Full reports linked below.
       </p>
 
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="space-y-8">
         {
-          events.map((event, i) => (
+          caseStudies.map((study, i) => (
             <div
               data-animate
               data-delay={100 + i * 50}
-              class="p-6 rounded-xl border border-brand-500/30 bg-brand-500/5 hover:bg-brand-500/10 transition-all"
+              class="p-6 rounded-xl border border-brand-500/30 bg-brand-500/5"
             >
-              <h3 class="text-xl font-semibold font-coconat text-text-primary">{event.name}</h3>
-              <p class="text-accent text-sm mt-2 font-medium">{event.stats}</p>
-              <p class="text-text-secondary mt-3 text-sm">{event.note}</p>
+              <div class="flex flex-wrap items-center gap-3 mb-4">
+                <h3 class="text-xl font-semibold font-coconat text-text-primary">{study.name}</h3>
+                <span class="text-xs px-2 py-1 rounded-full bg-accent/20 text-accent">
+                  {study.type}
+                </span>
+              </div>
+              <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-1 text-sm text-text-secondary mb-4">
+                {study.stats.map((stat) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-accent mt-1">•</span>
+                    {stat}
+                  </li>
+                ))}
+              </ul>
+              <p class="text-text-primary text-sm mb-3">{study.outcome}</p>
+              <a
+                href={study.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-accent text-sm hover:underline inline-flex items-center gap-1"
+              >
+                Read full report
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
             </div>
           ))
         }
-      </div>
-
-      <div
-        data-animate
-        data-delay="300"
-        class="mt-8 p-6 rounded-xl bg-brand-500/5 border-l-4 border-accent"
-      >
-        <p class="text-text-secondary italic">
-          "On-site developer support received unanimous praise."
-        </p>
-        <p class="text-text-secondary text-sm mt-2">— ETHRome 2025 hacker feedback</p>
       </div>
     </section>
 
     <!-- How It Fits Together -->
     <section class="mx-auto max-w-4xl px-6 mt-24">
-      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-8">
+      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-4">
         How These Fit Together
       </h2>
+      <p data-animate data-delay="50" class="text-text-secondary mb-8">
+        Developer experience is a system. Each piece reinforces the others.
+      </p>
 
-      <div class="space-y-6">
+      <div class="grid md:grid-cols-2 gap-6">
         <div data-animate data-delay="100" class="flex gap-4">
           <div
             class="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center font-bold text-sm"
@@ -282,8 +335,11 @@ const events = [
             1
           </div>
           <div>
-            <h3 class="text-lg font-semibold font-coconat">Audit</h3>
-            <p class="text-text-secondary">Find what's broken in your developer journey</p>
+            <h3 class="text-lg font-semibold font-coconat">Audit & Diagnose</h3>
+            <p class="text-text-secondary text-sm">
+              Find the friction points. Docs, onboarding, tooling — we identify what's costing you
+              developers.
+            </p>
           </div>
         </div>
 
@@ -294,8 +350,10 @@ const events = [
             2
           </div>
           <div>
-            <h3 class="text-lg font-semibold font-coconat">Optimize Onboarding</h3>
-            <p class="text-text-secondary">Fix the critical path from landing to first commit</p>
+            <h3 class="text-lg font-semibold font-coconat">Fix the Critical Path</h3>
+            <p class="text-text-secondary text-sm">
+              Optimize onboarding. Update docs. Reduce time-to-hello-world from hours to minutes.
+            </p>
           </div>
         </div>
 
@@ -306,8 +364,10 @@ const events = [
             3
           </div>
           <div>
-            <h3 class="text-lg font-semibold font-coconat">Validate at Hackathons</h3>
-            <p class="text-text-secondary">Test with real developers under pressure</p>
+            <h3 class="text-lg font-semibold font-coconat">Validate Under Pressure</h3>
+            <p class="text-text-secondary text-sm">
+              Hackathons stress-test your DevEx. Real developers, tight deadlines, honest feedback.
+            </p>
           </div>
         </div>
 
@@ -318,16 +378,30 @@ const events = [
             4
           </div>
           <div>
-            <h3 class="text-lg font-semibold font-coconat">Support Winning Teams</h3>
-            <p class="text-text-secondary">Convert participants into ecosystem contributors</p>
+            <h3 class="text-lg font-semibold font-coconat">Convert & Retain</h3>
+            <p class="text-text-secondary text-sm">
+              Support winning teams. Connect them to grants, jobs, and ecosystem resources. Build
+              the pipeline.
+            </p>
           </div>
         </div>
       </div>
 
-      <p data-animate data-delay="300" class="mt-8 text-text-secondary">
-        We can work on isolated projects, but the compounding effect comes from treating DevEx as
-        infrastructure, not marketing.
-      </p>
+      <div
+        data-animate
+        data-delay="300"
+        class="mt-8 p-6 rounded-xl bg-brand-500/5 border border-brand-500/30"
+      >
+        <p class="text-text-primary">
+          <strong>The compounding effect:</strong> Hackathon feedback improves your docs. Better docs
+          mean more successful projects. Successful projects mean stronger testimonials. Stronger testimonials
+          attract more developers.
+        </p>
+        <p class="text-text-secondary mt-3 text-sm">
+          We can work on isolated projects, but the real value comes from treating DevEx as
+          infrastructure — not marketing.
+        </p>
+      </div>
     </section>
 
     <CtaSection />
