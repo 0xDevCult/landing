@@ -6,17 +6,17 @@ We fix what turns developers away from blockchains. Most ecosystems lose develop
 
 ## Services
 
-- [Developer Onboarding Optimization](https://devcult.io/about#onboarding): Audit developer journeys from landing page to first API call. Time-to-Hello-World analysis, error message archaeology, cognitive load reduction, environment setup elimination.
+- Developer Onboarding Optimization: Audit developer journeys from landing page to first API call. Time-to-Hello-World analysis, error message archaeology, cognitive load reduction, environment setup elimination.
 
-- [Technical Documentation Audits](https://devcult.io/about#documentation): Systematic audits that surface accuracy decay, discovery failures, maintainability gaps, and AI-readability issues. Prioritized fix lists with estimated impact.
+- Technical Documentation Audits: Systematic audits that surface accuracy decay, discovery failures, maintainability gaps, and AI-readability issues. Prioritized fix lists with estimated impact.
 
-- [Hackathon Operations](https://devcult.io/about#hackathons): End-to-end hackathon design and execution. Pre-event activation, on-site technical support, Project Clinic workshops, real-time feedback loops, post-event reporting with actual metrics.
+- Hackathon Operations: End-to-end hackathon design and execution. Pre-event activation, on-site technical support, Project Clinic workshops, real-time feedback loops, post-event reporting with actual metrics.
 
-- [Post-Hackathon Support](https://devcult.io/about#incubation): Team incubation programs that turn weekend projects into production deployments. Technical viability assessment, architecture guidance, ecosystem integration, grant/funding preparation.
+- Post-Hackathon Support: Team incubation programs that turn weekend projects into production deployments. Technical viability assessment, architecture guidance, ecosystem integration, grant/funding preparation.
 
-- [Ecosystem DevRel Strategy](https://devcult.io/about#devrel-strategy): DevRel programs with measurable outcomes — developer activation, retention metrics, community health indicators. Coordination across teams, governance mechanisms.
+- Ecosystem DevRel Strategy: DevRel programs with measurable outcomes — developer activation, retention metrics, community health indicators. Coordination across teams, governance mechanisms.
 
-- [Blockchain Education & Consulting](https://devcult.io/about#education): Technical workshops on smart contract development, runtime architecture, data indexing, AI agent integration. Ecosystem strategy consulting.
+- Blockchain Education & Consulting: Technical workshops on smart contract development, runtime architecture, data indexing, AI agent integration. Ecosystem strategy consulting.
 
 ## Proof of Work
 
