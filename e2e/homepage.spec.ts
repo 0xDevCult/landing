@@ -10,20 +10,19 @@ test.describe('Homepage', () => {
 
     // Verify landing page content is visible - use first h1
     await expect(page.locator('h1').first()).toBeVisible();
-    await expect(page.locator('text=opensource')).toBeVisible();
+    await expect(page.locator('text=opensource,')).toBeVisible();
     await expect(page.locator('text=heaven for devs')).toBeVisible();
   });
 
   test('should show services section', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
-
     // Check for services section
     const servicesSection = page.locator('#services');
     await expect(servicesSection).toBeVisible();
-
-    // Verify services heading
-    await expect(page.locator('text=Our Services')).toBeVisible();
+    // Verify services heading (scoped to services section)
+    const servicesHeading = servicesSection.locator('h2', { hasText: 'Our Services' });
+    await expect(servicesHeading).toBeVisible();
   });
 
   test('should show clients section', async ({ page }) => {
