@@ -23,16 +23,9 @@ We fix what turns developers away from blockchains. Most ecosystems lose develop
 - ETHBelgrade 2025: 25.6% of all submissions, 11 prizes, 2 of 5 main track winners, 133 new community members
 - ETHRome 2025: 17.5% of submissions, 9 prizes, 109 new community members, 7 post-hackathon leads
 
-## Team
-
-- Denis Pisarev: MSc Networking Engineer, web3 since 2018, led engineering teams, focus on open source tooling and DevEx
-- Boris Godlin: MSc Software Engineering, 7 years blockchain, runtime development, 50+ technical workshops
-- Daniel Artamendi: MSc computer scientist, security expert, 10+ years web3, Head of IT Security and Developer Advocate
-- Sacha Lansky: Developer Relations Engineer, Polkadot SDK guides/docs contributor, ecosystem speaker and mentor
-
 ## Company
 
-- [About](https://devcult.io/about): Team, services, proof of work, and how our services fit together
+- [About](https://devcult.io/about): Services, proof of work, and how our services fit together
 - [Contact](https://devcult.io/contact): Get in touch to discuss your project
 
 ## Optional

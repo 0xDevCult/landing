@@ -4,29 +4,6 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import CtaSection from '@/components/CtaSection.astro';
 
-const team = [
-  {
-    name: 'Denis Pisarev',
-    role: 'Co-founder',
-    bio: 'MSc Networking Engineer and blockchain specialist who has been building in web3 since 2018. Has led multiple engineering teams, with focus on open source tooling and developer experience. With a background in UX/UI, QA, DevOps, and security, Denis brings systems thinking and a full-stack, user-centered mindset to everything from protocol engineering to developer relations.',
-  },
-  {
-    name: 'Boris Godlin',
-    role: 'Co-founder',
-    bio: 'Versatile DevRel Engineer and MSc in Software Engineering, brings 7 years of blockchain experience. He has worked on runtime development and blockchain data with teams like SubQuery and Soramitsu, speaker on many conferences and events. Has delivered over 50 technical workshops and hackathons on web3 topics, including data indexing and AI agent use cases.',
-  },
-  {
-    name: 'Daniel Artamendi',
-    role: 'Co-founder',
-    bio: "MSc computer scientist, security expert, event producer, and cultural agent with a keen focus on technology\'s intersections with art, society, and other fields. Boasting over 10 years in web3 — as Head of IT Security and Developer Advocate.",
-  },
-  {
-    name: 'Sacha Lansky',
-    role: 'Co-founder',
-    bio: 'Developer Relations Engineer. Contributed extensively to Polkadot SDK guides and documentation while diving deep into Rust and Substrate. A recognized ecosystem leader, Sacha frequently speaks, mentors at Polkadot conferences, hackathons, and events like Consensus, fostering web3 adoption. Authored courses, videos, guides and documentation, software and onboarded thousands of developers.',
-  },
-];
-
 const caseStudies = [
   {
     name: 'ETHBelgrade 2025',
@@ -101,27 +78,6 @@ const caseStudies = [
           We're a small team that's been inside these problems — at world-class hackathons. Now we
           help ecosystems build the developer experience that fits their technology.
         </p>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="mx-auto max-w-4xl px-6 mt-24">
-      <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-12">The Team</h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        {
-          team.map((member, i) => (
-            <div
-              data-animate
-              data-delay={100 + i * 50}
-              class="p-6 rounded-xl border border-brand-500/30 bg-brand-500/5"
-            >
-              <h3 class="text-xl font-semibold font-coconat text-text-primary">{member.name}</h3>
-              <p class="text-sm text-accent mt-1">{member.role}</p>
-              <p class="text-text-secondary mt-3">{member.bio}</p>
-            </div>
-          ))
-        }
       </div>
     </section>
 
