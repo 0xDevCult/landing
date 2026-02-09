@@ -345,14 +345,15 @@ const services = [
 
     // Close on backdrop click
     document.querySelectorAll('[data-service-modal]').forEach((modal) => {
-      modal.addEventListener('click', (e: MouseEvent) => {
+      modal.addEventListener('click', (e) => {
+        const mouseEvent = e as MouseEvent;
         const dialogElement = modal as HTMLDialogElement;
         const rect = dialogElement.getBoundingClientRect();
         const isInDialog =
-          rect.top <= e.clientY &&
-          e.clientY <= rect.top + rect.height &&
-          rect.left <= e.clientX &&
-          e.clientX <= rect.left + rect.width;
+          rect.top <= mouseEvent.clientY &&
+          mouseEvent.clientY <= rect.top + rect.height &&
+          rect.left <= mouseEvent.clientX &&
+          mouseEvent.clientX <= rect.left + rect.width;
 
         if (!isInDialog) {
           dialogElement.close();

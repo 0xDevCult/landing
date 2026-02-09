@@ -10,7 +10,7 @@ test.describe('Homepage', () => {
 
     // Verify landing page content is visible - use first h1
     await expect(page.locator('h1').first()).toBeVisible();
-    await expect(page.locator('text=opensource,')).toBeVisible();
+    await expect(page.locator('text=open source')).toBeVisible();
     await expect(page.locator('text=heaven for devs')).toBeVisible();
   });
 
