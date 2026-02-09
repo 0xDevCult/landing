@@ -187,21 +187,14 @@ const services = [
                 <div class="flex items-start justify-between p-6 border-b border-brand-500/30">
                   <div class="flex items-start gap-4 flex-1">
                     <div class="service-icon text-accent flex-shrink-0" set:html={service.icon} />
-                    <h3 class="text-2xl font-semibold font-coconat text-accent">
-                      {service.title}
-                    </h3>
+                    <h3 class="text-2xl font-semibold font-coconat text-accent">{service.title}</h3>
                   </div>
                   <button
                     data-modal-close={service.id}
                     class="ml-4 text-text-secondary hover:text-accent transition-colors flex-shrink-0"
                     aria-label="Close dialog"
                   >
-                    <svg
-                      class="w-6 h-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -326,7 +319,9 @@ const services = [
     document.querySelectorAll('[data-service-trigger]').forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const serviceId = trigger.getAttribute('data-service-trigger');
-        const modal = document.querySelector(`[data-service-modal="${serviceId}"]`) as HTMLDialogElement;
+        const modal = document.querySelector(
+          `[data-service-modal="${serviceId}"]`
+        ) as HTMLDialogElement;
         if (modal) {
           modal.showModal();
           document.body.style.overflow = 'hidden';
@@ -338,7 +333,9 @@ const services = [
     document.querySelectorAll('[data-modal-close]').forEach((closeBtn) => {
       closeBtn.addEventListener('click', () => {
         const serviceId = closeBtn.getAttribute('data-modal-close');
-        const modal = document.querySelector(`[data-service-modal="${serviceId}"]`) as HTMLDialogElement;
+        const modal = document.querySelector(
+          `[data-service-modal="${serviceId}"]`
+        ) as HTMLDialogElement;
         if (modal) {
           modal.close();
           document.body.style.overflow = '';
@@ -356,7 +353,7 @@ const services = [
           e.clientY <= rect.top + rect.height &&
           rect.left <= e.clientX &&
           e.clientX <= rect.left + rect.width;
-        
+
         if (!isInDialog) {
           dialogElement.close();
           document.body.style.overflow = '';
