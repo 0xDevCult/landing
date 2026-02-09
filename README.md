@@ -169,7 +169,6 @@ The site uses a consistent color system defined in `src/styles/global.css`:
 ## Contact
 
 - Website: [https://devcult.io](https://devcult.io)
-- Blog: [https://blog.devcult.io](https://blog.devcult.io)
 - Email: info@devcult.io
 
 ---

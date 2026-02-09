@@ -35,10 +35,6 @@ We fix what turns developers away from blockchains. Most ecosystems lose develop
 - [About](https://devcult.io/about): Team, services, proof of work, and how our services fit together
 - [Contact](https://devcult.io/contact): Get in touch to discuss your project
 
-## Content
-
-- [Blog](https://blog.devcult.io): Articles on developer experience, Web3, and ecosystem building
-
 ## Optional
 
 - [Legal](https://devcult.io/legal): Privacy policy and terms of service
