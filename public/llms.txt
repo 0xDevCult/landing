@@ -1,0 +1,33 @@
+# DevCult
+
+> DevCult is a DevEx consultancy for blockchain ecosystems. We run hackathons, fix onboarding, and build DevRel programs that produce measurable developer adoption.
+
+We fix what turns developers away from blockchains. Most ecosystems lose developers in the first 30 minutes — broken tutorials, confusing architecture, documentation written for people who already understand the system. We've seen it everywhere. We fix it.
+
+## Services
+
+- Developer Onboarding Optimization: Audit developer journeys from landing page to first API call. Time-to-Hello-World analysis, error message archaeology, cognitive load reduction, environment setup elimination.
+
+- Technical Documentation Audits: Systematic audits that surface accuracy decay, discovery failures, maintainability gaps, and AI-readability issues. Prioritized fix lists with estimated impact.
+
+- Hackathon Operations: End-to-end hackathon design and execution. Pre-event activation, on-site technical support, Project Clinic workshops, real-time feedback loops, post-event reporting with actual metrics.
+
+- Post-Hackathon Support: Team incubation programs that turn weekend projects into production deployments. Technical viability assessment, architecture guidance, ecosystem integration, grant/funding preparation.
+
+- Ecosystem DevRel Strategy: DevRel programs with measurable outcomes — developer activation, retention metrics, community health indicators. Coordination across teams, governance mechanisms.
+
+- Blockchain Education & Consulting: Technical workshops on smart contract development, runtime architecture, data indexing, AI agent integration. Ecosystem strategy consulting.
+
+## Proof of Work
+
+- ETHBelgrade 2025: 25.6% of all submissions, 11 prizes, 2 of 5 main track winners, 133 new community members
+- ETHRome 2025: 17.5% of submissions, 9 prizes, 109 new community members, 7 post-hackathon leads
+
+## Company
+
+- [About](https://devcult.io/about): Services, proof of work, and how our services fit together
+- [Contact](https://devcult.io/contact): Get in touch to discuss your project
+
+## Optional
+
+- [Legal](https://devcult.io/legal): Privacy policy and terms of service
