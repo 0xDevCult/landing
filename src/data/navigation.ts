@@ -9,7 +9,6 @@ export interface SocialLink extends NavLink {
 
 export const navLinks: NavLink[] = [
   { label: 'Services', href: '/#services' },
-  { label: 'Blog', href: 'https://blog.devcult.io' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
@@ -17,7 +16,6 @@ export const navLinks: NavLink[] = [
 export const footerLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Services', href: '/#services' },
-  { label: 'Blog', href: 'https://blog.devcult.io' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
   { label: 'Legal', href: '/legal' },

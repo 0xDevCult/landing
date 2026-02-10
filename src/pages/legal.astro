@@ -3,16 +3,16 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const lastUpdated = 'December 15, 2025';
+const lastUpdated = 'January 28, 2026';
 ---
 
 <BaseLayout
   title="Legal & Privacy | DevCult"
-  description="Legal information, privacy policy, and terms of service for DevCult."
+  description="Legal information, privacy policy, and company details for DevCult - Developer Culture OÜ."
 >
   <Header />
 
-  <main id="main-content" class="py-24">
+  <main id="main-content" class="flex-1 py-24">
     <div class="mx-auto max-w-4xl px-6">
       <h1 data-animate class="text-4xl md:text-5xl font-bold font-coconat text-center mb-4">
         Legal & Privacy
@@ -25,30 +25,115 @@ const lastUpdated = 'December 15, 2025';
       <nav
         data-animate
         data-delay="200"
-        class="mb-16 p-6 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all"
+        class="mb-16 p-6 rounded-xl bg-brand-alpha-5 border border-brand-500 border-l-4 hover:border-l-brand-400 transition-all"
       >
         <p class="text-sm font-semibold text-accent mb-3">QUICK LINKS</p>
         <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <a href="#company" class="text-text-primary hover:text-accent transition-colors"
+            >Company Details</a
+          >
           <a href="#privacy" class="text-text-primary hover:text-accent transition-colors"
             >Privacy Policy</a
           >
+          <a href="#data-collected" class="text-text-primary hover:text-accent transition-colors"
+            >Data We Collect</a
+          >
+          <a href="#analytics" class="text-text-primary hover:text-accent transition-colors"
+            >Analytics</a
+          >
+          <a href="#rights" class="text-text-primary hover:text-accent transition-colors"
+            >Your Rights</a
+          >
           <a href="#terms" class="text-text-primary hover:text-accent transition-colors"
             >Terms of Service</a
-          >
-          <a href="#cookies" class="text-text-primary hover:text-accent transition-colors"
-            >Cookie Policy</a
-          >
-          <a href="#imprint" class="text-text-primary hover:text-accent transition-colors"
-            >Imprint</a
-          >
-          <a href="#data" class="text-text-primary hover:text-accent transition-colors"
-            >Data Protection</a
           >
           <a href="#contact-legal" class="text-text-primary hover:text-accent transition-colors"
             >Contact</a
           >
         </div>
       </nav>
+
+      <!-- Company Details -->
+      <section id="company" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
+          Company Details
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
+          <p class="text-sm">
+            Information provided pursuant to Article 5 of EU Directive 2000/31/EC (E-Commerce
+            Directive) and § 4 of the Estonian Information Society Services Act.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8 mt-6">
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary mb-3">Service Provider</h3>
+              <p>
+                <strong class="text-text-primary">Legal Name:</strong><br />
+                Developer Culture OÜ
+              </p>
+              <p class="mt-4">
+                <strong class="text-text-primary">Legal Form:</strong><br />
+                Osaühing (OÜ)<br />
+                <span class="text-sm text-text-tertiary">Estonian Private Limited Company</span>
+              </p>
+              <p class="mt-4">
+                <strong class="text-text-primary">Registry Code:</strong><br />
+                17303489
+              </p>
+              <p class="mt-4">
+                <strong class="text-text-primary">VAT Number:</strong><br />
+                EE102890545
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold text-text-primary mb-3">Registered Address</h3>
+              <p>
+                Sombre tee 2, Suurupi küla<br />
+                Harju maakond, Harku vald<br />
+                76907 Estonia
+              </p>
+              <p class="mt-4">
+                <strong class="text-text-primary">Register:</strong><br />
+                Estonian Commercial Register<br />
+                <a
+                  href="https://ariregister.rik.ee"
+                  class="text-accent hover:text-accent-hover text-sm"
+                  target="_blank"
+                  rel="noopener">ariregister.rik.ee</a
+                >
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-xl font-semibold text-text-primary mb-3">Contact</h3>
+            <p>
+              Email: <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
+                >info@devcult.io</a
+              ><br />
+              Website: <a href="https://devcult.io" class="text-accent hover:text-accent-hover"
+                >https://devcult.io</a
+              >
+            </p>
+          </div>
+
+          <div class="mt-8 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+            <p class="text-sm">
+              <strong class="text-text-primary">EU Online Dispute Resolution:</strong>
+              The European Commission provides a platform for online dispute resolution:
+              <a
+                href="https://ec.europa.eu/consumers/odr"
+                class="text-accent hover:text-accent-hover"
+                target="_blank"
+                rel="noopener">ec.europa.eu/consumers/odr</a
+              >. We are not obligated to participate in dispute resolution proceedings before a
+              consumer arbitration board.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <!-- Privacy Policy -->
       <section id="privacy" class="mb-16 scroll-mt-24">
@@ -57,69 +142,290 @@ const lastUpdated = 'December 15, 2025';
         </h2>
 
         <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
-          <h3 class="text-xl font-semibold text-text-primary">1. Introduction</h3>
-          <p>
-            DevCult ("we," "us," or "our") respects your privacy and is committed to protecting your
-            personal data. This privacy policy explains how we collect, use, and safeguard your
-            information when you visit our website (devcult.io) or use our services.
+          <p class="text-sm">
+            This policy explains how Developer Culture OÜ processes personal data in accordance with
+            the General Data Protection Regulation (EU) 2016/679.
           </p>
 
-          <h3 class="text-xl font-semibold text-text-primary">2. Information We Collect</h3>
-          <p>We collect minimal information to provide our services:</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Contact Information:</strong> When you reach out via our contact form, we collect
-              your name, email subject, and message content.
-            </li>
-            <li>
-              <strong>Usage Data:</strong> We may collect basic analytics data about how you interact
-              with our website (pages visited, time spent, etc.).
-            </li>
-            <li>
-              <strong>Technical Data:</strong> Your IP address, browser type, and device information may
-              be logged automatically.
-            </li>
+          <h3 class="text-xl font-semibold text-text-primary">1. Data Controller</h3>
+          <p>The data controller responsible for processing your personal data is:</p>
+          <div class="ml-4 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+            <p>
+              Developer Culture OÜ<br />
+              Sombre tee 2, Suurupi küla<br />
+              76907 Estonia<br />
+              Email:
+              <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
+                >info@devcult.io</a
+              >
+            </p>
+          </div>
+
+          <h3 id="data-collected" class="text-xl font-semibold text-text-primary scroll-mt-24">
+            2. Data We Collect
+          </h3>
+          <p>
+            We collect specific categories of personal data depending on how you interact with us.
+            <strong class="text-text-primary">We do not collect sensitive data</strong> such as health
+            information, religious beliefs, or biometrics.
+          </p>
+
+          <h4 class="text-lg font-semibold text-text-primary mt-6">Identity Data</h4>
+          <p class="text-sm mb-2">
+            Collected during client interactions and contact form submissions:
+          </p>
+          <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+            <li><strong>Name</strong> — to address you appropriately</li>
+            <li><strong>Title</strong> — if provided, to understand your role</li>
+            <li><strong>Company name</strong> — to understand your business context</li>
           </ul>
 
-          <h3 class="text-xl font-semibold text-text-primary">3. How We Use Your Information</h3>
-          <p>We use your information to:</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>Respond to your inquiries and provide customer support</li>
-            <li>Improve our website and services</li>
-            <li>Send relevant information about our services (only if you opted in)</li>
+          <h4 class="text-lg font-semibold text-text-primary mt-6">Contact Data</h4>
+          <p class="text-sm mb-2">Collected when you reach out or engage our services:</p>
+          <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+            <li><strong>Email address</strong> — to respond to inquiries and deliver services</li>
+            <li><strong>Phone number</strong> — if provided, for project communication</li>
+            <li><strong>Billing/delivery address</strong> — if provided, for invoicing purposes</li>
+          </ul>
+
+          <h4 class="text-lg font-semibold text-text-primary mt-6">Technical Data</h4>
+          <p class="text-sm mb-2">Automatically collected when you visit our websites:</p>
+          <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
+            <li>
+              <strong>Pageviews and uniques</strong> — to count visits and distinct UUID-based sessions
+            </li>
+            <li>
+              <strong>Behavioral basics</strong> — to understand bounce rates and session duration
+            </li>
+            <li><strong>Traffic sources</strong> — to see referrers and UTM parameters</li>
+            <li><strong>Device info</strong> — browser, OS, screen size, and device type</li>
+            <li><strong>Location</strong> — country-level from anonymized geodata</li>
+          </ul>
+
+          <div class="mt-6 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+            <p class="text-sm font-semibold text-text-primary">
+              We will never sell your data to third parties.
+            </p>
+          </div>
+
+          <h3 class="text-xl font-semibold text-text-primary">3. How We Use Your Data</h3>
+          <p>We use the information we collect to:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+            <li>Address your inquiries and deliver our services</li>
+            <li>Enhance website functionality and user experience</li>
+            <li>Send opted-in communications, updates, and newsletters</li>
+            <li>Process payments and manage client relationships</li>
             <li>Comply with legal obligations</li>
           </ul>
 
-          <h3 class="text-xl font-semibold text-text-primary">4. Data Storage and Security</h3>
-          <p>
-            We implement appropriate technical and organizational measures to protect your personal
-            data against unauthorized access, alteration, disclosure, or destruction. However, no
-            method of transmission over the internet is 100% secure.
-          </p>
+          <h3 class="text-xl font-semibold text-text-primary mt-8">
+            4. Legal Basis for Processing
+          </h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm mt-4">
+              <thead>
+                <tr class="border-b border-border-primary">
+                  <th class="text-left py-3 pr-4 text-text-primary">Purpose</th>
+                  <th class="text-left py-3 text-text-primary">Legal Basis (GDPR)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-border-primary">
+                  <td class="py-3 pr-4">Responding to inquiries</td>
+                  <td class="py-3">Art. 6(1)(b) — Pre-contractual measures</td>
+                </tr>
+                <tr class="border-b border-border-primary">
+                  <td class="py-3 pr-4">Performing services</td>
+                  <td class="py-3">Art. 6(1)(b) — Contract performance</td>
+                </tr>
+                <tr class="border-b border-border-primary">
+                  <td class="py-3 pr-4">Sending marketing emails</td>
+                  <td class="py-3">Art. 6(1)(a) — Consent (withdrawable anytime)</td>
+                </tr>
+                <tr class="border-b border-border-primary">
+                  <td class="py-3 pr-4">Website analytics</td>
+                  <td class="py-3">Art. 6(1)(f) — Legitimate interest</td>
+                </tr>
+                <tr class="border-b border-border-primary">
+                  <td class="py-3 pr-4">Tax compliance</td>
+                  <td class="py-3">Art. 6(1)(c) — Legal obligation</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-          <h3 class="text-xl font-semibold text-text-primary">5. Third-Party Services</h3>
+          <h3 class="text-xl font-semibold text-text-primary">5. Data Retention</h3>
           <p>
-            Our website is hosted on GitHub Pages. We may use third-party analytics services to
-            understand how visitors use our site. These services may collect information sent by
-            your browser.
+            We retain your personal data only as long as necessary for the purposes outlined here,
+            unless longer retention is required by law.
           </p>
-
-          <h3 class="text-xl font-semibold text-text-primary">6. Your Rights</h3>
-          <p>Under GDPR and similar privacy laws, you have the right to:</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>Access your personal data</li>
-            <li>Correct inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Object to processing of your data</li>
-            <li>Data portability</li>
+          <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
+            <li><strong>Inquiry data:</strong> 6 months after last contact</li>
+            <li>
+              <strong>Client data:</strong> 7 years after relationship ends (legal requirement)
+            </li>
+            <li><strong>Marketing subscriptions:</strong> Until you unsubscribe</li>
+            <li>
+              <strong>Analytics:</strong> Aggregated and anonymized (no personal data retained)
+            </li>
           </ul>
 
-          <h3 class="text-xl font-semibold text-text-primary">7. Contact Form Data</h3>
+          <h3 class="text-xl font-semibold text-text-primary">6. Third-Party Services</h3>
+          <div class="space-y-4 mt-4">
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <p><strong class="text-text-primary">GitHub Pages</strong> (Hosting)</p>
+              <p class="text-sm mt-1">
+                Operated by GitHub, Inc. (Microsoft). May process IP addresses for security.<br />
+                <a
+                  href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+                  class="text-accent hover:text-accent-hover"
+                  target="_blank"
+                  rel="noopener">GitHub Privacy Statement →</a
+                >
+              </p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <p><strong class="text-text-primary">Cloudflare</strong> (DNS & Security)</p>
+              <p class="text-sm mt-1">
+                Processes IP addresses for DNS and security.<br />
+                <a
+                  href="https://www.cloudflare.com/privacypolicy/"
+                  class="text-accent hover:text-accent-hover"
+                  target="_blank"
+                  rel="noopener">Cloudflare Privacy Policy →</a
+                >
+              </p>
+            </div>
+
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <p><strong class="text-text-primary">Umami Analytics</strong> (Self-Hosted)</p>
+              <p class="text-sm mt-1">
+                Privacy-focused, no cookies, IP anonymized. Hosted in Germany.
+              </p>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-text-primary">7. International Transfers</h3>
+          <p>Transfers outside EEA are protected by:</p>
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li><strong>GitHub/Microsoft:</strong> EU-U.S. Data Privacy Framework</li>
+            <li><strong>Cloudflare:</strong> Standard Contractual Clauses (SCCs)</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-text-primary">8. Contact Form</h3>
           <p>
-            When you submit our contact form, your information is sent via email using your default
-            email client. We do not store this information on our servers. Your email provider's
-            privacy policy applies.
+            Our contact form uses <code class="text-accent bg-brand-alpha-10 px-1 rounded"
+              >mailto:</code
+            > links. Your message goes directly from your email to ours.
           </p>
+
+          <h3 class="text-xl font-semibold text-text-primary">9. Automated Decision-Making</h3>
+          <p>We do not use automated decision-making or profiling (GDPR Article 22).</p>
+
+          <h3 class="text-xl font-semibold text-text-primary">10. Email Marketing</h3>
+          <p>
+            If you subscribe to our newsletter or marketing communications, you may unsubscribe at
+            any time using the link provided in each email. We honor all unsubscribe requests
+            promptly.
+          </p>
+        </div>
+      </section>
+
+      <!-- Analytics Section -->
+      <section id="analytics" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
+          Analytics
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
+          <ul class="list-disc list-inside space-y-2 ml-4">
+            <li>Does not use cookies</li>
+            <li>Collects no personal information</li>
+            <li>Does not collect IP addresses</li>
+            <li>All data stored in the EU (Germany)</li>
+            <li>No data shared with third parties</li>
+            <li>Compliant with GDPR without consent banners</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Your Rights -->
+      <section id="rights" class="mb-16 scroll-mt-24">
+        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
+          Your Rights
+        </h2>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
+          <p>Under GDPR, you have the following rights:</p>
+
+          <div class="grid md:grid-cols-2 gap-4 mt-6">
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Access (Art. 15)</h4>
+              <p class="text-sm">Request a copy of all personal data we hold about you.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Rectification (Art. 16)</h4>
+              <p class="text-sm">Correct any inaccurate or incomplete data.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Erasure (Art. 17)</h4>
+              <p class="text-sm">Request deletion of your data ("right to be forgotten").</p>
+            </div>
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Restriction (Art. 18)</h4>
+              <p class="text-sm">Restrict processing of your data in certain circumstances.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Portability (Art. 20)</h4>
+              <p class="text-sm">Receive your data in a machine-readable format.</p>
+            </div>
+            <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+              <h4 class="font-semibold text-text-primary mb-2">Object (Art. 21)</h4>
+              <p class="text-sm">
+                Object to processing based on legitimate interests or marketing.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+            <h4 class="font-semibold text-text-primary mb-2">Withdraw Consent</h4>
+            <p class="text-sm">
+              Where we process data based on your consent, you may withdraw it at any time. This
+              will not affect the lawfulness of processing before withdrawal.
+            </p>
+          </div>
+
+          <p class="mt-6">
+            <strong class="text-text-primary">To exercise your rights:</strong> Email
+            <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
+              >info@devcult.io</a
+            >
+          </p>
+          <p class="text-sm">
+            We will respond to your request within 30 days. No fee is required unless the request is
+            manifestly unfounded or excessive.
+          </p>
+
+          <p class="mt-6">
+            <strong class="text-text-primary">Supervisory Authority:</strong>
+          </p>
+          <p class="text-sm mb-2">
+            You have the right to lodge a complaint with a data protection authority if you believe
+            we have violated your rights.
+          </p>
+          <div class="ml-4 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
+            <p class="text-sm">
+              <strong>Andmekaitse Inspektsioon</strong> (Estonian DPA)<br />
+              Tatari 39, 10134 Tallinn, Estonia<br />
+              <a
+                href="https://www.aki.ee"
+                class="text-accent hover:text-accent-hover"
+                target="_blank"
+                rel="noopener">www.aki.ee</a
+              >
+            </p>
+          </div>
         </div>
       </section>
 
@@ -130,113 +436,38 @@ const lastUpdated = 'December 15, 2025';
         </h2>
 
         <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
-          <h3 class="text-xl font-semibold text-text-primary">1. Acceptance of Terms</h3>
+          <h3 class="text-xl font-semibold text-text-primary">1. Scope</h3>
           <p>
-            By accessing and using devcult.io, you accept and agree to be bound by these Terms of
-            Service. If you do not agree to these terms, please do not use our website or services.
-          </p>
-
-          <h3 class="text-xl font-semibold text-text-primary">2. Services</h3>
-          <p>
-            DevCult provides developer experience consulting services including documentation, event
-            management, and developer outreach. Service details, scope, and pricing are defined in
+            These terms govern your use of devcult.io. Consulting services are governed by
             individual agreements.
           </p>
 
-          <h3 class="text-xl font-semibold text-text-primary">3. Intellectual Property</h3>
+          <h3 class="text-xl font-semibold text-text-primary">2. Intellectual Property</h3>
           <p>
-            All content on this website, including text, graphics, logos, and code, is the property
-            of DevCult and is protected by copyright and other intellectual property laws. Work
-            deliverables are governed by individual project agreements.
+            All content is property of Developer Culture OÜ and protected by copyright. Reproduction
+            requires written consent.
+          </p>
+
+          <h3 class="text-xl font-semibold text-text-primary">3. Disclaimer</h3>
+          <p>
+            Information is provided for general purposes. We make no warranties regarding accuracy
+            or suitability.
           </p>
 
           <h3 class="text-xl font-semibold text-text-primary">4. Limitation of Liability</h3>
           <p>
-            DevCult shall not be liable for any indirect, incidental, special, consequential, or
-            punitive damages resulting from your use of or inability to use our website or services.
+            We shall not be liable for indirect damages arising from use of this website, except
+            where prohibited by law.
           </p>
 
-          <h3 class="text-xl font-semibold text-text-primary">5. Changes to Terms</h3>
+          <h3 class="text-xl font-semibold text-text-primary">5. Governing Law</h3>
           <p>
-            We reserve the right to modify these terms at any time. Changes will be effective
-            immediately upon posting on this page. Continued use of our website constitutes
-            acceptance of modified terms.
+            These terms are governed by Estonian law. Disputes shall be resolved in Estonian courts.
           </p>
-        </div>
-      </section>
 
-      <!-- Cookie Policy -->
-      <section id="cookies" class="mb-16 scroll-mt-24">
-        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Cookie Policy
-        </h2>
-
-        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
+          <h3 class="text-xl font-semibold text-text-primary">6. Amendments</h3>
           <p>
-            Our website currently does not use cookies for tracking or analytics. We use a static
-            site hosted on GitHub Pages with minimal JavaScript. If we implement analytics or
-            tracking in the future, we will update this policy and provide appropriate notice.
-          </p>
-        </div>
-      </section>
-
-      <!-- Imprint -->
-      <section id="imprint" class="mb-16 scroll-mt-24">
-        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Imprint
-        </h2>
-
-        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
-          <p>
-            <strong class="text-text-primary">Service Provider:</strong><br />
-            DevCult<br />
-            Developer Experience Consultancy
-          </p>
-
-          <p>
-            <strong class="text-text-primary">Contact:</strong><br />
-            Email: <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
-              >info@devcult.io</a
-            ><br />
-            Website: <a href="https://devcult.io" class="text-accent hover:text-accent-hover"
-              >https://devcult.io</a
-            >
-          </p>
-
-          <p>
-            <strong class="text-text-primary">Professional Responsibility:</strong><br />
-            The content of our website has been compiled with meticulous care. However, we cannot assume
-            any liability for the up-to-dateness, completeness, or accuracy of the provided information.
-          </p>
-        </div>
-      </section>
-
-      <!-- Data Protection -->
-      <section id="data" class="mb-16 scroll-mt-24">
-        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Data Protection
-        </h2>
-
-        <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
-          <p>We are committed to GDPR compliance and follow data protection best practices:</p>
-          <ul class="list-disc list-inside space-y-2 ml-4">
-            <li>
-              <strong>Data Minimization:</strong> We only collect data necessary for our services
-            </li>
-            <li>
-              <strong>Purpose Limitation:</strong> We use data only for specified, explicit purposes
-            </li>
-            <li><strong>Storage Limitation:</strong> We retain data only as long as necessary</li>
-            <li><strong>Security:</strong> We implement appropriate security measures</li>
-            <li><strong>Transparency:</strong> We are clear about our data practices</li>
-          </ul>
-
-          <p class="mt-6">
-            <strong class="text-text-primary">Data Subject Requests:</strong><br />
-            To exercise your rights regarding your personal data, please contact us at
-            <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
-              >info@devcult.io</a
-            >. We will respond to your request within 30 days.
+            We may update these terms at any time. Continued use constitutes acceptance of changes.
           </p>
         </div>
       </section>
@@ -244,31 +475,32 @@ const lastUpdated = 'December 15, 2025';
       <!-- Contact -->
       <section id="contact-legal" class="mb-16 scroll-mt-24">
         <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Questions About This Policy?
+          Questions?
         </h2>
 
         <div
-          class="p-8 rounded-xl bg-brand-alpha-5 border-l-4 border-l-brand-500 border-t border-t-brand-500 border-r border-r-brand-500 border-b border-b-brand-500 hover:border-l-brand-400 transition-all group"
+          class="p-8 rounded-xl bg-brand-alpha-5 border border-brand-500 border-l-4 hover:border-l-brand-400 transition-all"
         >
           <p class="text-text-primary mb-4">
-            If you have any questions about our legal policies or how we handle your data, please
-            don't hesitate to reach out.
+            For questions about this policy or data protection requests:
+          </p>
+          <p class="text-text-secondary mb-6">
+            <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover text-lg"
+              >info@devcult.io</a
+            >
           </p>
           <a
             href="/contact"
             class="inline-block px-6 py-3 rounded-xl bg-accent font-semibold hover:bg-accent-hover transition-all"
-            style="color: black;"
+            style="color: black;">Contact Us</a
           >
-            Contact Us
-          </a>
         </div>
       </section>
 
-      <!-- Disclaimer -->
+      <!-- Footer Note -->
       <section class="mt-16 pt-8 border-t border-border-primary">
         <p class="text-sm text-text-tertiary text-center">
-          This page was last updated on {lastUpdated}. We may update these policies from time to
-          time. Please check back periodically for changes.
+          This page was last updated on {lastUpdated}.
         </p>
       </section>
     </div>
