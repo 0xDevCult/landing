@@ -68,3 +68,4 @@ Use `@/` for src imports:
 - **Git: use --stat first** - Run `git diff --stat` before full diff to gauge size
 - **Skills: invoke only when needed** - Don't load skills speculatively
 - **Concise responses** - Avoid repeating file contents or verbose explanations
+- **Don't run tests or lints** - Unless you need to add new ones or edit existing ones. The user will run them after review.
