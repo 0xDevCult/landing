@@ -10,26 +10,26 @@ updates:
     groups:
       astro:
         patterns:
-          - "astro"
-          - "@astrojs/*"
+          - 'astro'
+          - '@astrojs/*'
       tailwind:
         patterns:
-          - "tailwindcss"
-          - "@tailwindcss/*"
+          - 'tailwindcss'
+          - '@tailwindcss/*'
       typescript-eslint:
         patterns:
-          - "@typescript-eslint/*"
+          - '@typescript-eslint/*'
       testing:
         patterns:
-          - "vitest"
-          - "@vitest/*"
-          - "@playwright/*"
-          - "@axe-core/*"
+          - 'vitest'
+          - '@vitest/*'
+          - '@playwright/*'
+          - '@axe-core/*'
       dev-tooling:
         patterns:
-          - "eslint*"
-          - "prettier*"
-          - "typescript"
+          - 'eslint*'
+          - 'prettier*'
+          - 'typescript'
 
   - package-ecosystem: github-actions
     directory: /
@@ -40,4 +40,4 @@ updates:
     groups:
       github-actions:
         patterns:
-          - "actions/*"
+          - 'actions/*'
