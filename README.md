@@ -73,7 +73,13 @@ cd devcult.io-2
 npm install
 ```
 
-3. Start the development server:
+3. Install the pre-commit hook:
+
+```bash
+prek install
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
