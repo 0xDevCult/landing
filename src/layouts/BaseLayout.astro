@@ -44,13 +44,6 @@ const imageURL = new URL(image, Astro.site);
     <meta property="og:image" content={imageURL} />
     <meta property="og:site_name" content="DevCult" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={imageURL} />
-
     <!-- Preload critical fonts for better performance (LCP) -->
     <link
       rel="preload"

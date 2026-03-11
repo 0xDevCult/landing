@@ -4,7 +4,7 @@ export interface NavLink {
 }
 
 export interface SocialLink extends NavLink {
-  icon: 'github' | 'x' | 'linkedin' | 'mail';
+  icon: 'github' | 'linkedin' | 'mail';
 }
 
 export const navLinks: NavLink[] = [
@@ -23,7 +23,6 @@ export const footerLinks: NavLink[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: 'GitHub', href: 'https://github.com/0xDevCult', icon: 'github' },
-  { label: 'X', href: 'https://x.com/0xDevCult', icon: 'x' },
   { label: 'LinkedIn', href: 'https://linkedin.com/company/devcult', icon: 'linkedin' },
   { label: 'Email', href: 'mailto:info@devcult.io', icon: 'mail' },
 ];
