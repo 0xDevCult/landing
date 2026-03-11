@@ -1,0 +1,44 @@
+repos:
+  - repo: local
+    hooks:
+      - id: format-check
+        name: Prettier format check
+        entry: npm run format:check
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: lint
+        name: ESLint
+        entry: npm run lint
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: astro-check
+        name: Astro TypeScript check
+        entry: npx astro check
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: unit-tests
+        name: Vitest unit tests
+        entry: npm test
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: build
+        name: Astro build
+        entry: npm run build
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: audit
+        name: npm audit (production)
+        entry: npm audit --audit-level=moderate --omit=dev
+        language: system
+        pass_filenames: false
+        always_run: true
