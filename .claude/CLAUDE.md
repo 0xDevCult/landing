@@ -10,7 +10,10 @@ npm run build        # Production build to dist/
 npm run preview      # Preview production build
 
 npm run test         # Unit tests (vitest)
-npm run test:e2e     # E2E tests (playwright)
+npm run test:e2e     # E2E tests (playwright) — requires browsers installed first:
+                     #   npx playwright install
+                     # On Arch/Manjaro: install-deps won't work (apt-only);
+                     # install chromium/firefox/webkit system packages manually
 
 npm run lint         # ESLint check
 npm run lint:fix     # ESLint autofix
@@ -61,6 +64,7 @@ Use `@/` for src imports:
 - Uses Tailwind CSS 4 with Vite plugin, not PostCSS
 - Site URL is `https://devcult.io` (configured in astro.config.mjs)
 - E2E tests excluded from vitest config (separate playwright runner)
+- Playwright `install-deps` is Debian/Ubuntu only; on Arch install `chromium` etc. via pacman
 
 ## Token Efficiency
 
