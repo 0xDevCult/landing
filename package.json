@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^6.0.4",
+    "astro": "^6.1.1",
     "fast-xml-parser": "^5.5.8",
     "tailwindcss": "^4.1.18"
   },
@@ -29,8 +29,8 @@
     "flatted": "3.4.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.7",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/check": "^0.9.8",
+    "@astrojs/sitemap": "^3.7.2",
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
