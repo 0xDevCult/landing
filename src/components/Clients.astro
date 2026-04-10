@@ -50,17 +50,16 @@ const clients = [
             href={client.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="client-logo h-10 w-40 flex items-center justify-center transition-all"
+            class="client-logo h-10 w-40 flex items-center justify-center overflow-hidden transition-all"
           >
             {client.type === 'image' ? (
               <Image
                 src={client.logo}
                 alt={client.alt}
-                class="h-full w-full object-contain"
+                class="max-h-full max-w-full"
                 loading="lazy"
                 format="webp"
                 width={160}
-                height={40}
               />
             ) : (
               <img src={client.logo} alt={client.alt} class="h-full w-full object-contain" />
