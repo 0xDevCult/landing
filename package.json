@@ -19,7 +19,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.4",
     "fast-xml-parser": "^5.5.8",
     "tailwindcss": "^4.1.18",
