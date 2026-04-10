@@ -22,24 +22,25 @@
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.4",
     "fast-xml-parser": "^5.5.8",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.3.2"
   },
   "overrides": {
     "volar-service-yaml": "0.0.70"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.7",
+    "@astrojs/check": "^0.9.8",
     "@astrojs/sitemap": "^3.7.1",
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.58.2",
     "@typescript-eslint/eslint-plugin": "^8.57.0",
     "@typescript-eslint/parser": "^8.55.0",
-    "@vitest/ui": "^4.1.0",
+    "@vitest/ui": "^4.1.2",
     "eslint": "^10.0.3",
     "eslint-plugin-astro": "^1.6.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.2"
   }
 }
