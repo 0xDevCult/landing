@@ -23,7 +23,7 @@
     "astro": "^6.1.5",
     "fast-xml-parser": "^5.5.11",
     "tailwindcss": "^4.1.18",
-    "vite": "^7.3.2"
+    "vite": "^8.0.8"
   },
   "overrides": {
     "volar-service-yaml": "0.0.70",
