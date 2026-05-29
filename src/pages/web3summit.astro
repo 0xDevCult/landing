@@ -1,0 +1,119 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import favicon from '@/../public/favicon.png';
+---
+
+<BaseLayout
+  title="Web3 Summit 2026 | DevCult"
+  description="DevCult at Web3 Summit 2026 — access your Playground.dot ticket voucher."
+>
+  <main class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center">
+    <a href="/" class="flex flex-col items-center gap-4 mb-12 group">
+      <Image
+        src={favicon}
+        alt="DevCult Logo"
+        width={96}
+        height={96}
+        loading="eager"
+        format="webp"
+        class="w-24 h-24 object-contain transition-transform group-hover:scale-105"
+      />
+      <span class="text-4xl font-bold font-coconat" style="color: #f97e31;">DevCult</span>
+    </a>
+
+    <p class="text-xl md:text-2xl text-text-primary max-w-xl leading-relaxed mb-4">
+      We would like to welcome you to Web3 Summit 2026.
+    </p>
+    <p class="text-lg text-text-secondary max-w-xl leading-relaxed mb-6">
+      DevCult hosts{' '}
+      <a
+        href="https://web3summit.com/playground.dot/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-accent hover:underline"
+      >
+        playground.dot
+      </a>
+      <br />
+      Drop by and participate, rewards and surprises are awaiting you.
+    </p>
+    <p class="text-lg text-text-secondary max-w-xl leading-relaxed mb-10">
+      Access your ticket voucher:
+    </p>
+
+    <button
+      id="reveal-btn"
+      class="mb-12 px-8 py-4 rounded-xl border border-brand-500 bg-brand-alpha-5 text-lg font-semibold font-coconat text-text-primary hover:bg-brand-500/20 transition-colors cursor-pointer"
+      aria-expanded="false"
+    >
+      Reveal Voucher Code
+    </button>
+
+    <div
+      id="voucher-code"
+      class="hidden mb-12 px-10 py-6 rounded-xl bg-accent/10 border border-accent/40"
+    >
+      <p class="text-sm text-text-secondary uppercase tracking-widest mb-2">Voucher Code</p>
+      <p class="text-4xl font-bold font-coconat text-accent tracking-wider select-all">DEVCULT26</p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-6 text-left max-w-2xl w-full mb-12">
+      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
+        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">Where</p>
+        <a
+          href="https://www.openstreetmap.org/way/376419945#map=17/52.478783/13.499462"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary font-semibold hover:text-accent transition-colors"
+        >
+          FunkHaus, Berlin ↗
+        </a>
+      </div>
+
+      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
+        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">When</p>
+        <p class="text-text-primary font-semibold">18–19 June, 2026</p>
+      </div>
+
+      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
+        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">About</p>
+        <a
+          href="https://web3summit.com/playground.dot/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-text-primary font-semibold hover:text-accent transition-colors"
+        >
+          Playground.dot ↗
+        </a>
+      </div>
+    </div>
+
+    <a
+      href="https://gettickets.web3summit.com/W3F/w3s2026/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-gray-900 font-semibold font-coconat text-lg hover:bg-accent/90 transition-colors"
+    >
+      Grab your Web3 Summit tickets
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        />
+      </svg>
+    </a>
+  </main>
+</BaseLayout>
+
+<script>
+  const btn = document.getElementById('reveal-btn');
+  const code = document.getElementById('voucher-code');
+
+  btn?.addEventListener('click', () => {
+    code?.classList.remove('hidden');
+    btn.classList.add('hidden');
+  });
+</script>
