@@ -34,7 +34,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@axe-core/playwright": "^4.11.1",
     "@playwright/test": "^1.59.1",
-    "@typescript-eslint/eslint-plugin": "^8.58.1",
+    "@typescript-eslint/eslint-plugin": "^8.58.2",
     "@typescript-eslint/parser": "^8.55.0",
     "@vitest/ui": "^4.1.4",
     "eslint": "^10.0.3",
