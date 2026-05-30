@@ -10,9 +10,9 @@ import favicon from '@/../public/favicon.png';
 >
   <main
     id="main-content"
-    class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center"
+    class="min-h-screen flex flex-col items-center justify-center px-6 py-10 md:py-16"
   >
-    <a href="/" aria-label="DevCult home" class="flex flex-col items-center gap-4 mb-10 group">
+    <a href="/" aria-label="DevCult home" class="flex flex-col items-center gap-3 mb-10 group">
       <Image
         src={favicon}
         alt="DevCult Logo"
@@ -20,36 +20,36 @@ import favicon from '@/../public/favicon.png';
         height={96}
         loading="eager"
         format="webp"
-        class="w-24 h-24 object-contain transition-transform group-hover:scale-105"
+        class="w-16 h-16 md:w-24 md:h-24 object-contain transition-transform group-hover:scale-105"
       />
-      <span class="text-5xl font-bold font-coconat text-accent">DevCult</span>
+      <span class="text-4xl md:text-5xl font-bold font-coconat text-accent">DevCult</span>
     </a>
 
     <h1
-      class="text-2xl md:text-3xl font-semibold font-coconat text-text-primary max-w-xl leading-relaxed mb-4"
+      data-animate
+      class="text-2xl md:text-3xl font-bold font-coconat text-text-primary max-w-xl text-center mb-4"
     >
       Welcome to Web3 Summit 2026
     </h1>
-    <p class="text-lg text-text-secondary max-w-xl leading-relaxed mb-6">
-      DevCult hosts{' '}
-      <a
+
+    <p
+      data-animate
+      data-delay="100"
+      class="text-base md:text-lg text-text-primary max-w-xl leading-relaxed text-center mb-6"
+    >
+      DevCult hosts <a
         href="https://web3summit.com/playground.dot/"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:underline"
-      >
-        playground.dot
-      </a>
-      <br />
-      Drop by and participate, rewards and surprises are awaiting you.
-    </p>
-    <p class="text-base text-text-secondary max-w-xl leading-relaxed mb-3">
-      Access your ticket voucher:
+        class="hover:underline">playground.dot</a
+      > — drop by and participate, rewards and surprises await you.
     </p>
 
     <button
       id="reveal-btn"
-      class="mb-12 px-8 py-4 rounded-xl border border-brand-500 bg-brand-alpha-5 text-lg font-semibold font-coconat text-text-primary hover:bg-brand-500/20 transition-colors cursor-pointer"
+      data-animate
+      data-delay="150"
+      class="mb-12 w-full sm:w-auto px-8 py-4 rounded-xl border border-brand-500 bg-brand-alpha-5 text-base md:text-lg font-semibold font-coconat text-text-primary hover:bg-brand-500/20 transition-colors cursor-pointer"
       aria-expanded="false"
     >
       Reveal Voucher Code
@@ -57,37 +57,55 @@ import favicon from '@/../public/favicon.png';
 
     <div
       id="voucher-code"
-      class="hidden mb-12 px-10 py-6 rounded-xl bg-accent/10 border border-accent/40"
+      class="hidden mb-12 w-full max-w-sm md:max-w-md px-6 sm:px-10 py-6 rounded-xl bg-accent/10 border border-accent/40"
     >
-      <p class="text-sm text-text-secondary uppercase tracking-widest mb-2">Voucher Code</p>
-      <p class="text-4xl font-bold font-coconat text-accent tracking-wider select-all">DEVCULT26</p>
+      <p class="text-base md:text-lg font-semibold font-coconat text-text-primary mb-2 text-center">
+        Voucher Code
+      </p>
+      <p
+        class="text-3xl md:text-4xl font-bold font-coconat text-accent tracking-wider select-all text-center"
+      >
+        DEVCULT26
+      </p>
     </div>
 
-    <div class="flex flex-col sm:flex-row gap-6 text-left max-w-2xl w-full mb-12">
-      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
-        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">Where</p>
+    <div
+      data-animate
+      data-delay="250"
+      class="flex flex-col items-center gap-4 md:grid md:grid-cols-3 w-full max-w-2xl mb-12"
+    >
+      <div
+        class="w-full max-w-xs md:max-w-none p-5 rounded-xl border border-brand-500/30 bg-brand-500/5 hover:bg-brand-500/10 transition-all"
+      >
+        <p class="text-base md:text-lg font-semibold font-coconat text-text-primary mb-2">Where</p>
         <a
           href="https://www.openstreetmap.org/way/376419945#map=17/52.478783/13.499462"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-text-primary font-semibold hover:text-accent transition-colors"
+          class="text-sm md:text-base text-text-secondary hover:text-accent transition-colors leading-relaxed"
         >
           FunkHaus, Berlin ↗
         </a>
       </div>
 
-      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
-        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">When</p>
-        <p class="text-text-primary font-semibold">18–19 June, 2026</p>
+      <div
+        class="w-full max-w-xs md:max-w-none p-5 rounded-xl border border-brand-500/30 bg-brand-500/5 hover:bg-brand-500/10 transition-all"
+      >
+        <p class="text-base md:text-lg font-semibold font-coconat text-text-primary mb-2">When</p>
+        <p class="text-sm md:text-base text-text-secondary leading-relaxed">18–19 June, 2026</p>
       </div>
 
-      <div class="flex-1 p-5 rounded-xl border border-brand-500/30 bg-brand-500/5">
-        <p class="text-xs uppercase tracking-widest text-text-secondary mb-1">About</p>
+      <div
+        class="w-full max-w-xs md:max-w-none p-5 rounded-xl border border-brand-500/30 bg-brand-500/5 hover:bg-brand-500/10 transition-all"
+      >
+        <p class="text-base md:text-lg font-semibold font-coconat text-text-primary mb-2">
+          Details
+        </p>
         <a
           href="https://web3summit.com/playground.dot/"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-text-primary font-semibold hover:text-accent transition-colors"
+          class="text-sm md:text-base text-text-secondary hover:text-accent transition-colors leading-relaxed"
         >
           Playground.dot ↗
         </a>
@@ -95,13 +113,15 @@ import favicon from '@/../public/favicon.png';
     </div>
 
     <a
+      data-animate
+      data-delay="300"
       href="https://gettickets.web3summit.com/W3F/w3s2026/"
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent font-semibold font-coconat text-lg hover:bg-accent/90 transition-colors"
+      class="inline-flex w-full sm:w-auto justify-center items-center gap-2 px-8 py-4 rounded-xl bg-accent font-semibold font-coconat text-base md:text-lg hover:bg-accent/90 transition-colors"
       style="color: #111827;"
     >
-      Grab your Web3 Summit tickets
+      Grab Your Ticket
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"
@@ -119,6 +139,7 @@ import favicon from '@/../public/favicon.png';
 
   btn?.addEventListener('click', () => {
     code?.classList.remove('hidden');
+    btn.setAttribute('aria-expanded', 'true');
     btn.classList.add('hidden');
   });
 </script>
