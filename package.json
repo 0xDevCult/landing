@@ -19,14 +19,14 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.2.2",
+    "@tailwindcss/vite": "4.2.2",
     "astro": "^6.4.2",
     "fast-xml-parser": "^5.5.12",
-    "tailwindcss": "^4.1.18",
+    "tailwindcss": "4.2.2",
     "vite": "^8.0.9"
   },
   "overrides": {
-    "volar-service-yaml": "0.0.70",
+    "volar-service-yaml": "0.0.71",
     "flatted": "3.4.2"
   },
   "devDependencies": {

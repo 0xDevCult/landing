@@ -135,7 +135,7 @@ test.describe('Navigation', () => {
           expect(response?.status()).toBeLessThan(400);
         } catch (error) {
           // Log but don't fail if page navigation times out
-          console.log(`Could not navigate to ${href}:`, error);
+          console.warn(`Could not navigate to ${href}:`, error);
         }
         await page.goto('/'); // Go back to homepage
       }
