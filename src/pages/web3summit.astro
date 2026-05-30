@@ -8,8 +8,11 @@ import favicon from '@/../public/favicon.png';
   title="Web3 Summit 2026 | DevCult"
   description="DevCult at Web3 Summit 2026 — access your Playground.dot ticket voucher."
 >
-  <main class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center">
-    <a href="/" class="flex flex-col items-center gap-4 mb-12 group">
+  <main
+    id="main-content"
+    class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center"
+  >
+    <a href="/" aria-label="DevCult home" class="flex flex-col items-center gap-4 mb-10 group">
       <Image
         src={favicon}
         alt="DevCult Logo"
@@ -19,26 +22,28 @@ import favicon from '@/../public/favicon.png';
         format="webp"
         class="w-24 h-24 object-contain transition-transform group-hover:scale-105"
       />
-      <span class="text-4xl font-bold font-coconat" style="color: #f97e31;">DevCult</span>
+      <span class="text-5xl font-bold font-coconat text-accent">DevCult</span>
     </a>
 
-    <p class="text-xl md:text-2xl text-text-primary max-w-xl leading-relaxed mb-4">
-      We would like to welcome you to Web3 Summit 2026.
-    </p>
+    <h1
+      class="text-2xl md:text-3xl font-semibold font-coconat text-text-primary max-w-xl leading-relaxed mb-4"
+    >
+      Welcome to Web3 Summit 2026
+    </h1>
     <p class="text-lg text-text-secondary max-w-xl leading-relaxed mb-6">
       DevCult hosts{' '}
       <a
         href="https://web3summit.com/playground.dot/"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-accent hover:underline"
+        class="hover:underline"
       >
         playground.dot
       </a>
       <br />
       Drop by and participate, rewards and surprises are awaiting you.
     </p>
-    <p class="text-lg text-text-secondary max-w-xl leading-relaxed mb-10">
+    <p class="text-base text-text-secondary max-w-xl leading-relaxed mb-3">
       Access your ticket voucher:
     </p>
 
@@ -93,7 +98,8 @@ import favicon from '@/../public/favicon.png';
       href="https://gettickets.web3summit.com/W3F/w3s2026/"
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent text-gray-900 font-semibold font-coconat text-lg hover:bg-accent/90 transition-colors"
+      class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-accent font-semibold font-coconat text-lg hover:bg-accent/90 transition-colors"
+      style="color: #111827;"
     >
       Grab your Web3 Summit tickets
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
