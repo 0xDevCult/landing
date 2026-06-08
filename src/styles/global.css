@@ -90,8 +90,8 @@
   --color-text-primary: #ffffff;
   --color-text-secondary: #e5e7eb;
   --color-text-tertiary: #9ca3af;
-  --color-text-accent: #ff8f26;
-  --color-text-link: #ff8f26;
+  --color-text-accent: #f97d34;
+  --color-text-link: #f97d34;
   --color-text-link-hover: #ffa954;
 
   /* Borders - Dark */
@@ -110,7 +110,7 @@
   --color-gray-6: #1f2937;
 
   /* Accent Colors (for compatibility with existing components) */
-  --color-accent: #ff6a00;
+  --color-accent: #f97d34;
   --color-accent-hover: #ff8f26;
   --color-accent-glow: rgba(255, 106, 0, 0.15);
 
