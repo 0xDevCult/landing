@@ -5,18 +5,22 @@ import Hero from '@/components/Hero.astro';
 import Clients from '@/components/Clients.astro';
 import Services from '@/components/Services.astro';
 import HowItFitsTogether from '@/components/HowItFitsTogether.astro';
-import CtaSection from '@/components/CtaSection.astro';
+import About from '@/components/About.astro';
+import ProofOfWork from '@/components/ProofOfWork.astro';
+import ContactSection from '@/components/ContactSection.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
 <BaseLayout title="DevCult — DevEx & DevRel for web3 ecosystems.">
   <Header />
-  <main>
+  <main id="main-content">
     <Hero />
     <Clients />
     <Services />
     <HowItFitsTogether />
-    <CtaSection />
+    <About />
+    <ProofOfWork />
+    <ContactSection />
   </main>
   <Footer />
 </BaseLayout>
