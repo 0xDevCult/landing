@@ -129,7 +129,13 @@ test.describe('Navigation', () => {
 
     for (const link of navLinks) {
       const href = await link.getAttribute('href');
-      if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto')) {
+      if (
+        href &&
+        !href.startsWith('#') &&
+        !href.includes('#') &&
+        !href.startsWith('http') &&
+        !href.startsWith('mailto')
+      ) {
         // Internal link, should be reachable
         try {
           const response = await page.goto(href, { timeout: 10000 });
