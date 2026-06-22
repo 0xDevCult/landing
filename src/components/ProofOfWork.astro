@@ -1,0 +1,108 @@
+---
+// Proof of Work — DevCult's hackathon case studies with links to the full public reports.
+// Moved onto the homepage so outreach can carry a single proof link.
+const caseStudies = [
+  {
+    name: 'ETHRome 2025',
+    type: 'Hackathon Operations',
+    stats: [
+      '17.5% of all submissions (11 of 57)',
+      '9 prizes awarded, 1 honorary mentions',
+      '7 post hackathon leads generated',
+      '109 new community members',
+    ],
+    outcome:
+      'The Polkadot tracks had a decent number of submissions (17.5% at the time of the submission deadline), and the presence of the DevRel and mentoring team made a huge difference with other sponsor teams.',
+    link: 'https://l.devcult.io/KZ8Hc',
+  },
+  {
+    name: 'TUM2025',
+    type: 'Dev Education & Ideathon',
+    outcome:
+      'Our booth stood out as the clear favorite, attracting more visitors who spent considerably more time with us than at other exhibits.',
+    link: 'https://l.devcult.io/S5cnd',
+  },
+  {
+    name: 'ink! audit before Web3 Summit Synergy 2025',
+    type: 'Dev Onboarding Audit',
+    outcome: '~50% of winners submitted to the ink! track following audit and mentorship.',
+    link: 'https://l.devcult.io/uYH6P',
+  },
+  {
+    name: 'ETHBelgrade 2025',
+    type: 'Hackathon Operations',
+    stats: [
+      '25.6% of all submissions (21 of 82)',
+      '11 prizes awarded, 2 honorary mentions',
+      '2 of 5 main track winners',
+      '133 new community members',
+    ],
+    outcome:
+      'Outperformed native Ethereum tracks with lower budget. One participant selected for Polkadot Blockchain Academy Bali.',
+    link: 'https://l.devcult.io/PCXdX',
+  },
+  {
+    name: 'ETHLisbon 2025',
+    type: 'Hackathon Operations',
+    outcome: 'Kusama hackathon received the most submissions, and its booth was the most visited.',
+    link: 'https://l.devcult.io/tbv2o',
+  },
+];
+---
+
+<section id="proof-of-work" class="bg-bg-secondary py-16">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 data-animate class="text-3xl md:text-4xl font-bold font-coconat mb-4">Proof of Work</h2>
+    <p data-animate data-delay="50" class="text-text-secondary mb-12">
+      In DevRel consulting, results are everything. Full reports linked below.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-6">
+      {
+        caseStudies.map((study, i) => (
+          <div
+            data-animate
+            data-delay={100 + i * 50}
+            class="flex flex-col basis-full sm:basis-[calc(50%_-_0.75rem)] lg:basis-[calc(33.333%_-_1rem)] p-6 rounded-xl border border-brand-500/30 bg-brand-500/5"
+          >
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+              <h3 class="text-xl font-semibold font-coconat text-text-primary">{study.name}</h3>
+              <span class="text-xs px-2 py-1 rounded-full bg-accent/20 text-accent">
+                {study.type}
+              </span>
+            </div>
+            {study.stats && study.stats.length > 0 && (
+              <ul class="space-y-1 text-sm text-text-secondary mb-4">
+                {study.stats.map((stat) => (
+                  <li class="flex items-start gap-2">
+                    <span class="text-accent mt-1">•</span>
+                    {stat}
+                  </li>
+                ))}
+              </ul>
+            )}
+            <p class="text-text-primary text-sm mb-4">{study.outcome}</p>
+            {study.link && (
+              <a
+                href={study.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-auto text-accent text-sm hover:underline inline-flex items-center gap-1"
+              >
+                Read full report
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
