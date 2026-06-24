@@ -24,7 +24,7 @@ test.describe('Navigation', () => {
     await page.waitForLoadState('networkidle');
 
     // Navigate away
-    await page.goto('/legal');
+    await page.goto('/about');
     await page.waitForLoadState('networkidle');
 
     // Click logo
@@ -36,19 +36,18 @@ test.describe('Navigation', () => {
     expect(page.url()).toMatch(/\/$/);
   });
 
-  test('should scroll to about section', async ({ page }) => {
+  test('should navigate to about page', async ({ page }) => {
     await page.goto('/');
     await page.waitForLoadState('networkidle');
 
-    // Click about link — now an in-page anchor on the single-page site
-    const aboutLink = page.locator('nav a[href="/#about"], nav a:has-text("About")').first();
+    // Click about link
+    const aboutLink = page.locator('nav a[href="/about"], a:has-text("About")').first();
     if ((await aboutLink.count()) > 0) {
       await aboutLink.click();
 
-      // Should reveal the about section in-page
-      await page.waitForTimeout(500); // Wait for scroll
-      await expect(page.locator('#about')).toBeVisible();
-      expect(page.url()).toMatch(/#about/);
+      // Should navigate to about page
+      await page.waitForURL(/\/about/);
+      expect(page.url()).toMatch(/\/about/);
     }
   });
 
@@ -129,13 +128,7 @@ test.describe('Navigation', () => {
 
     for (const link of navLinks) {
       const href = await link.getAttribute('href');
-      if (
-        href &&
-        !href.startsWith('#') &&
-        !href.includes('#') &&
-        !href.startsWith('http') &&
-        !href.startsWith('mailto')
-      ) {
+      if (href && !href.startsWith('#') && !href.startsWith('http') && !href.startsWith('mailto')) {
         // Internal link, should be reachable
         try {
           const response = await page.goto(href, { timeout: 10000 });
