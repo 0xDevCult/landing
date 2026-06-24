@@ -1,0 +1,78 @@
+name: Preview Teardown
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  teardown-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete Cloudflare Pages preview deployments
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          BRANCH="pr-${PR_NUMBER}"
+          PROJECT="devcult-preview"
+
+          echo "Listing deployments for branch ${BRANCH} in project ${PROJECT}..."
+          ALL_DEPLOYMENTS=$(npx wrangler@4.101.0 pages deployment list \
+            --project-name="${PROJECT}" \
+            --json 2>/dev/null || echo "[]")
+
+          BRANCH_DEPLOYMENTS=$(echo "${ALL_DEPLOYMENTS}" | \
+            jq -r --arg branch "${BRANCH}" \
+            '[.[] | select(.deployment_trigger.metadata.branch == $branch) | .id]')
+
+          COUNT=$(echo "${BRANCH_DEPLOYMENTS}" | jq 'length')
+          echo "Found ${COUNT} deployment(s) for branch ${BRANCH}."
+
+          if [ "${COUNT}" -eq 0 ]; then
+            echo "No deployments to delete. Exiting cleanly."
+            exit 0
+          fi
+
+          # Delete all but the last (latest) deployment first, then attempt the latest.
+          # The latest deployment may have an active alias and cannot always be deleted.
+          DELETABLE=$(echo "${BRANCH_DEPLOYMENTS}" | jq -r '.[]')
+          for id in ${DELETABLE}; do
+            echo "Deleting deployment ${id}..."
+            if npx wrangler@4.101.0 pages deployment delete "${id}" \
+              --project-name="${PROJECT}" \
+              --force 2>&1; then
+              echo "Deleted ${id}."
+            else
+              echo "Could not delete ${id} (may be the active latest deployment — skipping)."
+            fi
+          done
+
+      - name: Update PR comment to reflect teardown
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const marker = '<!-- cloudflare-preview-url -->';
+            const body = `${marker}\n**Preview torn down.**`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+
+            const existing = comments.find(c => c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            }
+            // If no comment exists (PR never triggered a preview build), do nothing.

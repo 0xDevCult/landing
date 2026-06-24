@@ -23,3 +23,6 @@ yarn.lock
 # Misc
 .DS_Store
 CNAME
+
+# Working notes (untracked, never committed)
+plan/

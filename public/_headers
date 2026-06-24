@@ -4,6 +4,9 @@
 # For GitHub Pages, consider migrating to a platform that supports custom headers
 
 /*
+  # Prevent indexing of Cloudflare Pages preview deployments
+  X-Robots-Tag: noindex
+
   # Prevent clickjacking attacks
   X-Frame-Options: DENY
 
