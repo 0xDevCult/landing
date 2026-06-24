@@ -73,3 +73,12 @@ Use `@/` for src imports:
 - **Skills: invoke only when needed** - Don't load skills speculatively
 - **Concise responses** - Avoid repeating file contents or verbose explanations
 - **Don't run tests or lints** - Unless you need to add new ones or edit existing ones. The user will run them after review.
+
+## Preview deployments
+
+Production is served by **GitHub Pages (Fastly)**. Per-PR preview deployments use **Cloudflare Pages** (Direct Upload, project `devcult-preview`):
+
+- Triggered by `pull_request` (opened/synchronize/reopened) only when `src/**`, `public/**`, or build-affecting files change.
+- Access-protected via Cloudflare Access + noindex headers — not public.
+- Torn down automatically on PR close/merge (both `.github/workflows/preview.yml` and `preview-teardown.yml`).
+- See `docs/preview-deployments.md` for one-time setup and rollback instructions.

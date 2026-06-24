@@ -1,0 +1,8 @@
+rules:
+  cache-poisoning:
+    ignore:
+      # Triggered by pull_request (not pull_request_target); secrets withheld from fork PRs.
+      # setup-node default behaviour + wrangler-action deploy triggers a low-confidence finding.
+      # Acceptable: fork PRs cannot access secrets so cannot exploit the cache.
+      - preview.yml
+      - preview-teardown.yml
