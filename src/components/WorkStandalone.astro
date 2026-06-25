@@ -1,0 +1,76 @@
+---
+const services = [
+  {
+    title: 'Developer Onboarding Optimization',
+    description:
+      'Turn your onboarding into a quick win. We redesign first-run experiences that convert curious developers into active builders.',
+  },
+  {
+    title: 'Technical Documentation Audits',
+    description:
+      'Systematic audits that surface accuracy decay, discovery failures, maintainability gaps, and AI-readability issues.',
+  },
+  {
+    title: 'Hackathon Operations',
+    description:
+      'End-to-end hackathon design and execution — from challenge crafting to judging to winner follow-up.',
+  },
+  {
+    title: 'Post-Hackathon Support',
+    description:
+      'Technical viability assessment, architecture guidance, ecosystem integration, and grant preparation for winning teams.',
+  },
+  {
+    title: 'Ecosystem DevRel Strategy',
+    description:
+      'DevRel programs with measurable outcomes — developer activation, retention metrics, and community health indicators.',
+  },
+  {
+    title: 'Blockchain Education & Consulting',
+    description:
+      'Technical workshops on smart contracts, runtime architecture, and AI agents. Strategic consulting for maximum ecosystem impact.',
+  },
+];
+---
+
+<section class="py-24 bg-bg-primary">
+  <div class="mx-auto max-w-7xl px-6">
+    <div class="mb-16 text-center">
+      <h2 data-animate class="text-3xl md:text-4xl font-[750] font-coconat text-text-primary">
+        ...or work standalone
+      </h2>
+      <p data-animate data-delay="100" class="mt-4 text-text-secondary text-base md:text-lg max-w-2xl mx-auto">
+        Each service delivers value on its own. Pick what you need, when you need it.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        services.map((service, i) => (
+          <div
+            data-animate
+            data-delay={i * 60}
+            class="standalone-card p-6 rounded-xl border border-brand-500/20 flex flex-col gap-3"
+          >
+            <h3 class="font-semibold font-coconat text-text-primary text-lg leading-snug">
+              {service.title}
+            </h3>
+            <p class="text-text-secondary text-sm leading-relaxed">{service.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .standalone-card {
+    background: rgba(255, 106, 0, 0.03);
+    transition: all 0.25s ease;
+  }
+
+  .standalone-card:hover {
+    background: rgba(255, 106, 0, 0.07);
+    border-color: rgba(255, 106, 0, 0.4);
+  }
+</style>

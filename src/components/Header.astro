@@ -21,11 +21,21 @@ import { navLinks } from '@/data/navigation';
 
     <nav class="hidden md:flex items-center gap-6">
       {
-        navLinks.map((link) => (
-          <a href={link.href} class="text-text-secondary hover:text-accent transition-colors">
-            {link.label}
-          </a>
-        ))
+        navLinks.map((link) =>
+          link.href === '/contact' ? (
+            <a
+              href={link.href}
+              class="px-4 py-2 rounded-lg bg-accent font-semibold hover:bg-accent-hover transition-colors"
+              style="color: #000000"
+            >
+              {link.label}
+            </a>
+          ) : (
+            <a href={link.href} class="text-text-secondary hover:text-accent transition-colors">
+              {link.label}
+            </a>
+          )
+        )
       }
     </nav>
 
