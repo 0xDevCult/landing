@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@/components/Analytics.astro';
 
 interface Props {
   title: string;
@@ -91,6 +92,7 @@ const imageURL = new URL(image, Astro.site);
         ]
       }
     </script>
+    <Analytics />
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />

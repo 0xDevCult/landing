@@ -20,6 +20,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          PUBLIC_UMAMI_ENABLED: 'true'
       - uses: actions/upload-pages-artifact@v5
         with:
           path: ./dist
