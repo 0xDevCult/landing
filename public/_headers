@@ -21,7 +21,7 @@
 
   # Content Security Policy
   # Allows inline scripts/styles (needed for Astro), self-hosted resources, and blog RSS fetch
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://blog.devcult.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://anal.devcult.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://blog.devcult.io https://anal.devcult.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' mailto:
 
   # Enable HSTS (force HTTPS for 1 year)
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
