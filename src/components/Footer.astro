@@ -5,7 +5,7 @@ import { footerLinks, socialLinks } from '@/data/navigation';
 <footer class="border-t border-border-primary bg-bg-secondary">
   <div class="mx-auto max-w-7xl px-6 py-7">
     <!-- Top row: logo | nav links | social icons -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:relative">
       <a
         id="footer-logo"
         href="#"
@@ -15,7 +15,9 @@ import { footerLinks, socialLinks } from '@/data/navigation';
         DevCult
       </a>
 
-      <nav class="flex flex-wrap gap-8">
+      <nav
+        class="flex flex-wrap gap-8 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2"
+      >
         {
           footerLinks.map((link) => (
             <a
