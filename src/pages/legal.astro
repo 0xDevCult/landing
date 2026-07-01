@@ -3,7 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 
-const lastUpdated = 'January 28, 2026';
+const lastUpdated = 'July 1, 2026';
 ---
 
 <BaseLayout
@@ -30,7 +30,7 @@ const lastUpdated = 'January 28, 2026';
         <p class="text-sm font-semibold text-accent mb-3">QUICK LINKS</p>
         <div class="grid md:grid-cols-3 gap-4 text-sm">
           <a href="#company" class="text-text-primary hover:text-accent transition-colors"
-            >Company Details</a
+            >Company Information</a
           >
           <a href="#privacy" class="text-text-primary hover:text-accent transition-colors"
             >Privacy Policy</a
@@ -56,13 +56,14 @@ const lastUpdated = 'January 28, 2026';
       <!-- Company Details -->
       <section id="company" class="mb-16 scroll-mt-24">
         <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Company Details
+          Company Information
         </h2>
 
         <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
           <p class="text-sm">
-            Information provided pursuant to Article 5 of EU Directive 2000/31/EC (E-Commerce
-            Directive) and § 4 of the Estonian Information Society Services Act.
+            The following details identify Developer Culture OÜ as the data controller under the
+            General Data Protection Regulation (EU) 2016/679 and provide the registration and VAT
+            information our business clients may require.
           </p>
 
           <div class="grid md:grid-cols-2 gap-8 mt-6">
@@ -118,20 +119,6 @@ const lastUpdated = 'January 28, 2026';
               >
             </p>
           </div>
-
-          <div class="mt-8 p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
-            <p class="text-sm">
-              <strong class="text-text-primary">EU Online Dispute Resolution:</strong>
-              The European Commission provides a platform for online dispute resolution:
-              <a
-                href="https://ec.europa.eu/consumers/odr"
-                class="text-accent hover:text-accent-hover"
-                target="_blank"
-                rel="noopener">ec.europa.eu/consumers/odr</a
-              >. We are not obligated to participate in dispute resolution proceedings before a
-              consumer arbitration board.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -172,27 +159,38 @@ const lastUpdated = 'January 28, 2026';
 
           <h4 class="text-lg font-semibold text-text-primary mt-6">Identity Data</h4>
           <p class="text-sm mb-2">
-            Collected during client interactions and contact form submissions:
+            Information you may choose to share with us when you email us or during a client
+            engagement (our website does not collect these automatically):
           </p>
           <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
             <li><strong>Name</strong> — to address you appropriately</li>
             <li><strong>Title</strong> — if provided, to understand your role</li>
-            <li><strong>Company name</strong> — to understand your business context</li>
+            <li><strong>Company name</strong> — if provided, to understand your business context</li>
           </ul>
 
           <h4 class="text-lg font-semibold text-text-primary mt-6">Contact Data</h4>
-          <p class="text-sm mb-2">Collected when you reach out or engage our services:</p>
+          <p class="text-sm mb-2">
+            Information you may choose to share when you reach out or engage our services:
+          </p>
           <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
             <li><strong>Email address</strong> — to respond to inquiries and deliver services</li>
             <li><strong>Phone number</strong> — if provided, for project communication</li>
-            <li><strong>Billing/delivery address</strong> — if provided, for invoicing purposes</li>
+            <li><strong>Billing address</strong> — if provided, for invoicing purposes</li>
           </ul>
+          <p class="text-sm mt-2 text-text-tertiary">
+            Our contact form only transmits your name, topic, and message — and it does so directly
+            from your own email client (see <a
+              href="#contact-form-policy"
+              class="text-accent hover:text-accent-hover">Contact Form</a
+            > below). We store nothing from the form on our servers.
+          </p>
 
           <h4 class="text-lg font-semibold text-text-primary mt-6">Technical Data</h4>
           <p class="text-sm mb-2">Automatically collected when you visit our websites:</p>
           <ul class="list-disc list-inside space-y-1 ml-4 text-sm">
             <li>
-              <strong>Pageviews and uniques</strong> — to count visits and distinct UUID-based sessions
+              <strong>Pageviews and unique visits</strong> — counted via a daily-rotating hash that is
+              not stored and cannot be traced back to you
             </li>
             <li>
               <strong>Behavioral basics</strong> — to understand bounce rates and session duration
@@ -208,12 +206,17 @@ const lastUpdated = 'January 28, 2026';
             </p>
           </div>
 
+          <h4 class="text-lg font-semibold text-text-primary mt-6">Cookies</h4>
+          <p class="text-sm">
+            This site uses no tracking or marketing cookies. Our analytics (Umami) operates entirely
+            cookie-free, so no cookie consent banner is required.
+          </p>
+
           <h3 class="text-xl font-semibold text-text-primary">3. How We Use Your Data</h3>
           <p>We use the information we collect to:</p>
           <ul class="list-disc list-inside space-y-2 ml-4 mt-4">
             <li>Address your inquiries and deliver our services</li>
             <li>Enhance website functionality and user experience</li>
-            <li>Send opted-in communications, updates, and newsletters</li>
             <li>Process payments and manage client relationships</li>
             <li>Comply with legal obligations</li>
           </ul>
@@ -239,10 +242,6 @@ const lastUpdated = 'January 28, 2026';
                   <td class="py-3">Art. 6(1)(b) — Contract performance</td>
                 </tr>
                 <tr class="border-b border-border-primary">
-                  <td class="py-3 pr-4">Sending marketing emails</td>
-                  <td class="py-3">Art. 6(1)(a) — Consent (withdrawable anytime)</td>
-                </tr>
-                <tr class="border-b border-border-primary">
                   <td class="py-3 pr-4">Website analytics</td>
                   <td class="py-3">Art. 6(1)(f) — Legitimate interest</td>
                 </tr>
@@ -264,7 +263,6 @@ const lastUpdated = 'January 28, 2026';
             <li>
               <strong>Client data:</strong> 7 years after relationship ends (legal requirement)
             </li>
-            <li><strong>Marketing subscriptions:</strong> Until you unsubscribe</li>
             <li>
               <strong>Analytics:</strong> Aggregated and anonymized (no personal data retained)
             </li>
@@ -301,7 +299,8 @@ const lastUpdated = 'January 28, 2026';
             <div class="p-4 rounded-lg bg-brand-alpha-10 border border-border-primary">
               <p><strong class="text-text-primary">Umami Analytics</strong> (Self-Hosted)</p>
               <p class="text-sm mt-1">
-                Privacy-focused, no cookies, IP anonymized. Hosted in Germany.
+                Privacy-focused, cookie-free, IP-anonymized web analytics. Data stored within the
+                EU.
               </p>
             </div>
           </div>
@@ -313,7 +312,9 @@ const lastUpdated = 'January 28, 2026';
             <li><strong>Cloudflare:</strong> Standard Contractual Clauses (SCCs)</li>
           </ul>
 
-          <h3 class="text-xl font-semibold text-text-primary">8. Contact Form</h3>
+          <h3 id="contact-form-policy" class="text-xl font-semibold text-text-primary scroll-mt-24">
+            8. Contact Form
+          </h3>
           <p>
             Our contact form uses <code class="text-accent bg-brand-alpha-10 px-1 rounded"
               >mailto:</code
@@ -322,13 +323,6 @@ const lastUpdated = 'January 28, 2026';
 
           <h3 class="text-xl font-semibold text-text-primary">9. Automated Decision-Making</h3>
           <p>We do not use automated decision-making or profiling (GDPR Article 22).</p>
-
-          <h3 class="text-xl font-semibold text-text-primary">10. Email Marketing</h3>
-          <p>
-            If you subscribe to our newsletter or marketing communications, you may unsubscribe at
-            any time using the link provided in each email. We honor all unsubscribe requests
-            promptly.
-          </p>
         </div>
       </section>
 
@@ -341,9 +335,9 @@ const lastUpdated = 'January 28, 2026';
         <div class="prose prose-invert max-w-none space-y-6 text-text-secondary">
           <ul class="list-disc list-inside space-y-2 ml-4">
             <li>Does not use cookies</li>
-            <li>Collects no personal information</li>
-            <li>Does not collect IP addresses</li>
-            <li>All data stored in the EU (Germany)</li>
+            <li>Collects no directly identifying personal data</li>
+            <li>Does not store IP addresses</li>
+            <li>All data stored within the EU</li>
             <li>No data shared with third parties</li>
             <li>Compliant with GDPR without consent banners</li>
           </ul>
@@ -474,37 +468,59 @@ const lastUpdated = 'January 28, 2026';
 
       <!-- Contact -->
       <section id="contact-legal" class="mb-16 scroll-mt-24">
-        <h2 class="text-3xl font-bold font-coconat mb-6 border-l-4 border-l-accent pl-4">
-          Questions?
-        </h2>
-
         <div
-          class="p-8 rounded-xl bg-brand-alpha-5 border border-brand-500 border-l-4 hover:border-l-brand-400 transition-all"
+          data-animate
+          class="cta-card p-8 md:p-12 rounded-xl border border-brand-500 border-l-4 transition-all group text-center"
         >
-          <p class="text-text-primary mb-4">
-            For questions about this policy or data protection requests:
-          </p>
-          <p class="text-text-secondary mb-6">
-            <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover text-lg"
-              >info@devcult.io</a
-            >
-          </p>
-          <a
-            href="/contact"
-            class="inline-block px-6 py-3 rounded-xl bg-accent font-semibold hover:bg-accent-hover transition-all"
-            style="color: black;">Contact Us</a
+          <h2
+            class="text-2xl md:text-3xl font-bold font-coconat text-text-primary group-hover:text-accent transition-colors mb-4"
           >
+            Questions?
+          </h2>
+          <p class="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
+            For questions about this policy or data protection requests, reach out at
+            <a href="mailto:info@devcult.io" class="text-accent hover:text-accent-hover"
+              >info@devcult.io</a
+            >.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              class="cta-button-primary px-6 py-3 rounded-xl bg-accent font-semibold hover:bg-accent-hover transition-all"
+            >
+              Contact Us
+            </a>
+          </div>
         </div>
-      </section>
-
-      <!-- Footer Note -->
-      <section class="mt-16 pt-8 border-t border-border-primary">
-        <p class="text-sm text-text-tertiary text-center">
-          This page was last updated on {lastUpdated}.
-        </p>
       </section>
     </div>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .cta-card {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.08) 0%,
+      rgba(255, 106, 0, 0.02) 50%,
+      rgba(255, 106, 0, 0.05) 100%
+    );
+  }
+
+  .cta-card:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 106, 0, 0.12) 0%,
+      rgba(255, 106, 0, 0.04) 50%,
+      rgba(255, 106, 0, 0.08) 100%
+    );
+    border-left-color: var(--color-brand-400);
+    box-shadow: 0 4px 24px rgba(255, 106, 0, 0.15);
+  }
+
+  .cta-button-primary {
+    color: #000000 !important;
+  }
+</style>
