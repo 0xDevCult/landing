@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.3.2",
+    "astro": "7.4.2",
     "fast-xml-parser": "^5.11.1",
     "tailwindcss": "4.3.3",
     "vite": "^8.3.0"
@@ -30,7 +30,7 @@
     "flatted": "3.4.2"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "@astrojs/sitemap": "^3.7.4",
     "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "^1.62.1",
